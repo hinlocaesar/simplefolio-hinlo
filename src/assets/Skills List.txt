@@ -1,0 +1,25 @@
+[FRONT END]
+React.JS 
+Next.JS
+Redux Toolkit
+JavaScript
+HTML
+CSS/Sass
+
+[TESTING LIBRARIES]
+React Testing Library
+Jest 
+Cypress
+
+[OTHERS]
+C
+C++
+SQLite
+Google Mock
+
+
+[CSS FRAMEWORKS]
+React-Bootstrap
+Chakra UI
+Tailwind CSS
+Material UI
