@@ -1,7 +1,7 @@
 import initTilt from "./tilt";
 import initSr from "./sr";
 import { addResume } from "./utils";
-import resume from "../assets/resume.pdf";
+import resume from "../assets/Caesar_Hinlo_Resume.pdf";
 
 export default function initApp() {
   initSr();
