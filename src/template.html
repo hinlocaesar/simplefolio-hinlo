@@ -537,6 +537,49 @@
           </article>
 
           <article class="project-card project-card--featured">
+            <button
+              type="button"
+              class="project-card__image project-card__image--product project-card__image--expandable"
+              data-lightbox="assets/project-images/bircas/flow-diagram.png"
+              data-lightbox-alt="BIR CAS — website screenshot showing money flow overview"
+              aria-label="View full BIR CAS website screenshot"
+            >
+              <img
+                alt="BIR CAS — website screenshot showing money flow overview"
+                src="assets/project-images/bircas/flow-diagram.png"
+                loading="lazy"
+              />
+              <span class="project-card__expand-hint">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                View full screenshot
+              </span>
+            </button>
+            <div class="project-card__body">
+              <h4 class="project-card__title">BIR CAS</h4>
+              <p class="project-card__meta">Companion Service to DiscoverJobs · Sole Developer</p>
+              <p class="project-card__desc">
+                A BIR-accredited Computerized Accounting System built as a standalone
+                Laravel service, integrated with DiscoverJobs via an internal API
+                client and designed and deployed within one month. Tracks the full
+                money flow required under RR No. 9-2009: invoices and official
+                receipts feed the Sales, Cash Receipts, and Cash Disbursements books,
+                rolling up through the General Journal and Ledger to a Trial Balance,
+                Statement of Comprehensive Income, Statement of Financial Position,
+                and a complete audit trail — architected to be spun off as a
+                standalone, licensable product.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Laravel</span>
+                <span class="tag tag--sm">PHP</span>
+                <span class="tag tag--sm">BIR Compliance</span>
+                <span class="tag tag--sm">Accounting</span>
+                <span class="tag tag--sm">REST API</span>
+                <span class="tag tag--sm">Audit Trail</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
             <div class="project-card__image">
               <img
                 alt="Streamline Verify — healthcare compliance platform"
@@ -823,5 +866,33 @@
       </div>
     </footer>
     <!-- /END Footer Section -->
+
+    <div
+      id="image-lightbox"
+      class="image-lightbox"
+      aria-hidden="true"
+    >
+      <div class="image-lightbox__backdrop" data-lightbox-close></div>
+      <div
+        class="image-lightbox__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Expanded project image"
+      >
+        <button
+          type="button"
+          class="image-lightbox__close"
+          data-lightbox-close
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <img
+          class="image-lightbox__img"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          alt=""
+        />
+      </div>
+    </div>
   </body>
 </html>
