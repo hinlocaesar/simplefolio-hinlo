@@ -66,6 +66,23 @@
   }
 }
 
+// Product/hardware photos — unified studio-style panel so mixed assets
+// still look consistent in the grid.
+.project-card__image--product {
+  aspect-ratio: 1 / 1;
+  padding: 1.6rem;
+  background-color: $product-photo-bg;
+
+  img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
 .projects__grid--featured {
   grid-template-columns: 1fr;
   margin-bottom: 4.8rem;
@@ -144,6 +161,16 @@
   margin-bottom: 1.2rem;
   font-size: 2.2rem;
   font-weight: 600;
+}
+
+.project-card__meta {
+  margin-top: -0.4rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $gold;
 }
 
 .project-card__desc {
