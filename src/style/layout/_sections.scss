@@ -4,6 +4,10 @@
   @include respond(phone) {
     padding: 6rem 0;
   }
+
+  .container {
+    min-width: 0;
+  }
 }
 
 // Legacy selector kept for any un-migrated section wrappers

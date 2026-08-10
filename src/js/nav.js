@@ -18,6 +18,8 @@ export default function initNav() {
     toggle.classList.remove("is-active");
     links.classList.remove("is-open");
     backdrop.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
   };
 
   if (toggle && links && backdrop) {
@@ -25,6 +27,8 @@ export default function initNav() {
       const isOpen = links.classList.toggle("is-open");
       toggle.classList.toggle("is-active", isOpen);
       backdrop.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("nav-open", isOpen);
     });
     backdrop.addEventListener("click", closeMenu);
     navLinks.forEach((link) => link.addEventListener("click", closeMenu));

@@ -1,6 +1,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -9,7 +10,11 @@ body {
   background-color: $bg-primary;
   color: $text-primary;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 // Subtle film-grain overlay for depth

@@ -24,6 +24,16 @@
     gap: 2rem;
     margin-bottom: 3.2rem;
     flex-wrap: wrap;
+
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: stretch;
+
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -74,6 +84,7 @@
 
 .reference-card {
   padding: 2rem;
+  min-width: 0;
   background-color: $bg-elevated;
   border: 1px solid $border-gold;
   border-radius: $radius-md;
@@ -93,7 +104,7 @@
 
   &__contact {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.6rem;
     font-size: 1.2rem;
@@ -101,7 +112,7 @@
 
     a {
       color: $text-muted;
-      white-space: nowrap;
+      overflow-wrap: anywhere;
       transition: $transition-fast;
 
       &:hover {
@@ -113,5 +124,9 @@
   &__sep {
     flex-shrink: 0;
     color: $text-muted;
+
+    @include respond(phone) {
+      display: none;
+    }
   }
 }

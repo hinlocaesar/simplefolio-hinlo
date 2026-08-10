@@ -49,14 +49,18 @@
       flex-direction: column;
       justify-content: center;
       gap: 4rem;
-      width: 28rem;
+      width: min(28rem, 100vw);
       background-color: $bg-surface;
       border-left: 1px solid $border-gold;
       transform: translateX(100%);
+      visibility: hidden;
+      pointer-events: none;
       transition: $transition-base;
 
       &.is-open {
         transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
       }
     }
   }

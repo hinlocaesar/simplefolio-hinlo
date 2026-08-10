@@ -80,6 +80,8 @@
     display: flex;
     justify-content: center;
     flex-shrink: 0;
+    max-width: 100%;
+    overflow: hidden;
 
     @include respond(tab-port) {
       order: -1;
