@@ -94,6 +94,7 @@
     padding: 0.5rem;
     border: 1px solid $border-gold-strong;
     box-shadow: 0 0 5.6rem rgba(201, 169, 98, 0.18);
+    overflow: hidden;
 
     @include respond(tab-land) {
       width: 24rem;
@@ -111,6 +112,9 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 22%;
+    transform: scale(2.6);
+    transform-origin: center 22%;
   }
 }
 
