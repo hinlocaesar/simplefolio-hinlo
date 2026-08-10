@@ -24,45 +24,55 @@ export default function initSr() {
 
   /* Hero Section */
   ScrollReveal().reveal(
-    ".hero-eyebrow",
-    assignProps({ delay: 300, origin: "bottom" }, defaultProps)
+    ".hero-headline",
+    assignProps({ delay: 400, origin: "bottom" }, defaultProps)
   );
 
   ScrollReveal().reveal(
-    ".hero-title",
-    assignProps({ delay: 500, origin: "bottom" }, defaultProps)
+    ".hero-name",
+    assignProps({ delay: 600, origin: "bottom" }, defaultProps)
   );
 
   ScrollReveal().reveal(
     ".hero-divider",
     assignProps(
-      { delay: 800, distance: "0px", origin: "bottom" },
+      { delay: 750, distance: "0px", origin: "bottom" },
       defaultProps
     )
   );
 
   ScrollReveal().reveal(
     ".hero-subtitle",
-    assignProps({ delay: 900, origin: "bottom" }, defaultProps)
+    assignProps({ delay: 850, origin: "bottom" }, defaultProps)
   );
 
   ScrollReveal().reveal(
     ".hero-cta",
-    assignProps({ delay: 1100, origin: "bottom" }, defaultProps)
+    assignProps({ delay: 1050, origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
+    ".hero__portrait",
+    assignProps(
+      { delay: 650, origin: window.innerWidth > 900 ? "right" : "bottom" },
+      defaultProps
+    )
   );
 
   /* About Section */
   ScrollReveal().reveal(
-    ".about__portrait",
-    assignProps({ delay: 400, origin: "bottom" }, defaultProps)
+    ".about__summary",
+    assignProps({ delay: 300, origin: "bottom" }, defaultProps)
   );
 
   ScrollReveal().reveal(
-    ".about__content",
-    assignProps(
-      { delay: 700, origin: window.innerWidth > 900 ? "right" : "bottom" },
-      defaultProps
-    )
+    ".about__highlights",
+    assignProps({ delay: 500, origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
+    ".timeline__item",
+    assignProps({ interval: 120, origin: "bottom" }, defaultProps)
   );
 
   /* Skills Section */

@@ -45,6 +45,19 @@
   }
 }
 
+/* Outline light — subtle border for tertiary actions */
+.cta-btn--outline-light {
+  background-color: transparent;
+  border-color: rgba($text-primary, 0.35);
+  color: $text-primary;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: $text-primary;
+    color: $text-primary;
+  }
+}
+
 /* Ghost — text-only with underline reveal */
 .cta-btn--ghost {
   padding: 1.2rem 0.4rem;

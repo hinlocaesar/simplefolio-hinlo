@@ -14,6 +14,10 @@ const assets = [
     name: "taskalfa-2201.jpg",
     url: "https://www.kyoceradocumentsolutions.com/hk/en/products/mfp/taskalfa-2201/assets/images/taskalfa-2201.jpg",
   },
+  {
+    name: "ecosys-m3860idnf.jpg",
+    url: "https://www.kyoceradocumentsolutions.com/asia/en/products/mfp/ecosys-m3860idnf/assets/images/ecosys-m3860idnf.jpg",
+  },
 ];
 
 await mkdir(outDir, { recursive: true });

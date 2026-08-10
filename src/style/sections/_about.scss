@@ -1,68 +1,75 @@
 #about {
-  background-color: $bg-primary;
+  background-color: $bg-surface;
   color: $text-primary;
   text-align: center;
+  border-top: 1px solid $border-gold;
 }
 
-.about__grid {
-  display: grid;
-  grid-template-columns: 28rem 1fr;
-  gap: 6.4rem;
-  text-align: left;
-
-  @include respond(tab-land) {
-    grid-template-columns: 1fr;
-    gap: 4.8rem;
-    text-align: center;
-  }
-}
-
-.about__portrait {
-  display: flex;
-  justify-content: center;
-
-  @include respond(tab-land) {
-    order: -1;
-  }
-}
-
-.about__portrait-ring {
-  position: relative;
-  width: 22rem;
-  height: 22rem;
-  border-radius: 50%;
-  padding: 0.5rem;
-  border: 1px solid $border-gold-strong;
-  box-shadow: 0 0 4.8rem rgba(201, 169, 98, 0.15);
-
-  @include respond(phone) {
-    width: 18rem;
-    height: 18rem;
-  }
-}
-
-.about__photo {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
+.about__intro {
+  margin-bottom: 5.6rem;
 }
 
 .about__summary {
-  max-width: 62rem;
-  margin-bottom: 4.8rem;
+  max-width: 68rem;
+  margin: 0 auto 4.8rem;
   font-size: 1.8rem;
   line-height: 1.8;
   color: $text-muted;
+  text-align: center;
+}
 
-  @include respond(tab-land) {
-    margin-left: auto;
-    margin-right: auto;
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 90rem;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
   }
 }
 
+.about__highlight {
+  padding: 2.4rem 2rem;
+  background-color: $bg-primary;
+  border: 1px solid $border-gold;
+  border-radius: $radius-md;
+  text-align: center;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: $border-gold-strong;
+    transform: translateY(-2px);
+  }
+}
+
+.about__highlight-value {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $gold;
+}
+
+.about__highlight-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
 .timeline {
-  margin-bottom: 4rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .timeline__item {
@@ -70,13 +77,6 @@
   padding-left: 2.8rem;
   padding-bottom: 4rem;
   border-left: 1px solid $border-gold;
-
-  @include respond(tab-land) {
-    text-align: left;
-    max-width: 62rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   &:last-child {
     padding-bottom: 0;
@@ -92,7 +92,7 @@
   height: 1rem;
   border-radius: 50%;
   background-color: $gold;
-  box-shadow: 0 0 0 4px $bg-primary;
+  box-shadow: 0 0 0 4px $bg-surface;
 }
 
 .timeline__label {

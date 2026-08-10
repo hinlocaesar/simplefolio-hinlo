@@ -17,7 +17,7 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.(pdf)$/,
+        test: /\.(docx)$/,
         use: [
           {
             loader: "file-loader",

@@ -63,11 +63,11 @@
 
 .references__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.4rem;
   text-align: left;
 
-  @include respond(tab-port) {
+  @include respond(phone) {
     grid-template-columns: 1fr;
   }
 }
@@ -92,16 +92,26 @@
   }
 
   &__contact {
-    font-size: 1.3rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
     color: $text-muted;
 
     a {
       color: $text-muted;
+      white-space: nowrap;
       transition: $transition-fast;
 
       &:hover {
         color: $gold;
       }
     }
+  }
+
+  &__sep {
+    flex-shrink: 0;
+    color: $text-muted;
   }
 }
