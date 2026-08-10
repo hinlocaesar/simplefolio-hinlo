@@ -1,7 +1,13 @@
-// Section
-section {
-  padding: 5rem 0rem;
+.section {
+  padding: 10rem 0;
 
+  @include respond(phone) {
+    padding: 6rem 0;
+  }
+}
+
+// Legacy selector kept for any un-migrated section wrappers
+section {
   @include respond(phone) {
     border: none;
     padding-left: 1rem;

@@ -2,19 +2,19 @@ import assignProps from "./assignProps";
 
 export default function initSr() {
   const defaultProps = {
-    easing: "cubic-bezier(0.5, 0, 0, 1)",
-    distance: "30px",
-    duration: 1000,
+    easing: "cubic-bezier(0.19, 1, 0.22, 1)",
+    distance: "20px",
+    duration: 1200,
     desktop: true,
     mobile: true,
   };
 
   /* Section Title */
   ScrollReveal().reveal(
-    ".section-title",
+    ".section-eyebrow, .section-title",
     assignProps(
       {
-        delay: 300,
+        delay: 200,
         distance: "0px",
         origin: "bottom",
       },
@@ -24,69 +24,67 @@ export default function initSr() {
 
   /* Hero Section */
   ScrollReveal().reveal(
+    ".hero-eyebrow",
+    assignProps({ delay: 300, origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
     ".hero-title",
+    assignProps({ delay: 500, origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
+    ".hero-divider",
     assignProps(
-      {
-        delay: 500,
-        origin: window.innerWidth > 768 ? "left" : "bottom",
-      },
+      { delay: 800, distance: "0px", origin: "bottom" },
       defaultProps
     )
+  );
+
+  ScrollReveal().reveal(
+    ".hero-subtitle",
+    assignProps({ delay: 900, origin: "bottom" }, defaultProps)
   );
 
   ScrollReveal().reveal(
     ".hero-cta",
-    assignProps(
-      {
-        delay: 1000,
-        origin: window.innerWidth > 768 ? "left" : "bottom",
-      },
-      defaultProps
-    )
+    assignProps({ delay: 1100, origin: "bottom" }, defaultProps)
   );
 
   /* About Section */
   ScrollReveal().reveal(
-    ".about-wrapper__image",
+    ".about__portrait",
+    assignProps({ delay: 400, origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
+    ".about__content",
     assignProps(
-      {
-        delay: 600,
-        origin: "bottom",
-      },
+      { delay: 700, origin: window.innerWidth > 900 ? "right" : "bottom" },
       defaultProps
     )
   );
 
+  /* Skills Section */
   ScrollReveal().reveal(
-    ".about-wrapper__info",
+    ".skills__group",
     assignProps(
-      {
-        delay: 1000,
-        origin: window.innerWidth > 768 ? "left" : "bottom",
-      },
+      { interval: 150, origin: "bottom" },
       defaultProps
     )
+  );
+
+  /* Credentials Section */
+  ScrollReveal().reveal(
+    ".credentials__block",
+    assignProps({ interval: 150, origin: "bottom" }, defaultProps)
   );
 
   /* Projects Section */
   ScrollReveal().reveal(
-    ".project-wrapper__text",
+    ".project-card",
     assignProps(
-      {
-        delay: 500,
-        origin: window.innerWidth > 768 ? "left" : "bottom",
-      },
-      defaultProps
-    )
-  );
-
-  ScrollReveal().reveal(
-    ".project-wrapper__image",
-    assignProps(
-      {
-        delay: 1000,
-        origin: window.innerWidth > 768 ? "right" : "bottom",
-      },
+      { interval: 120, origin: "bottom", distance: "24px" },
       defaultProps
     )
   );
@@ -94,12 +92,11 @@ export default function initSr() {
   /* Contact Section */
   ScrollReveal().reveal(
     ".contact-wrapper",
-    assignProps(
-      {
-        delay: 800,
-        origin: "bottom",
-      },
-      defaultProps
-    )
+    assignProps({ delay: 300, origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
+    ".reference-card",
+    assignProps({ interval: 150, origin: "bottom" }, defaultProps)
   );
 }

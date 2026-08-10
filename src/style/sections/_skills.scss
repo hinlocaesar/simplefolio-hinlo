@@ -1,0 +1,51 @@
+#skills {
+  background-color: $bg-surface;
+  color: $text-primary;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4.8rem;
+  text-align: left;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    gap: 3.6rem;
+  }
+}
+
+.skills__group-title {
+  margin-bottom: 1.8rem;
+  font-size: $mid-font-size;
+  font-weight: 600;
+}
+
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: $text-muted;
+  background-color: $bg-elevated;
+  border: 1px solid $border-gold;
+  border-radius: $radius-sm;
+  transition: $transition-base;
+
+  &:hover {
+    color: $gold-light;
+    border-color: $border-gold-strong;
+    transform: translateY(-2px);
+  }
+}
+
+.tag--sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 1.2rem;
+}

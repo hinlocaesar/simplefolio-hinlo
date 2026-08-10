@@ -1,84 +1,144 @@
 #about {
-  background-color: $primary-color;
-  background-image: linear-gradient(
-    135deg,
-    $primary-color 0%,
-    $secondary-color 100%
-  );
-  color: $white-color;
-  height: 100%;
-  border-top: 0px;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  padding-bottom: 10%;
+  background-color: $bg-primary;
+  color: $text-primary;
+  text-align: center;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  gap: 6.4rem;
+  text-align: left;
 
   @include respond(tab-land) {
-    height: 100%;
-    -webkit-clip-path: none;
-    clip-path: none;
+    grid-template-columns: 1fr;
+    gap: 4.8rem;
+    text-align: center;
+  }
+}
+
+.about__portrait {
+  display: flex;
+  justify-content: center;
+
+  @include respond(tab-land) {
+    order: -1;
+  }
+}
+
+.about__portrait-ring {
+  position: relative;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  border: 1px solid $border-gold-strong;
+  box-shadow: 0 0 4.8rem rgba(201, 169, 98, 0.15);
+
+  @include respond(phone) {
+    width: 18rem;
+    height: 18rem;
+  }
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about__summary {
+  max-width: 62rem;
+  margin-bottom: 4.8rem;
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: $text-muted;
+
+  @include respond(tab-land) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.timeline {
+  margin-bottom: 4rem;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 2.8rem;
+  padding-bottom: 4rem;
+  border-left: 1px solid $border-gold;
+
+  @include respond(tab-land) {
+    text-align: left;
+    max-width: 62rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .about-wrapper {
-    @include respond(phone) {
-      padding-bottom: 5rem;
+  &:last-child {
+    padding-bottom: 0;
+    border-left-color: transparent;
+  }
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -0.5rem;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: $gold;
+  box-shadow: 0 0 0 4px $bg-primary;
+}
+
+.timeline__label {
+  margin-bottom: 0.6rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: $mid-font-size;
+  font-weight: 600;
+}
+
+.timeline__meta {
+  margin-bottom: 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $gold;
+}
+
+.timeline__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    margin-bottom: 1.2rem;
+    padding-left: 1.6rem;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $text-muted;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.9rem;
+      width: 0.5rem;
+      height: 1px;
+      background-color: $gold;
     }
-    
-    &__title {
-      font-weight: bold;
-      text-align: left;
-      font-size: $mid-font-size;
-    }
 
-    &__image {
-      display: flex;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
+    a {
+      color: $gold;
 
-      @include respond(tab-land) {
-        height: 100%;
-      }
-      @include respond(tab-port-sm) {
-        padding-bottom: 6.4rem;
-      }
-    }
-
-    &__info {
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      flex-direction: column;
-
-      @include respond(tab-port-sm) {
-        align-items: center;
-      }
-
-      &-text {
-        text-align: left;
-
-        @include respond(tab-port) {
-          text-align: left;
-        }
-        @include respond(tab-port-sm) {
-          text-align: center;
-        }
-
-        &--important {
-          background: darken($secondary-color, 1%);
-          display: inline-block;
-          font-style: italic;
-          padding: 0 0.3rem;
-          margin: 0.3rem 0;
-          line-height: 1.6;
-
-          @include respond(phone) {
-            display: inline;
-            margin: 0;
-            padding: 0;
-            background: transparent;
-            font-style: normal;
-          }
-        }
+      &:hover {
+        color: $gold-light;
       }
     }
   }

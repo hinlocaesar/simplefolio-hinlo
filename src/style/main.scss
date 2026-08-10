@@ -8,11 +8,14 @@
 @import "./base/typography";
 
 @import "./components/buttons";
+@import "./components/nav";
 
 @import "./layout/footer";
 @import "./layout/sections";
 
-@import "./sections/about";
-@import "./sections/contact";
 @import "./sections/hero";
+@import "./sections/about";
+@import "./sections/skills";
+@import "./sections/credentials";
 @import "./sections/projects";
+@import "./sections/contact";

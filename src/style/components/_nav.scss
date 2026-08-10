@@ -1,0 +1,142 @@
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition: $transition-base;
+
+  &.is-scrolled {
+    @include glass-surface();
+    border-bottom-color: $border-gold;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 1.8rem 2.4rem;
+  }
+
+  &__logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: $text-primary;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 3.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include respond(tab-port) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4rem;
+      width: 28rem;
+      background-color: $bg-surface;
+      border-left: 1px solid $border-gold;
+      transform: translateX(100%);
+      transition: $transition-base;
+
+      &.is-open {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-muted;
+    transition: $transition-fast;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.6rem;
+      height: 1px;
+      background-color: $gold;
+      transform: scaleX(0);
+      transition: $transition-base;
+    }
+
+    &:hover,
+    &.is-active {
+      color: $text-primary;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+
+    span {
+      display: block;
+      height: 1px;
+      background-color: $text-primary;
+      transition: $transition-base;
+    }
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+
+    &.is-active {
+      span:nth-child(1) {
+        transform: translateY(0.55rem) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-0.55rem) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.site-nav__backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  &.is-open {
+    display: block;
+  }
+}

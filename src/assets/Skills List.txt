@@ -1,25 +1,49 @@
-[FRONT END]
-React.JS 
-Next.JS
-Redux Toolkit
-JavaScript
+[LANGUAGES & FRAMEWORKS]
 HTML
-CSS/Sass
-
-[TESTING LIBRARIES]
-React Testing Library
-Jest 
-Cypress
-
-[OTHERS]
+CSS
+JavaScript
+TypeScript
+Vue.js (Certified)
+Pinia
+React
+Redux
+Next.js
 C
 C++
-SQLite
-Google Mock
+jQuery
+Python
+Flask
+PHP
+Laravel
 
+[APIS & INTEGRATION]
+REST API
+GraphQL
+Inertia.js
+Webhooks
+Laravel Reverb / Echo
+Xendit Payments
 
-[CSS FRAMEWORKS]
-React-Bootstrap
-Chakra UI
-Tailwind CSS
-Material UI
+[DATABASES & CLOUD]
+MySQL
+SQL (Certified)
+Redis
+Meilisearch
+Microsoft Azure (Certified)
+Cloudflare R2
+Laravel Forge
+Laravel Nightwatch
+
+[PRACTICES & OTHER]
+Full-Stack Development
+Embedded Systems
+PHPUnit
+CI/CD
+Fortify / 2FA / WebAuthn
+Legacy Code Refactoring
+ISO Auditing
+Technical Training
+AI-Assisted Development
+Scrum
+Waterfall
+V-Model

@@ -1,68 +1,111 @@
-#hero {
+.hero {
+  position: relative;
   min-height: 100vh;
-  height: 100vh;
   display: flex;
   align-items: center;
-  border-bottom: 0px;
-  background: $white-color;
-  font-weight: 400;
-  color: $dark-blue-text;
-  padding: 0rem 5.6rem;
-  margin-bottom: 0;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-
-  // Set position sticky so the jumbotron stays fixed while you scroll.
-  // position: sticky;
-
-  // If you want to set a background image on the hero section, uncomment these with your custom image
-
-  /* background: url("/src/assets/[your-image].png");
-  background-position: center;
-  background-size: cover; */
+  overflow: hidden;
+  background-color: $bg-primary;
+  color: $text-primary;
+  padding: 0 5.6rem;
 
   @include respond(phone) {
-    padding: 0rem $default-font-size;
+    padding: 0 $default-font-size;
+    text-align: center;
   }
 
-  .hero-title {
-    font-size: 5.6rem;
-    font-weight: 700;
-    margin-bottom: 3.2rem;
-    text-align: left;
+  &__glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60rem;
+    height: 60rem;
+    background: radial-gradient(
+      circle,
+      rgba(201, 169, 98, 0.16) 0%,
+      rgba(201, 169, 98, 0) 70%
+    );
+    pointer-events: none;
 
-    @include respond(tab-land) {
-      font-size: 4rem;
-    }
-    @include respond(tab-port) {
-      font-size: 3.6rem;
-      text-align: center;
-    }
     @include respond(phone) {
-      font-size: 3.5rem;
-      line-height: 1.5;
-    }
-    @include respond(phone-xs) {
-      font-size: 2.8rem;
+      width: 40rem;
+      height: 40rem;
     }
   }
 
-  .hero-cta {
-    display: flex;
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 76rem;
+  }
+}
 
-    @include respond(tab-port) {
-      justify-content: center;
-    }
+.hero-eyebrow {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: $gold;
+}
 
-    & a {
-      font-size: 2.4rem;
+.hero-title {
+  font-size: 6.4rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 2.8rem;
+  text-align: left;
 
-      @include respond(phone) {
-        font-size: 2rem;
-      }
-    }
+  @include respond(tab-land) {
+    font-size: 5.2rem;
+  }
+  @include respond(tab-port) {
+    font-size: 4.4rem;
+    text-align: center;
+  }
+  @include respond(phone) {
+    font-size: 3.6rem;
+  }
+}
+
+.hero-divider {
+  display: block;
+  width: 8rem;
+  height: 1px;
+  margin-bottom: 2.8rem;
+  background-color: $gold;
+
+  @include respond(tab-port) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.hero-subtitle {
+  max-width: 52rem;
+  margin-bottom: 4rem;
+  font-size: 1.9rem;
+  line-height: 1.7;
+  color: $text-muted;
+  text-align: left;
+
+  @include respond(tab-port) {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+
+  @include respond(tab-port) {
+    justify-content: center;
+  }
+
+  @include respond(phone) {
+    flex-direction: column;
+    gap: 1.6rem;
   }
 }

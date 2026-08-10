@@ -1,13 +1,7 @@
 <!--
-  Hello!
-  -
-  Simplefolio is a clean and responsive portfolio template for Developers!
-  Created by Jacobo Martinez.
-  -
+  Caesar Hinlo — Portfolio
+  Originally forked from Simplefolio by Jacobo Martinez
   Github Repo: https://github.com/cobidev/simplefolio/
-  Readme: https://github.com/cobidev/simplefolio/README.md
-  -
-  For business & inquires, contact me -> jacobojavier98@gmail.com
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,744 +11,754 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Put here your site title -->
-    <title>Caesar Hinlo</title>
-    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-    <!-- Improve your SEO by adding a small descrption of you -->
-    <meta name="description" content="[Your name here] | Developer" />
+    <title>Caesar Hinlo | Certified Vue.js Developer &amp; Full-Stack Developer</title>
+    <meta
+      name="keywords"
+      content="hinlocaesar, Caesar Hinlo, Certified Vue.js Developer, Full-Stack Developer, React, Next.js, Laravel, Python, Embedded Systems"
+    />
+    <meta
+      name="description"
+      content="Caesar Herman Hinlo — Certified Vue.js Developer and Full-Stack Software Engineer with 12+ years of experience across embedded systems and modern web development using Vue, React, Next.js, Python, and Laravel."
+    />
 
     <!-- Required librarys -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
       ScrollReveal({ reset: false });
     </script>
-
-    <!-- Remove this script once you setup your custom portfolio -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
 
-  <!-- Follow the HTML instructions to create your stunning portfolio website -->
   <body>
     <div id="top"></div>
 
-    <!-- **** Hero Section **** -->
-    <div id="hero" class="jumbotron">
-      <div class="container">
-        <h1 class="hero-title" class="load-hidden">
-          Hi, my name is
-          <span class="text-color-main">Caesar Herman Hinlo</span>
-          <br />
-          Full-Stack Developer
-        </h1>
-        <p class="hero-cta" class="load-hidden">
-          <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
-            >Know more</a
-          >
-        </p>
+    <!-- **** Navigation **** -->
+    <nav class="site-nav" id="siteNav">
+      <div class="site-nav__inner">
+        <a class="site-nav__logo" href="#top">C<span class="text-gold">H</span></a>
+        <ul class="site-nav__links" id="navLinks">
+          <li><a class="site-nav__link" href="#about">About</a></li>
+          <li><a class="site-nav__link" href="#skills">Skills</a></li>
+          <li><a class="site-nav__link" href="#credentials">Credentials</a></li>
+          <li><a class="site-nav__link" href="#projects">Projects</a></li>
+          <li><a class="site-nav__link" href="#contact">Contact</a></li>
+        </ul>
+        <button
+          class="site-nav__toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </div>
+    </nav>
+    <div class="site-nav__backdrop" id="navBackdrop"></div>
+    <!-- /END Navigation -->
+
+    <!-- **** Hero Section **** -->
+    <header id="hero" class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__container">
+        <p class="hero-eyebrow load-hidden">
+          Certified Vue.js Developer &amp; Full-Stack Developer
+        </p>
+        <h1 class="hero-title load-hidden">
+          Caesar Herman <span class="text-gold">Hinlo</span>
+        </h1>
+        <span class="hero-divider load-hidden" aria-hidden="true"></span>
+        <p class="hero-subtitle load-hidden">
+          12+ years building production software — from embedded C/C++
+          systems to full-stack Vue, React, and Laravel applications.
+        </p>
+        <div class="hero-cta load-hidden">
+          <a class="cta-btn cta-btn--primary" href="#projects">
+            Explore My Work
+          </a>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            class="cta-btn cta-btn--ghost cta-btn--resume"
+            href=""
+          >
+            View Resume
+          </a>
+        </div>
+      </div>
+    </header>
     <!-- /END Hero Section -->
 
     <!-- **** About Section **** -->
-    <section id="about">
+    <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">About me</h2>
-        <div class="row about-wrapper">
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__image">
+        <p class="section-eyebrow">Get To Know Me</p>
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about__grid">
+          <div class="about__portrait">
+            <div class="about__portrait-ring">
               <img
-                alt="Profile Image"
-                class="img-fluid rounded shadow-lg"
-                height="auto"
-                width="300px"
+                class="about__photo"
                 src="assets/profile.jpg"
-                alt="Profile Image"
+                alt="Portrait of Caesar Hinlo"
               />
             </div>
           </div>
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__info">
-              <p class="about-wrapper__title">[PROFILE]</p>
-              <p class="about-wrapper__info-text">
-                Senior software engineer with hands-on experience in planning,
-                analysis, design, implementation, and unit testing of software
-                products. With experience in managing projects and teams.
-              </p>
 
-              <p class="about-wrapper__title">[KYOCERA DOCUMENT SOLUTIONS]</p>
-              <p class="about-wrapper__info-text">
-                &#x25FC Component leader in charge of planning, analysis, design,
-                implementation, and unit testing using C, C++, and company-owned
-                proprietary libraries and frameworks for multifunctional
-                printers
-              </p>
+          <div class="about__content">
+            <p class="about__summary">
+              Certified Vue.js Developer and Full-Stack Software Engineer
+              with 12+ years of experience across embedded C/C++ systems and
+              modern web development. Proven track record delivering
+              production-grade software end-to-end using Vue, React,
+              Next.js, Python, and Laravel, including sole ownership of a
+              BIR-accredited Computerized Accounting System built from
+              concept to production. ISO internal auditor and technical
+              trainer with a strong background in cross-border technology
+              transfer and legacy code modernization.
+            </p>
 
-              <p class="about-wrapper__info-text">
-                &#x25FC One of the pioneer ISO internal auditors, which made the
-                company pass the certification in 1st round.
-              </p>
+            <div class="timeline">
+              <div class="timeline__item">
+                <span class="timeline__dot"></span>
+                <p class="timeline__label">
+                  Full-Stack Developer — DevResearch Software Development
+                  Solutions
+                </p>
+                <p class="timeline__meta">2025 – Present · Remote</p>
+                <ul class="timeline__list">
+                  <li>
+                    Built a multi-market remote job board on the VILT stack
+                    (Vue 3, Inertia.js, Laravel, Tailwind) — live at
+                    <a
+                      rel="noreferrer"
+                      target="_blank"
+                      href="https://discoverjobs.org"
+                      >discoverjobs.org</a
+                    >
+                    — covering seeker, employer, and admin surfaces
+                    end-to-end as sole developer.
+                  </li>
+                  <li>
+                    Integrated Xendit payments via a custom invoice API
+                    client, with signed webhooks driving automated
+                    paid-listing activation.
+                  </li>
+                  <li>
+                    Used Cloudflare R2 (S3-compatible object storage) for
+                    scalable file and media storage.
+                  </li>
+                  <li>
+                    Aggregated listings from external job APIs with
+                    scheduled cache warming to prepopulate the job board at
+                    launch, indexed for fast, typo-tolerant discovery using
+                    Meilisearch and Redis.
+                  </li>
+                  <li>
+                    Implemented realtime application chat and notifications
+                    using Laravel Reverb and Echo over private WebSocket
+                    channels.
+                  </li>
+                  <li>
+                    Hardened authentication with Laravel Fortify, optional
+                    2FA (TOTP), and passkeys/WebAuthn; enforced authorization
+                    via Policies across seeker, employer, and admin roles.
+                  </li>
+                  <li>
+                    Designed a BIR-accredited Computerized Accounting System
+                    (CAS) as a separate Laravel service integrated via an
+                    internal API client, built and deployed within 1 month —
+                    architected to be spun off as a standalone product, and
+                    has since drawn informal licensing interest from an
+                    accounting firm.
+                  </li>
+                  <li>
+                    Shipped with PHPUnit feature tests, deploying to
+                    production on a VPS via Laravel Forge.
+                  </li>
+                </ul>
+              </div>
 
-              <p class="about-wrapper__info-text">
-                &#x25FC Unit test instructor for new software developers
-              </p>
+              <div class="timeline__item">
+                <span class="timeline__dot"></span>
+                <p class="timeline__label">
+                  Full-Stack Developer — Elgada BPO Solutions
+                </p>
+                <p class="timeline__meta">2021 – 2025 · Remote</p>
+                <ul class="timeline__list">
+                  <li>
+                    Built features for a U.S. healthcare compliance and
+                    exclusion-screening platform, contributing to a product
+                    used by licensed healthcare organizations nationwide.
+                  </li>
+                  <li>
+                    Implemented 10–50 front-end/back-end features and bug
+                    fixes per month, improving overall product stability.
+                  </li>
+                  <li>
+                    Improved internal documentation, including onboarding
+                    materials for new team members, streamlining ramp-up
+                    time.
+                  </li>
+                  <li>
+                    Performed UI and SQL performance optimizations,
+                    improving application responsiveness and query
+                    efficiency by up to 40%.
+                  </li>
+                  <li>
+                    Refactored legacy source code to modern technology
+                    stacks, improving maintainability and scalability.
+                  </li>
+                  <li>
+                    Worked across a multi-stack environment spanning React,
+                    Next.js, Vue, Laravel, and Python (Flask).
+                  </li>
+                  <li>
+                    Served as a technical point of contact for client-facing
+                    security due diligence, responding directly to
+                    end-client security questionnaires (including SOC 2) to
+                    support compliance reviews and vendor risk assessments.
+                  </li>
+                </ul>
+              </div>
 
-              <p class="about-wrapper__info-text">
-                &#x25FC Sent to Osaka Japan multiple times in charge of technology
-                transfer from JP to PH site which includes, creation of
-                development and communication processes between teams, traning
-                of new team members and implementation of new products.
-              </p>
+              <div class="timeline__item">
+                <span class="timeline__dot"></span>
+                <p class="timeline__label">
+                  Web Developer &amp; Board Member — Champion4Heroes
+                </p>
+                <p class="timeline__meta">
+                  2020 – 2021 · Remote — 501(c)(3) nonprofit uniting World
+                  Champion athletes with Veterans to honor and memorialize
+                  their service.
+                </p>
+                <ul class="timeline__list">
+                  <li>
+                    Developed and maintained the organization's website
+                    remotely from the Philippines while serving as a Board
+                    Member, contributing to organizational strategy and
+                    decision-making.
+                  </li>
+                  <li>
+                    Conducted interviews with boxing champions and researched
+                    their careers and histories to support their recognition
+                    and honoring in the United States.
+                  </li>
+                </ul>
+              </div>
 
-              <p class="about-wrapper__title">[ELGADA BPO SOLUTIONS]</p>
-              <p class="about-wrapper__info-text">
-                &#x25FC Implement new features that are requested by the business for Front-End and Back-end
-              </p>
-
-              <p class="about-wrapper__info-text">
-                &#x25FC Spearheaded the implementation react-testing library to increase test coverage and quality of UI code.
-              </p>
-
-              <p class="about-wrapper__info-text">
-                &#x25FC Bug fixing.
-              </p>
-
-              <p class="about-wrapper__info-text">
-                &#x25FC Perform UI and SQL performance improvements.
-              </p>
-
-              <p class="about-wrapper__info-text">
-                &#x25FC Improve Internal documents such as onboarding new members, etc.
-              </p>
-
-              <p class="about-wrapper__info-text">
-                &#x25FC Refactoring of legacy source code to use the latest tech stacks.
-              </p>
-
-              <span class="d-flex mt-3">
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--resume"
-                  href=""
-                >
-                  View Resume
-                </a>
-              </span>
+              <div class="timeline__item">
+                <span class="timeline__dot"></span>
+                <p class="timeline__label">
+                  Senior Software Engineer — Kyocera Document Solutions
+                </p>
+                <p class="timeline__meta">2012 – 2020</p>
+                <ul class="timeline__list">
+                  <li>
+                    Selected as part of the top 5% of applicants hired for
+                    the fiscal year, per HR presentation.
+                  </li>
+                  <li>
+                    Conducted rigorous source code reviews to ensure
+                    quality, consistency, and adherence to coding standards.
+                  </li>
+                  <li>
+                    Served as Component Leader responsible for planning,
+                    analysis, design, implementation, and unit testing of
+                    embedded software for multifunctional printers using C,
+                    C++, and proprietary company frameworks.
+                  </li>
+                  <li>
+                    Recognized as one of the pioneer ISO internal auditors,
+                    contributing to the company's successful first-round ISO
+                    certification.
+                  </li>
+                  <li>
+                    Acted as Unit Test Instructor, training 15–30+ new
+                    software developers on testing standards and best
+                    practices.
+                  </li>
+                  <li>
+                    Designed and implemented features using PHP and jQuery,
+                    extending product capabilities beyond embedded systems.
+                  </li>
+                  <li>
+                    Served as Patent Instructor, guiding engineers through
+                    patent documentation and submission processes.
+                  </li>
+                  <li>
+                    Selected for 3–5 assignments in Osaka, Japan, leading
+                    JP-to-PH tech transfer, team training, and product
+                    rollouts.
+                  </li>
+                </ul>
+              </div>
             </div>
+
+            <a
+              rel="noreferrer"
+              target="_blank"
+              class="cta-btn cta-btn--outline cta-btn--resume"
+              href=""
+            >
+              View Resume
+            </a>
           </div>
         </div>
       </div>
     </section>
     <!-- /END About Section -->
 
-    
+    <!-- **** Skills Section **** -->
+    <section id="skills" class="section">
+      <div class="container">
+        <p class="section-eyebrow">Expertise</p>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+
+        <div class="skills__grid">
+          <div class="skills__group">
+            <h3 class="skills__group-title">Languages &amp; Frameworks</h3>
+            <div class="skills__tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Vue.js (Certified)</span>
+              <span class="tag">Pinia</span>
+              <span class="tag">React</span>
+              <span class="tag">Redux</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">C</span>
+              <span class="tag">C++</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">APIs &amp; Integration</h3>
+            <div class="skills__tags">
+              <span class="tag">REST API</span>
+              <span class="tag">GraphQL</span>
+              <span class="tag">Inertia.js</span>
+              <span class="tag">Webhooks</span>
+              <span class="tag">Laravel Reverb / Echo</span>
+              <span class="tag">Xendit Payments</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Databases &amp; Cloud</h3>
+            <div class="skills__tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">SQL (Certified)</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Meilisearch</span>
+              <span class="tag">Microsoft Azure (Certified)</span>
+              <span class="tag">Cloudflare R2</span>
+              <span class="tag">Laravel Forge</span>
+              <span class="tag">Laravel Nightwatch</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Practices &amp; Other</h3>
+            <div class="skills__tags">
+              <span class="tag">Full-Stack Development</span>
+              <span class="tag">Embedded Systems</span>
+              <span class="tag">PHPUnit</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Fortify / 2FA / WebAuthn</span>
+              <span class="tag">Legacy Code Refactoring</span>
+              <span class="tag">ISO Auditing</span>
+              <span class="tag">Technical Training</span>
+              <span class="tag">AI-Assisted Development</span>
+              <span class="tag">Scrum</span>
+              <span class="tag">Waterfall</span>
+              <span class="tag">V-Model</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /END Skills Section -->
+
+    <!-- **** Credentials Section **** -->
+    <section id="credentials" class="section">
+      <div class="container">
+        <p class="section-eyebrow">Background</p>
+        <h2 class="section-title">Education &amp; Certifications</h2>
+
+        <div class="credentials__grid">
+          <div class="credentials__block">
+            <h3 class="credentials__block-title">Education</h3>
+            <div class="credentials__item">
+              <p class="credentials__item-title">
+                Bachelor of Science in Information Technology
+              </p>
+              <p class="credentials__item-meta">
+                University of St. La Salle — Graduated 2012
+              </p>
+            </div>
+          </div>
+
+          <div class="credentials__block">
+            <h3 class="credentials__block-title">Certifications</h3>
+            <ul class="credentials__list">
+              <li>
+                <p class="credentials__item-title">
+                  Microsoft Certified: Azure Fundamentals (Exam-Based)
+                </p>
+                <p class="credentials__item-meta">
+                  Credential ID A7CB7546044E9280 — June 2025
+                </p>
+              </li>
+              <li>
+                <p class="credentials__item-title">
+                  Certified Vue.js Developer (Exam-Based)
+                </p>
+                <p class="credentials__item-meta">
+                  Certificates.dev / Vue School, in collaboration with the
+                  official Vue.js team — October 2025
+                </p>
+              </li>
+              <li>
+                <p class="credentials__item-title">Complete SQL Mastery</p>
+                <p class="credentials__item-meta">
+                  Code with Mosh — January 2026
+                </p>
+              </li>
+              <li>
+                <p class="credentials__item-title">
+                  Foundations of Coding: Full-Stack &amp; Back-End, Intro
+                  Programming C#, Back-End Dev with .NET
+                </p>
+                <p class="credentials__item-meta">
+                  Microsoft (Coursera) — 2025
+                </p>
+              </li>
+              <li>
+                <p class="credentials__item-title">
+                  Laravel Architect Badge
+                </p>
+                <p class="credentials__item-meta">
+                  Laracasts — for completing the full Laravel Path
+                </p>
+              </li>
+              <li>
+                <p class="credentials__item-title">
+                  8 courses: AI Fluency, Claude Code, Model Context Protocol
+                </p>
+                <p class="credentials__item-meta">
+                  Anthropic Education — 2026
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /END Credentials Section -->
 
     <!-- **** Projects Section **** -->
-    <section id="projects">
+    <section id="projects" class="section">
       <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+        <p class="section-eyebrow">Selected Work</p>
+        <h2 class="section-title">Projects</h2>
 
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  KYOCERA ECOSYS FS-1025MFP AND ECOSYS FS-1125MFP
-                </h3>
-                <div>
-                  <p class="mb-4">
-                    &#x25FC Firmware is written using C.
-                    <br>&#x25FC Framework and Libraries is designed and developed by Philippine team.
-                  </p>
-                </div>
-              </div>
+        <h3 class="projects__subheading">Production Applications</h3>
+        <div class="projects__grid projects__grid--featured">
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="DiscoverJobs — US jobs listing"
+                src="assets/project-images/discoverjobs/desktop.png"
+                loading="lazy"
+              />
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/cq5dam.resized.img.1180.large.time1571842767270.jpg"
-                    />
-                  </div>
-                </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">DiscoverJobs</h4>
+              <p class="project-card__desc">
+                Multi-market remote job board built solo on the VILT stack
+                (Vue 3, Inertia.js, Laravel, Tailwind) — covering seeker,
+                employer, and admin surfaces end-to-end. Features Xendit
+                payments with signed webhooks, Meilisearch/Redis-backed
+                search, realtime chat via Laravel Reverb and Echo, and a
+                BIR-accredited Computerized Accounting System integrated as a
+                companion service.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Vue 3</span>
+                <span class="tag tag--sm">Inertia.js</span>
+                <span class="tag tag--sm">Laravel</span>
+                <span class="tag tag--sm">Tailwind CSS</span>
+                <span class="tag tag--sm">Meilisearch</span>
+                <span class="tag tag--sm">Redis</span>
+                <span class="tag tag--sm">Xendit</span>
               </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">TASKalfa 2220/2201</h3>
-                <div>
-                  <p class="mb-4">
-                    &#x25FC Firmware is written using C++.
-                    <br>&#x25FC Framework and Libraries is designed and developed by Philippine team.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/Kyocera-TASKalfa-2321.png"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-                    <!-- Each .row is a project NextJS -->
-                    <div class="row">
-                      <div class="col-lg-4 col-sm-12">
-                        <div class="project-wrapper__text">
-                          <h3 class="project-wrapper__text-title">Realtor</h3>
-                          <div>
-                            <p class="mb-4">
-                              <strong>[Technologies used]</strong>
-                              <br>&#x25FC UI Library: ReactJS NextJS  
-                              <br>&#x25FC Styling:    Chara UI
-                            </p>
-                          </div>
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            class="cta-btn cta-btn--hero"
-                            href="https://hinlo-realestate.vercel.app/"
-                          >
-                            See Live
-                          </a>
-                          <a
-                            rel="noreferrer"
-                            target="_blank"
-                            class="cta-btn text-color-main"
-                            href="https://github.com/hinlocaesar/hinlo_realestate"
-                          >
-                            Source Code
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-lg-8 col-sm-12">
-                        <div class="project-wrapper__image">
-                   
-                            <div data-tilt class="thumbnail rounded js-tilt">
-                              <img
-                                alt="Project Image"
-                                class="img-fluid"
-                                src="assets/project-images/RealtorNextJS.PNG"
-                              />
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">REACT NETFLIX CLONE</h3>
-                <div>
-                  <p class="mb-4">
-                    <strong>[Technologies used]</strong>
-                    <br>&#x25FC UI Library: React  
-                    <br>&#x25FC Styling:    Vanilla CSS
-                    
-                    <br><strong>[Tool and API]</strong>
-                    <br>&#x25FC Axios
-                    <br>&#x25FC The Movie Database (TMDb)
-                  </p>
-                </div>
+              <div class="project-card__links">
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  class="cta-btn cta-btn--hero"
+                  class="project-card__link"
+                  href="https://discoverjobs.org"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="projects__subheading">Enterprise &amp; Firmware</h3>
+        <div class="projects__grid">
+          <article class="project-card">
+            <div class="project-card__image">
+              <img
+                alt="Kyocera Ecosys FS-1025MFP and FS-1125MFP"
+                src="assets/project-images/cq5dam.resized.img.1180.large.time1571842767270.jpg"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">
+                Kyocera Ecosys FS-1025MFP &amp; FS-1125MFP
+              </h4>
+              <p class="project-card__desc">
+                Firmware written in C, using frameworks and libraries
+                designed and developed by the Philippine team.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">C</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__image">
+              <img
+                alt="Kyocera TASKalfa 2220 and 2201"
+                src="assets/project-images/Kyocera-TASKalfa-2321.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">TASKalfa 2220 / 2201</h4>
+              <p class="project-card__desc">
+                Firmware written in C++, using frameworks and libraries
+                designed and developed by the Philippine team.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">C++</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="projects__subheading">Web Applications</h3>
+        <div class="projects__grid">
+          <article class="project-card">
+            <a
+              class="project-card__image"
+              href="https://hinlo-realestate.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                alt="Realtor"
+                src="assets/project-images/RealtorNextJS.PNG"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Realtor</h4>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Next.js</span>
+                <span class="tag tag--sm">Chakra UI</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://hinlo-realestate.vercel.app/"
+                  >Live Site</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://github.com/hinlocaesar/hinlo_realestate"
+                  >Source</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a
+              class="project-card__image"
+              href="https://netflix-clone-d90d6.web.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                alt="React Netflix Clone"
+                src="assets/project-images/netflix-clone.PNG"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">React Netflix Clone</h4>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">React</span>
+                <span class="tag tag--sm">Axios</span>
+                <span class="tag tag--sm">TMDb API</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
                   href="https://netflix-clone-d90d6.web.app/"
+                  >Live Site</a
                 >
-                  See Live
-                </a>
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  class="cta-btn text-color-main"
+                  class="project-card__link"
                   href="https://github.com/hinlocaesar/netflix-clone"
+                  >Source</a
                 >
-                  Source Code
-                </a>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/netflix-clone.PNG"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
+          </article>
 
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">REACT ROBO FRIENDS</h3>
-                <div>
-                  <p class="mb-4">
-           <strong>[Technologies used]</strong>
-                    <br>&#x25FC UI Library: React  
-                    <br>&#x25FC Styling:    Vanilla CSS
-                    
-                    <br><strong>[Tool and API]</strong>
-                    <br>&#x25FC Robohash API
-                  </p>
-                </div>
+          <article class="project-card">
+            <a
+              class="project-card__image"
+              href="https://hinlocaesar.github.io/robofriends/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                alt="React Robo Friends"
+                src="assets/project-images/robofriends.PNG"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">React Robo Friends</h4>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">React</span>
+                <span class="tag tag--sm">Robohash API</span>
+              </div>
+              <div class="project-card__links">
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  class="cta-btn cta-btn--hero"
+                  class="project-card__link"
                   href="https://hinlocaesar.github.io/robofriends/"
+                  >Live Site</a
                 >
-                  See Live
-                </a>
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  class="cta-btn text-color-main"
+                  class="project-card__link"
                   href="https://github.com/hinlocaesar/robofriends"
+                  >Source</a
                 >
-                  Source Code
-                </a>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/robofriends.PNG"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Loopstudios landing page
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/fem_loopstudio/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/fem_loopstudio"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/loopstudio.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Sunnyside agency landing page
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/fem-sunny-agency/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/fem-sunny-agency"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/sunny.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Huddle landing page with a single introductory section
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/huddle-landing-page-with-single-introductory-section-master/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/huddle-landing-page-with-single-introductory-section-master"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/huddlelandingpage.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Base Apparel coming soon page
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/base-apparel-coming-soon/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/base-apparel-coming-soon"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/baseapparel.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Intro component with sign-up form
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/fem-intro-component/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/fem-intro-component"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/introcomponent.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Article preview component
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/fem-article-preview-component/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/fem-article-preview-component"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/articlecomponent.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Four card feature section
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/Four-card-feature-section/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/Four-card-feature-section"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/four-card.jpg"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-          <!-- Each .row is a project -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <h3 class="project-wrapper__text-title">
-                  Single price grid component
-                </h3>
-                <div>
-                  <p class="mb-4">
-   <strong>[Technologies used]  </strong>
- <br>&#x25FCHTML, CSS, JS
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://hinlocaesar.github.io/Single-price-grid-component/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/hinlocaesar/Single-price-grid-component"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-         
-                  <div data-tilt class="thumbnail rounded js-tilt">
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/project-images/single-price-grid-component.webp"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
+          </article>
         </div>
       </div>
     </section>
     <!-- /END Projects Section -->
 
     <!-- **** Contact Section **** -->
-    <section id="contact">
+    <section id="contact" class="section">
       <div class="container">
+        <p class="section-eyebrow">Get In Touch</p>
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
-          <p class="contact-wrapper__text">Let's build something awesome!</p>
-          <a
-            rel="noreferrer"
-            target="_blank"
-            class="cta-btn cta-btn--resume"
-            href="mailto:caesar.hinlo.dev@gmail.com.com"
-            >Email Me</a
-          >
+          <p class="contact-wrapper__text">
+            Let's create something exceptional together.
+          </p>
+          <div class="contact-wrapper__cta">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              class="cta-btn cta-btn--primary"
+              href="mailto:caesar.hinlo.careers@gmail.com"
+              >Email Me</a
+            >
+            <a
+              rel="noreferrer"
+              target="_blank"
+              class="cta-btn cta-btn--outline"
+              href="https://www.loom.com/share/04eb2e57c6874b908bde3ae457d1c23e"
+              >Video Introduction</a
+            >
+          </div>
+          <ul class="contact-details">
+            <li>
+              <a href="mailto:caesar.hinlo.careers@gmail.com"
+                >caesar.hinlo.careers@gmail.com</a
+              >
+            </li>
+            <li><a href="tel:+639452582115">+63 945 258 2115</a></li>
+            <li>Victorias City, Negros Occidental, Philippines 6119</li>
+          </ul>
+        </div>
+
+        <div class="references">
+          <h3 class="references__title">References</h3>
+          <div class="references__grid">
+            <div class="reference-card">
+              <p class="reference-card__name">Kevin Dormido</p>
+              <p class="reference-card__role">
+                IT Manager, Kyocera Document Solutions
+              </p>
+              <p class="reference-card__contact">
+                <a href="mailto:nonoykevin27@icloud.com"
+                  >nonoykevin27@icloud.com</a
+                >
+                · <a href="tel:+639285523415">09285523415</a>
+              </p>
+            </div>
+            <div class="reference-card">
+              <p class="reference-card__name">Jaepi Dingle</p>
+              <p class="reference-card__role">
+                Technical Consultant, CoCompetence
+              </p>
+              <p class="reference-card__contact">
+                <a href="mailto:jaepi.dingle@gmail.com"
+                  >jaepi.dingle@gmail.com</a
+                >
+                · <a href="tel:+639985384707">09985384707</a>
+              </p>
+            </div>
+            <div class="reference-card">
+              <p class="reference-card__name">Airyn Gale de Gracia</p>
+              <p class="reference-card__role">
+                Senior QA Engineer, Full Scale
+              </p>
+              <p class="reference-card__contact">
+                <a href="mailto:Airyngale.degracia@gmail.com"
+                  >Airyngale.degracia@gmail.com</a
+                >
+                · <a href="tel:+639560582432">09560582432</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -763,31 +767,47 @@
     <!-- **** Footer Section **** -->
     <footer class="footer navbar-static-bottom">
       <div class="container">
-        <a rel="noreferrer" href="#top" class="back-to-top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+        <a rel="noreferrer" href="#top" class="back-to-top" aria-label="Back to top">
+          <i class="fa-solid fa-chevron-up fa-2x" aria-hidden="true"></i>
         </a>
         <div class="social-links">
+          <a
+            rel="noreferrer"
+            href="https://caesar-hinlo-dev.netlify.app"
+            target="_blank"
+            aria-label="Portfolio"
+          >
+            <i class="fa-solid fa-globe"></i>
           </a>
-          <a rel="noreferrer" href="https://www.linkedin.com/in/hinlocaesar" target="_blank">
-            <i class="fa fa-linkedin fa-inverse"></i>
+          <a
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/hinlocaesar"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a rel="noreferrer" href="https://github.com/hinlocaesar" target="_blank">
-            <i class="fa fa-github fa-inverse"></i>
+          <a
+            rel="noreferrer"
+            href="https://github.com/hinlocaesar"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            rel="noreferrer"
+            href="https://www.loom.com/share/04eb2e57c6874b908bde3ae457d1c23e"
+            target="_blank"
+            aria-label="Video Introduction"
+          >
+            <i class="fa-solid fa-video"></i>
           </a>
         </div>
 
         <hr />
 
-        <!-- If you give me some credit, will be huge for me :) -->
-        <p class="footer__text">
-          © 2021 - Template developed by
-          <a rel="noreferrer" href="https://github.com/cobidev" target="_blank"
-            >Jacobo Martínez</a
-          >
-        </p>
-
-      
-    
+        <p class="footer__text">© 2026 Caesar Hinlo. All rights reserved.</p>
       </div>
     </footer>
     <!-- /END Footer Section -->

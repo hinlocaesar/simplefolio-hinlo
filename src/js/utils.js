@@ -1,6 +1,6 @@
 export function addResume(pdf) {
   if (!pdf) return;
 
-  const resumeButton = document.querySelector(".cta-btn--resume");
-  resumeButton.setAttribute("href", pdf);
+  const resumeButtons = document.querySelectorAll(".cta-btn--resume");
+  resumeButtons.forEach((button) => button.setAttribute("href", pdf));
 }
