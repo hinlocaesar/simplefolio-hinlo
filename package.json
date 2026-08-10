@@ -2,6 +2,9 @@
   "name": "simplefolio",
   "version": "1.0.1",
   "private": "true",
+  "engines": {
+    "node": ">=22"
+  },
   "description": "A clean, beautiful and responsive portfolio template for Developers!",
   "main": "index.js",
   "scripts": {
