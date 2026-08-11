@@ -80,43 +80,45 @@
     display: flex;
     justify-content: center;
     flex-shrink: 0;
+    width: 28rem;
     max-width: 100%;
     overflow: hidden;
 
+    @include respond(tab-land) {
+      width: 24rem;
+    }
+
+    @include respond(phone) {
+      width: 20rem;
+    }
+
     @include respond(tab-port) {
       order: -1;
+      margin-inline: auto;
     }
   }
 
   &__portrait-ring {
     position: relative;
-    width: 28rem;
-    height: 28rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     padding: 0.5rem;
     border: 1px solid $border-gold-strong;
     box-shadow: 0 0 5.6rem rgba(201, 169, 98, 0.18);
     overflow: hidden;
-
-    @include respond(tab-land) {
-      width: 24rem;
-      height: 24rem;
-    }
-
-    @include respond(phone) {
-      width: 20rem;
-      height: 20rem;
-    }
+    flex-shrink: 0;
   }
 
   &__photo {
+    display: block;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 22%;
-    transform: scale(2.6);
-    transform-origin: center 22%;
+    object-position: center 24%;
+    transform: scale(3.2);
+    transform-origin: center 24%;
   }
 }
 
