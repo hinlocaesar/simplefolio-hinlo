@@ -1,5 +1,6 @@
 .section {
   padding: 10rem 0;
+  overflow-x: clip;
 
   @include respond(phone) {
     padding: 6rem 0;
@@ -7,6 +8,7 @@
 
   .container {
     min-width: 0;
+    max-width: 100%;
   }
 }
 
@@ -14,7 +16,7 @@
 section {
   @include respond(phone) {
     border: none;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
   }
 }

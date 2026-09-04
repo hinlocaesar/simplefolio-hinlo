@@ -32,7 +32,9 @@
 .social-links {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 1.2rem;
 
   a {
     display: flex;
@@ -42,7 +44,7 @@
     font-size: 2rem;
     width: 4.4rem;
     height: 4.4rem;
-    margin: 0 $default-font-size;
+    margin: 0;
     border: 1px solid $border-gold;
     border-radius: 50%;
     transition: $transition-base;
