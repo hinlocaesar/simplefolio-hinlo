@@ -251,11 +251,16 @@
 
 .project-card__link {
   position: relative;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: $gold;
+  cursor: pointer;
 
   &:hover {
     color: $gold-light;
