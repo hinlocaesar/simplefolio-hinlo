@@ -14,7 +14,8 @@
   }
 
   @include respond(phone) {
-    padding: 9rem $default-font-size 5rem;
+    padding: 9rem 1.6rem 5rem;
+    padding-top: max(9rem, calc(env(safe-area-inset-top, 0px) + 7.2rem));
   }
 
   &__media {
@@ -100,7 +101,8 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 112rem;
+    max-width: min(112rem, 100%);
+    min-width: 0;
   }
 
   &__grid {
@@ -179,6 +181,7 @@
   letter-spacing: -0.01em;
   color: $text-primary;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
+  overflow-wrap: break-word;
 
   span {
     font-family: inherit;
