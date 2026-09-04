@@ -10,6 +10,8 @@ Redux
 Next.js
 C
 C++
+C#
+ASP.NET Core
 jQuery
 Python
 Flask
@@ -37,6 +39,9 @@ Laravel Nightwatch
 [PRACTICES & OTHER]
 Full-Stack Development
 Embedded Systems
+WordPress CMS
+Webflow
+GoDaddy Website Builder
 PHPUnit
 CI/CD
 Fortify / 2FA / WebAuthn
