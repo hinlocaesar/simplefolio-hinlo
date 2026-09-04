@@ -11,14 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <title>Caesar Hinlo | Certified Vue.js Developer &amp; Full-Stack Developer</title>
+    <title>Caesar Hinlo | Certified Vue.js Developer &amp; Senior Full-Stack Developer</title>
     <meta
       name="keywords"
-      content="hinlocaesar, Caesar Hinlo, Certified Vue.js Developer, Full-Stack Developer, React, Next.js, Laravel, Python, Embedded Systems"
+      content="hinlocaesar, Caesar Hinlo, Certified Vue.js Developer, Senior Full-Stack Developer, React, Next.js, Laravel, Python, Embedded Systems"
     />
     <meta
       name="description"
-      content="Caesar Herman Hinlo, Certified Vue.js Developer and Full-Stack Software Engineer with 12+ years of experience across embedded systems and modern web development using Vue, React, Next.js, Python, and Laravel."
+      content="Caesar Herman Hinlo, Certified Vue.js Developer and Senior Full-Stack Software Engineer with 12+ years of experience across embedded systems and modern web development using Vue, React, Next.js, Python, and Laravel."
     />
 
     <!-- Required librarys -->
@@ -63,6 +63,15 @@
 
     <!-- **** Hero Section **** -->
     <header id="hero" class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img
+          class="hero__bg"
+          src="assets/hero-team.png"
+          alt=""
+          decoding="async"
+        />
+        <div class="hero__scrim"></div>
+      </div>
       <div class="hero__glow hero__glow--right" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--left" aria-hidden="true"></div>
       <div class="container hero__container">
@@ -72,17 +81,20 @@
               <span class="hero-headline__line">
                 Certified <span class="text-gold">Vue.js</span> Developer
               </span>
-              <span class="hero-headline__line">&amp; Full-Stack Developer</span>
+              <span class="hero-headline__line">&amp; Senior Full-Stack Developer</span>
             </h1>
             <p class="hero-name load-hidden">Caesar Herman Hinlo</p>
             <span class="hero-divider load-hidden" aria-hidden="true"></span>
             <p class="hero-subtitle load-hidden">
-              12+ years building production software, from embedded C/C++
-              systems to full-stack Vue, React, and Laravel applications.
+              12+ years building production software. I take products from
+              idea to launch solo or with a team. Senior full-stack
+              developer, ISO auditor, patent trainer, and team lead.
+              Ranked in the top 5% at Kyocera (formerly Epson), and sent
+              to Japan for tech transfer and product rollouts.
             </p>
             <div class="hero-cta load-hidden">
               <a class="cta-btn cta-btn--primary" href="#projects">
-                Explore My Work
+                View Projects
               </a>
               <a
                 rel="noreferrer"
@@ -125,12 +137,11 @@
 
         <div class="about__intro">
           <p class="about__summary load-hidden">
-            From embedded firmware at Kyocera to full-stack web products
-            today, I ship production-grade software end-to-end, including
-            sole ownership of a BIR-accredited Computerized Accounting
-            System. ISO internal auditor and technical trainer with a
-            strong background in cross-border technology transfer and
-            legacy code modernization.
+            I started in embedded firmware at Kyocera and now build
+            full-stack web products. That includes sole ownership of a
+            BIR-accredited Computerized Accounting System. I'm also an
+            ISO internal auditor and technical trainer, with experience
+            in JP-PH tech transfer and modernizing legacy code.
           </p>
 
           <div class="about__highlights load-hidden">
@@ -139,12 +150,12 @@
               <span class="about__highlight-label">Years Experience</span>
             </div>
             <div class="about__highlight">
-              <span class="about__highlight-value">Vue.js</span>
-              <span class="about__highlight-label">Certified Developer</span>
+              <span class="about__highlight-value">Patent</span>
+              <span class="about__highlight-label">Trainer</span>
             </div>
             <div class="about__highlight">
-              <span class="about__highlight-value">Full-Stack</span>
-              <span class="about__highlight-label">Web &amp; Embedded</span>
+              <span class="about__highlight-value">Senior</span>
+              <span class="about__highlight-label">Full-Stack Developer</span>
             </div>
             <div class="about__highlight">
               <span class="about__highlight-value">ISO</span>
@@ -161,55 +172,139 @@
                   Solutions
                 </p>
                 <p class="timeline__meta">2025 – Present · Remote</p>
-                <ul class="timeline__list">
-                  <li>
-                    Built a multi-market remote job board on the VILT stack
-                    (Vue 3, Inertia.js, Laravel, Tailwind), live at
-                    <a
-                      rel="noreferrer"
-                      target="_blank"
-                      href="https://discoverjobs.org"
-                      >discoverjobs.org</a>,
-                    covering seeker, employer, and admin surfaces
-                    end-to-end as sole developer.
-                  </li>
-                  <li>
-                    Integrated Xendit payments via a custom invoice API
-                    client, with signed webhooks driving automated
-                    paid-listing activation.
-                  </li>
-                  <li>
-                    Used Cloudflare R2 (S3-compatible object storage) for
-                    scalable file and media storage.
-                  </li>
-                  <li>
-                    Aggregated listings from external job APIs with
-                    scheduled cache warming to prepopulate the job board at
-                    launch, indexed for fast, typo-tolerant discovery using
-                    Meilisearch and Redis.
-                  </li>
-                  <li>
-                    Implemented realtime application chat and notifications
-                    using Laravel Reverb and Echo over private WebSocket
-                    channels.
-                  </li>
-                  <li>
-                    Hardened authentication with Laravel Fortify, optional
-                    2FA (TOTP), and passkeys/WebAuthn; enforced authorization
-                    via Policies across seeker, employer, and admin roles.
-                  </li>
-                  <li>
-                    Designed a BIR-accredited Computerized Accounting System (CAS) 
-                    as a separate Laravel service integrated via an internal API client, 
-                    built and deployed within 1 month — architected to be spun off as a standalone product, 
-                    and has since drawn informal licensing interest from an accounting firm; integrated AI-powered document validation 
-                    to verify uploaded BIR Form 2307s and their content on submission, using LangChain, prompt engineering, and RAG to extract and cross-check form fields against submitted data.
-                  </li>
-                  <li>
-                    Shipped with PHPUnit feature tests, deploying to
-                    production on a VPS via Laravel Forge.
-                  </li>
-                </ul>
+
+                <div class="timeline__client">
+                  <p class="timeline__client-label">
+                    <span class="timeline__client-tag">Client</span>
+                    DiscoverJobs
+                  </p>
+                  <ul class="timeline__list">
+                    <li>
+                      Built a multi-market remote job board on the VILT stack
+                      (Vue 3, Inertia.js, Laravel, Tailwind), live at
+                      <a
+                        rel="noreferrer"
+                        target="_blank"
+                        href="https://discoverjobs.org"
+                        >discoverjobs.org</a>,
+                      covering seeker, employer, and admin surfaces
+                      as sole developer.
+                    </li>
+                    <li>
+                      Integrated Xendit payments via a custom invoice API
+                      client, with signed webhooks driving automated
+                      paid-listing activation.
+                    </li>
+                    <li>
+                      Used Cloudflare R2 (S3-compatible object storage) for
+                      scalable file and media storage.
+                    </li>
+                    <li>
+                      Aggregated listings from external job APIs with
+                      scheduled cache warming to prepopulate the job board at
+                      launch, indexed for fast, typo-tolerant discovery using
+                      Meilisearch and Redis.
+                    </li>
+                    <li>
+                      Implemented realtime application chat and notifications
+                      using Laravel Reverb and Echo over private WebSocket
+                      channels.
+                    </li>
+                    <li>
+                      Hardened authentication with Laravel Fortify, optional
+                      2FA (TOTP), and passkeys/WebAuthn; enforced authorization
+                      via Policies across seeker, employer, and admin roles.
+                    </li>
+                    <li>
+                      Designed a BIR-accredited Computerized Accounting System
+                      (CAS) as a separate Laravel service integrated via an
+                      internal API client. Built and deployed within 1 month,
+                      structured so it can ship as its own product, and has
+                      since drawn informal licensing interest from an
+                      accounting firm. Integrated AI document validation for
+                      uploaded BIR Form 2307s using LangChain, prompt
+                      engineering, and RAG to extract and cross-check form
+                      fields against submitted data.
+                    </li>
+                    <li>
+                      Shipped with PHPUnit feature tests, deploying to
+                      production on a VPS via Laravel Forge.
+                    </li>
+                  </ul>
+                  <p class="timeline__links-label">Website links</p>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    href="https://discoverjobs.org"
+                    >Visit DiscoverJobs</a
+                  >
+                  <button
+                    type="button"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    data-lightbox="assets/project-images/discoverjobs/photo-with-client.jpg"
+                    data-lightbox-alt="Photo with DiscoverJobs client"
+                    aria-label="View photo with client"
+                  >
+                    View photo with client
+                  </button>
+                </div>
+
+                <div class="timeline__client">
+                  <p class="timeline__client-label">
+                    <span class="timeline__client-tag">Client</span>
+                    The Retreat
+                  </p>
+                  <ul class="timeline__list">
+                    <li>
+                      Built the marketing site for The Retreat, a hillside
+                      vacation community on Possum Kingdom Lake in Graford,
+                      Texas. Covers lake home sales, amenities, local guide,
+                      gallery, and contact.
+                    </li>
+                    <li>
+                      Delivered the site on WordPress with the Avada theme,
+                      including brochure CTAs and property branding for scenic
+                      remodeled lake homes.
+                    </li>
+                  </ul>
+                  <p class="timeline__links-label">Website links</p>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    href="https://retreat2pk.com/"
+                    >Visit The Retreat</a
+                  >
+                </div>
+
+                <div class="timeline__client">
+                  <p class="timeline__client-label">
+                    <span class="timeline__client-tag">Client</span>
+                    The Falls RV Park
+                  </p>
+                  <ul class="timeline__list">
+                    <li>
+                      Built the marketing and booking site for The Falls RV
+                      Park in Davis, Oklahoma. Covers amenities, rates,
+                      policies, FAQ, gallery, and online reservations for
+                      full-hookup RV sites and onsite cabins.
+                    </li>
+                    <li>
+                      Delivered the site with GoDaddy Website Builder,
+                      including membership bookings and contact details for
+                      onsite managers.
+                    </li>
+                  </ul>
+                  <p class="timeline__links-label">Website links</p>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    href="https://thefallsrvpark.com/"
+                    >Visit The Falls RV Park</a
+                  >
+                </div>
               </div>
 
               <div class="timeline__item">
@@ -218,42 +313,117 @@
                   Full-Stack Developer, Elgada BPO Solutions
                 </p>
                 <p class="timeline__meta">2021 – 2025 · Remote</p>
-                <ul class="timeline__list">
-                  <li>
-                    Built features for Streamline Verify, a U.S. healthcare
-                    compliance and exclusion-screening client of Elgada BPO
-                    Solutions, contributing to a product used by licensed
-                    healthcare organizations nationwide.
-                  </li>
-                  <li>
-                    Implemented 10–50 front-end/back-end features and bug
-                    fixes per month, improving overall product stability.
-                  </li>
-                  <li>
-                    Improved internal documentation, including onboarding
-                    materials for new team members, streamlining ramp-up
-                    time.
-                  </li>
-                  <li>
-                    Performed UI and SQL performance optimizations,
-                    improving application responsiveness and query
-                    efficiency by up to 40%.
-                  </li>
-                  <li>
-                    Refactored legacy source code to modern technology
-                    stacks, improving maintainability and scalability.
-                  </li>
-                  <li>
-                    Worked across a multi-stack environment spanning React,
-                    Next.js, Vue, Laravel, and Python (Flask).
-                  </li>
-                  <li>
-                    Served as a technical point of contact for client-facing
-                    security due diligence, responding directly to
-                    end-client security questionnaires (including SOC 2) to
-                    support compliance reviews and vendor risk assessments.
-                  </li>
-                </ul>
+
+                <div class="timeline__client">
+                  <p class="timeline__client-label">
+                    <span class="timeline__client-tag">Client</span>
+                    Streamline Verify
+                  </p>
+                  <ul class="timeline__list">
+                    <li>
+                      Built features for Streamline Verify, a U.S. healthcare
+                      compliance and exclusion-screening platform used by
+                      licensed healthcare organizations nationwide.
+                    </li>
+                    <li>
+                      Implemented 10–50 front-end/back-end features and bug
+                      fixes per month to keep the product stable.
+                    </li>
+                    <li>
+                      Improved internal documentation, including onboarding
+                      materials that help new team members get up to speed
+                      faster.
+                    </li>
+                    <li>
+                      Performed UI and SQL performance optimizations that
+                      cut query time and improved responsiveness by up to 40%.
+                    </li>
+                    <li>
+                      Refactored legacy source code onto modern stacks so
+                      the codebase is easier to maintain and extend.
+                    </li>
+                    <li>
+                      Worked across a multi-stack environment spanning React,
+                      Next.js, Vue, Laravel, and Python (Flask).
+                    </li>
+                    <li>
+                      Served as a technical point of contact for client-facing
+                      security due diligence, responding directly to
+                      end-client security questionnaires (including SOC 2) to
+                      support compliance reviews and vendor risk assessments.
+                    </li>
+                  </ul>
+                  <p class="timeline__links-label">Website links</p>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    href="https://streamlineverify.com/"
+                    >Visit Streamline Verify</a
+                  >
+                  <button
+                    type="button"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    data-lightbox-gallery='[{"src":"assets/project-images/elgada-bpo/photo-with-client.jpg","alt":"Photo with Streamline Verify at Elgada BPO Solutions team building 2023 in El Nido, Palawan"},{"src":"assets/project-images/elgada-bpo/team-photo-with-client.jpg","alt":"Elgada BPO Solutions team photo with Streamline Verify"}]'
+                    aria-label="View photos with client"
+                  >
+                    View photos with client
+                  </button>
+                </div>
+
+                <div class="timeline__client">
+                  <p class="timeline__client-label">
+                    <span class="timeline__client-tag">Client</span>
+                    Cosawi
+                  </p>
+                  <ul class="timeline__list">
+                    <li>
+                      Built the marketing site for Cosawi, a consultancy that
+                      helps organizations with business transformation from
+                      vision and strategy through implementation.
+                    </li>
+                    <li>
+                      Delivered the site on WordPress with the Divi theme,
+                      covering company story, approach, resources, partner and
+                      client showcases, and a contact form.
+                    </li>
+                  </ul>
+                  <p class="timeline__links-label">Website links</p>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    href="https://cosawi.com/"
+                    >Visit Cosawi</a
+                  >
+                </div>
+
+                <div class="timeline__client">
+                  <p class="timeline__client-label">
+                    <span class="timeline__client-tag">Client</span>
+                    Lanterra Group
+                  </p>
+                  <ul class="timeline__list">
+                    <li>
+                      Built the marketing site for Lanterra Group, a North
+                      Texas real estate development and construction firm
+                      covering story, team, markets, services, project
+                      portfolio, careers, and contact.
+                    </li>
+                    <li>
+                      Delivered the site in Webflow with Lottie motion and a
+                      careers application form.
+                    </li>
+                  </ul>
+                  <p class="timeline__links-label">Website links</p>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--outline timeline__btn"
+                    href="https://www.lanterragroup.com/"
+                    >Visit Lanterra Group</a
+                  >
+                </div>
               </div>
 
               <div class="timeline__item">
@@ -270,15 +440,51 @@
                   <li>
                     Developed and maintained the organization's website
                     remotely from the Philippines while serving as a Board
-                    Member, contributing to organizational strategy and
-                    decision-making.
+                    Member involved in strategy and decision-making.
                   </li>
                   <li>
                     Conducted interviews with boxing champions and researched
-                    their careers and histories to support their recognition
-                    and honoring in the United States.
+                    their careers to support recognition events in the United
+                    States.
+                  </li>
+                  <li>
+                    Built the official and personal site for Eva D.
+                    Jones-Young (&ldquo;Sweet Magic&rdquo;), a 14× martial arts
+                    champion, 3× boxing world champion, and 10× Hall of Fame
+                    inductee. Built on Wix with bio, documentary, news,
+                    affiliations, merchandise, and contact.
+                  </li>
+                  <li>
+                    Delivered the e-commerce and brand site for Sweet Magic
+                    Popcorn LLC on GoDaddy Website Builder, including package
+                    details, nutrition info, brand story, media, and store
+                    links to Amazon and the web shop.
                   </li>
                 </ul>
+                <p class="timeline__links-label">Website links</p>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://evajonesyoung.wixsite.com/sweetmagic"
+                  >Visit Eva Jones-Young</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://sweetmagicpopcorn.com/"
+                  >Visit Sweet Magic Popcorn</a
+                >
+                <button
+                  type="button"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  data-lightbox="assets/project-images/champion4heroes/board-mention.jpg"
+                  data-lightbox-alt="Facebook post from Mel Twining naming Caesar Herman Hinlo as a Champion4Heroes board member from the Philippines"
+                  aria-label="View photo with client"
+                >
+                  View photo with client
+                </button>
               </div>
 
               <div class="timeline__item">
@@ -289,12 +495,12 @@
                 <p class="timeline__meta">2012 – 2020</p>
                 <ul class="timeline__list">
                   <li>
-                    Selected as part of the top 5% of applicants hired for
-                    the fiscal year, per HR presentation.
+                    Hired among the top 5% of applicants that fiscal year,
+                    per HR presentation.
                   </li>
                   <li>
-                    Conducted rigorous source code reviews to ensure
-                    quality, consistency, and adherence to coding standards.
+                    Reviewed source code for quality, consistency, and
+                    coding standards.
                   </li>
                   <li>
                     Served as Component Leader responsible for planning,
@@ -303,22 +509,21 @@
                     C++, and proprietary company frameworks.
                   </li>
                   <li>
-                    Recognized as one of the pioneer ISO internal auditors,
-                    contributing to the company's successful first-round ISO
+                    One of the first ISO internal auditors, part of the team
+                    that helped the company pass its first-round ISO
                     certification.
                   </li>
                   <li>
-                    Acted as Unit Test Instructor, training 15–30+ new
-                    software developers on testing standards and best
-                    practices.
+                    Unit Test Instructor for 15–30+ new software developers
+                    on testing standards and practices.
                   </li>
                   <li>
                     Designed and implemented features using PHP and jQuery,
                     extending product capabilities beyond embedded systems.
                   </li>
                   <li>
-                    Served as Patent Instructor, guiding engineers through
-                    patent documentation and submission processes.
+                    Patent Instructor who guided engineers through patent
+                    documentation and submission.
                   </li>
                   <li>
                     Selected for 3–5 assignments in Osaka, Japan, leading
@@ -326,6 +531,67 @@
                     rollouts.
                   </li>
                 </ul>
+                <p class="timeline__links-label">Website links</p>
+                <button
+                  type="button"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  data-lightbox="assets/project-images/novatech-how-to-guides/desktop.png"
+                  data-lightbox-alt="Kyocera MFP Android operation panel UI showing Device Information"
+                  aria-label="View panel UI sample"
+                >
+                  View panel UI sample
+                </button>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://www.kyoceradocumentsolutions.com/asia/en/products/mfp/ecosys-fs1125mfp/"
+                  >Visit Ecosys FS-1125MFP</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://www.kyoceradocumentsolutions.com/hk/en/products/mfp/taskalfa-2201/"
+                  >Visit TASKalfa 2201</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://www.kyoceradocumentsolutions.com/asia/en/products/business-application/command-center-rx.html"
+                  >Visit Command Center RX</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://www.kyoceradocumentsolutions.eu/en/products/mfp/ECOSYSM3860IDNF.html"
+                  >Visit ECOSYS M3860idnf</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://www.kyoceradocumentsolutions.us/en/products/mfp/TASKALFAMZ7001CI.html"
+                  >Visit TASKalfa MZ7001ci</a
+                >
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  href="https://www.kyoceradocumentsolutions.us/en/products/mfp/TASKALFAMZ2501CI.html"
+                  >Visit TASKalfa MZ2501ci</a
+                >
+                <button
+                  type="button"
+                  class="cta-btn cta-btn--outline timeline__btn"
+                  data-lightbox="assets/project-images/kyocera/photo-with-client.png"
+                  data-lightbox-alt="Team dinner with Kyocera colleagues in Japan"
+                  aria-label="View photo with client"
+                >
+                  View photo with client
+                </button>
               </div>
         </div>
       </div>
@@ -392,6 +658,9 @@
             <div class="skills__tags">
               <span class="tag">Full-Stack Development</span>
               <span class="tag">Embedded Systems</span>
+              <span class="tag">WordPress CMS</span>
+              <span class="tag">Webflow</span>
+              <span class="tag">GoDaddy Website Builder</span>
               <span class="tag">PHPUnit</span>
               <span class="tag">CI/CD</span>
               <span class="tag">Fortify / 2FA / WebAuthn</span>
@@ -427,14 +696,15 @@
             </div>
             <div class="project-card__body">
               <h4 class="project-card__title">DiscoverJobs</h4>
+              <p class="project-card__meta">DevResearch · Client Project</p>
               <p class="project-card__desc">
                 Multi-market remote job board built solo on the VILT stack
                 (Vue 3, Inertia.js, Laravel, Tailwind), covering seeker,
-                employer, and admin surfaces end-to-end. Features Xendit
-                payments with signed webhooks, Meilisearch/Redis-backed
-                search, realtime chat via Laravel Reverb and Echo, and a
-                BIR-accredited Computerized Accounting System integrated as a
-                companion service.
+                employer, and admin surfaces. Features Xendit payments with
+                signed webhooks, Meilisearch/Redis-backed search, realtime
+                chat via Laravel Reverb and Echo, and a BIR-accredited
+                Computerized Accounting System integrated as a companion
+                service.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">Vue 3</span>
@@ -479,19 +749,22 @@
               <h4 class="project-card__title">BIR CAS</h4>
               <p class="project-card__meta">Companion Service to DiscoverJobs · Sole Developer</p>
               <p class="project-card__desc">
-                A BIR-accredited Computerized Accounting System built as a standalone
-                Laravel service, integrated with DiscoverJobs via an internal API
-                client and designed and deployed within one month. Tracks the full
-                money flow required under RR No. 9-2009: invoices and official
-                receipts feed the Sales, Cash Receipts, and Cash Disbursements books,
-                rolling up through the General Journal and Ledger to a Trial Balance,
-                Statement of Comprehensive Income, Statement of Financial Position,
-                and a complete audit trail, architected to be spun off as a
-                standalone, licensable product.
+                BIR-accredited Computerized Accounting System with AI document
+                validation, built as a standalone Laravel service and integrated
+                with DiscoverJobs via an internal API client. Designed and
+                deployed within one month. Tracks the full money flow required
+                under RR No. 9-2009: invoices and official receipts feed the
+                Sales, Cash Receipts, and Cash Disbursements books, rolling up
+                through the General Journal and Ledger to a Trial Balance,
+                Statement of Comprehensive Income, Statement of Financial
+                Position, and a complete audit trail. Uses LangChain, prompt
+                engineering, and RAG to validate uploaded BIR Form 2307s.
+                Structured so it can ship as its own product.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">Laravel</span>
                 <span class="tag tag--sm">PHP</span>
+                <span class="tag tag--sm">AI / LangChain</span>
                 <span class="tag tag--sm">BIR Compliance</span>
                 <span class="tag tag--sm">Accounting</span>
                 <span class="tag tag--sm">REST API</span>
@@ -512,21 +785,23 @@
               <h4 class="project-card__title">Streamline Verify</h4>
               <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
               <p class="project-card__desc">
-                Client of Elgada BPO Solutions, a U.S. healthcare compliance
-                and exclusion-screening platform used by licensed healthcare
-                organizations nationwide. Contributed full-stack features while
-                at Elgada BPO Solutions across React, Next.js, Vue, Laravel, and
-                Python (Flask), including UI and SQL performance optimizations,
-                legacy refactors, and client-facing security due diligence for
-                SOC 2 compliance reviews.
+                Client of Elgada BPO Solutions. U.S. healthcare compliance and
+                exclusion-screening platform on Salesforce, used by licensed
+                healthcare organizations nationwide. Contributed full-stack
+                features at Elgada across React, Next.js, Vue, Laravel, and
+                Python (Flask), including UI and SQL performance work, legacy
+                refactors, and client-facing security due diligence for SOC 2
+                reviews.
               </p>
               <div class="project-card__tags">
+                <span class="tag tag--sm">Salesforce</span>
                 <span class="tag tag--sm">React</span>
                 <span class="tag tag--sm">Next.js</span>
                 <span class="tag tag--sm">Vue</span>
                 <span class="tag tag--sm">Laravel</span>
                 <span class="tag tag--sm">Python</span>
                 <span class="tag tag--sm">Flask</span>
+                <span class="tag tag--sm">AI</span>
               </div>
               <div class="project-card__links">
                 <a
@@ -539,10 +814,275 @@
               </div>
             </div>
           </article>
+
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="Cosawi consultancy website"
+                src="assets/project-images/cosawi/desktop.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Cosawi</h4>
+              <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
+              <p class="project-card__desc">
+                Marketing site for Cosawi, a consultancy that helps
+                organizations with business transformation from vision and
+                strategy through implementation. Built on WordPress with the
+                Divi theme, covering who they are, their approach, resources,
+                partner and client showcases, and a contact form.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">WordPress</span>
+                <span class="tag tag--sm">Divi</span>
+                <span class="tag tag--sm">PHP</span>
+                <span class="tag tag--sm">CSS</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://cosawi.com/"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="Lanterra Group, real estate development website"
+                src="assets/project-images/lanterragroup/desktop.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Lanterra Group</h4>
+              <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
+              <p class="project-card__desc">
+                Marketing site for Lanterra Group, a North Texas real estate
+                development and construction firm covering story, team,
+                markets, services, project portfolio, careers, and contact.
+                Built in Webflow with Lottie motion and a careers application
+                form.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Webflow</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://www.lanterragroup.com/"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="The Falls RV Park website"
+                src="assets/project-images/thefallsrvpark/desktop.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">The Falls RV Park</h4>
+              <p class="project-card__meta">DevResearch · Client Project</p>
+              <p class="project-card__desc">
+                Marketing and booking site for The Falls RV Park in Davis,
+                Oklahoma. Covers amenities, rates, policies, FAQ, gallery, and
+                online reservations for full-hookup RV sites and onsite cabins.
+                Built with GoDaddy Website Builder, including membership
+                bookings and contact details for onsite managers.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">GoDaddy</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://thefallsrvpark.com/"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="Eva D. Jones-Young official website"
+                src="assets/project-images/evajonesyoung/desktop.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Eva D. Jones-Young</h4>
+              <p class="project-card__meta">Client Project</p>
+              <p class="project-card__desc">
+                Official and personal site for Eva D. Jones-Young (&ldquo;Sweet
+                Magic&rdquo;), a 14× martial arts champion, 3× boxing world
+                champion, and 10× Hall of Fame inductee. Built on Wix with bio,
+                documentary, news, affiliations, contact, merchandise, and a
+                link through to Sweet Magic Popcorn.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Wix</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://evajonesyoung.wixsite.com/sweetmagic"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="Sweet Magic Popcorn website"
+                src="assets/project-images/sweetmagicpopcorn/desktop.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Sweet Magic Popcorn</h4>
+              <p class="project-card__meta">Client Project</p>
+              <p class="project-card__desc">
+                E-commerce and brand site for Sweet Magic Popcorn LLC,
+                featuring NON-GMO Indiana-grown kernels, package details, salt
+                and seasonings, nutrition info, and links to Amazon and website
+                stores. Built with GoDaddy Website Builder, including brand
+                story pages, media, and contact signup.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">GoDaddy</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://sweetmagicpopcorn.com/"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <div class="project-card__image">
+              <img
+                alt="The Retreat at Possum Kingdom Lake website"
+                src="assets/project-images/retreat2pk/desktop.png"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-card__body">
+              <h4 class="project-card__title">The Retreat</h4>
+              <p class="project-card__meta">DevResearch · Client Project</p>
+              <p class="project-card__desc">
+                Marketing site for The Retreat, a hillside vacation community
+                on Possum Kingdom Lake in Graford, Texas. Covers lake home
+                sales, amenities, local guide, gallery, and contact. Built on
+                WordPress with the Avada theme, including brochure CTAs and
+                property branding for scenic remodeled lake homes.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">WordPress</span>
+                <span class="tag tag--sm">Avada</span>
+                <span class="tag tag--sm">PHP</span>
+                <span class="tag tag--sm">CSS</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://retreat2pk.com/"
+                  >Live Site</a
+                >
+              </div>
+            </div>
+          </article>
         </div>
 
         <h3 class="projects__subheading">Enterprise &amp; Firmware</h3>
         <div class="projects__grid">
+          <article class="project-card">
+            <button
+              type="button"
+              class="project-card__image project-card__image--product project-card__image--expandable"
+              data-lightbox="assets/project-images/novatech-how-to-guides/desktop.png"
+              data-lightbox-alt="Kyocera MFP Android operation panel UI showing Device Information"
+              aria-label="View full Kyocera operation panel UI sample"
+            >
+              <img
+                alt="Kyocera MFP Android operation panel UI showing Device Information"
+                src="assets/project-images/novatech-how-to-guides/desktop.png"
+                loading="lazy"
+              />
+              <span class="project-card__expand-hint">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                View panel UI sample
+              </span>
+            </button>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Kyocera MFP Operation Panel</h4>
+              <p class="project-card__meta">
+                Kyocera Document Solutions · Lead
+              </p>
+              <p class="project-card__desc">
+                Led the Android operation-panel UI for Kyocera
+                multifunctional printers: home apps (Copy, Send, FAX, Custom
+                Box), system menus, and Device Information used in the field.
+                Official Kyocera product pages do not publish panel UI samples;
+                preview shown via a public how-to guide that documents the live
+                panel.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Android</span>
+                <span class="tag tag--sm">Java</span>
+                <span class="tag tag--sm">UI</span>
+                <span class="tag tag--sm">Embedded</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://novatech.net/how-to-guides/find-your-kyocera-ip-address"
+                  >UI Sample</a
+                >
+              </div>
+            </div>
+          </article>
+
           <article class="project-card">
             <a
               class="project-card__image project-card__image--product"
@@ -560,9 +1100,14 @@
               <h4 class="project-card__title">
                 Kyocera Ecosys FS-1025MFP &amp; FS-1125MFP
               </h4>
+              <p class="project-card__meta">
+                Kyocera Document Solutions · Component Leader
+              </p>
               <p class="project-card__desc">
-                Firmware written in C, using frameworks and libraries
-                designed and developed by the Japan team.
+                Component Leader for Face and Maintenance Mode firmware in C,
+                using frameworks and libraries from the Japan team. This role
+                meant recurring trips for JP–PH tech transfer, alignment, and
+                product rollout.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">C</span>
@@ -594,9 +1139,14 @@
             </a>
             <div class="project-card__body">
               <h4 class="project-card__title">TASKalfa 2200 / 2201</h4>
+              <p class="project-card__meta">
+                Kyocera Document Solutions · Team Leader
+              </p>
               <p class="project-card__desc">
-                Firmware written in C++, using frameworks and libraries
-                designed and developed by the Philippine team.
+                Team Leader for Face and Maintenance Mode firmware in C++,
+                using frameworks and libraries designed and developed by the
+                Philippine team. This role meant recurring trips for
+                JP–PH tech transfer, alignment, and product rollout.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">C++</span>
@@ -607,6 +1157,50 @@
                   target="_blank"
                   class="project-card__link"
                   href="https://www.kyoceradocumentsolutions.com/hk/en/products/mfp/taskalfa-2201/"
+                  >Product Page</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a
+              class="project-card__image project-card__image--product"
+              href="https://www.kyoceradocumentsolutions.com/asia/en/products/business-application/command-center-rx.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                alt="Kyocera Command Center RX embedded web interface"
+                src="assets/project-images/kyocera/command-center-rx.png"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Command Center RX</h4>
+              <p class="project-card__meta">
+                Kyocera Document Solutions · Web Product
+              </p>
+              <p class="project-card__desc">
+                Embedded web server built into Kyocera MFPs. Browser access via
+                device IP for device status, toner and paper levels,
+                maintenance kits, job monitoring, address book, document boxes,
+                and admin configuration (network, security, remote operation).
+                Implemented web UI features with PHP and jQuery.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">PHP</span>
+                <span class="tag tag--sm">jQuery</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://www.kyoceradocumentsolutions.com/asia/en/products/business-application/command-center-rx.html"
                   >Product Page</a
                 >
               </div>
@@ -641,6 +1235,88 @@
                   target="_blank"
                   class="project-card__link"
                   href="https://www.kyoceradocumentsolutions.eu/en/products/mfp/ECOSYSM3860IDNF.html"
+                  >Product Page</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a
+              class="project-card__image project-card__image--product"
+              href="https://www.kyoceradocumentsolutions.us/en/products/mfp/TASKALFAMZ7001CI.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                alt="Kyocera TASKalfa MZ7001ci"
+                src="assets/project-images/kyocera/taskalfa-mz7001ci.png"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">TASKalfa MZ7001ci</h4>
+              <p class="project-card__meta">
+                Kyocera Document Solutions · A3 Color MFP
+              </p>
+              <p class="project-card__desc">
+                High-speed A3 color MFP (70 ppm) with cloud-ready solutions, AI
+                scanning features, and embedded operation-panel software.
+                Contributed embedded firmware and panel UI work for the
+                TASKalfa MZ series using C/C++ and company frameworks.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">C</span>
+                <span class="tag tag--sm">C++</span>
+                <span class="tag tag--sm">Embedded</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://www.kyoceradocumentsolutions.us/en/products/mfp/TASKALFAMZ7001CI.html"
+                  >Product Page</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a
+              class="project-card__image project-card__image--product"
+              href="https://www.kyoceradocumentsolutions.us/en/products/mfp/TASKALFAMZ2501CI.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                alt="Kyocera TASKalfa MZ2501ci"
+                src="assets/project-images/kyocera/taskalfa-mz2501ci.png"
+                loading="lazy"
+              />
+            </a>
+            <div class="project-card__body">
+              <h4 class="project-card__title">TASKalfa MZ2501ci</h4>
+              <p class="project-card__meta">
+                Kyocera Document Solutions · A3 Color MFP
+              </p>
+              <p class="project-card__desc">
+                A3 color MFP (25 ppm) in the TASKalfa MZ series with integrated
+                cloud solutions, AI-assisted scanning, and durable long-life
+                components. Contributed embedded firmware and panel UI work
+                using C/C++ and company frameworks.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">C</span>
+                <span class="tag tag--sm">C++</span>
+                <span class="tag tag--sm">Embedded</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://www.kyoceradocumentsolutions.us/en/products/mfp/TASKALFAMZ2501CI.html"
                   >Product Page</a
                 >
               </div>
@@ -866,7 +1542,7 @@
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
           <p class="contact-wrapper__text">
-            Let's create something exceptional together.
+            Open to new projects and full-time roles.
           </p>
           <div class="contact-wrapper__cta">
             <a
@@ -1016,11 +1692,28 @@
         >
           &times;
         </button>
+        <button
+          type="button"
+          class="image-lightbox__nav image-lightbox__nav--prev"
+          aria-label="Previous image"
+          hidden
+        >
+          &#8249;
+        </button>
+        <button
+          type="button"
+          class="image-lightbox__nav image-lightbox__nav--next"
+          aria-label="Next image"
+          hidden
+        >
+          &#8250;
+        </button>
         <img
           class="image-lightbox__img"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           alt=""
         />
+        <p class="image-lightbox__counter" hidden></p>
       </div>
     </div>
   </body>
