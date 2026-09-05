@@ -251,6 +251,14 @@
   text-align: left;
   text-shadow: 0 1px 18px rgba(0, 0, 0, 0.55);
 
+  p {
+    margin: 0 0 1.6rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   @include respond(tab-port) {
     margin-left: auto;
     margin-right: auto;
