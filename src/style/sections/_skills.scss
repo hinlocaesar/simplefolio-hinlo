@@ -30,7 +30,9 @@
 }
 
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
   flex: 0 1 auto;
   max-width: 100%;
   padding: 0.8rem 1.8rem;
@@ -51,6 +53,17 @@
       transform: translateY(-2px);
     }
   }
+}
+
+.tag__icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.tag__icon--invert {
+  filter: invert(1);
 }
 
 .tag--sm {
