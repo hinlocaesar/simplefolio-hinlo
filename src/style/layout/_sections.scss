@@ -8,7 +8,17 @@
 
   .container {
     min-width: 0;
-    max-width: 100%;
+    width: 100%;
+    max-width: $container-max;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-pad;
+    padding-right: $container-pad;
+
+    @include respond(phone) {
+      padding-left: $container-pad-sm;
+      padding-right: $container-pad-sm;
+    }
   }
 }
 
@@ -16,7 +26,5 @@
 section {
   @include respond(phone) {
     border: none;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
   }
 }

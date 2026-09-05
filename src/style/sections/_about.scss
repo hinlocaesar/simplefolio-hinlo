@@ -84,6 +84,11 @@
     padding-bottom: 0;
     border-left-color: transparent;
   }
+
+  @include respond(phone) {
+    padding-left: 2rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .timeline__dot {
@@ -157,47 +162,110 @@
 
 .timeline__client {
   margin-top: 0;
-  padding: 2.4rem 2.4rem 2.4rem 2.2rem;
+  padding: 0;
   background-color: $bg-primary;
   border: 1px solid $border-gold;
   border-left: 3px solid $gold;
   border-radius: $radius-md;
 
   & + & {
-    margin-top: 1.6rem;
-  }
-
-  @include respond(phone) {
-    padding: 2rem 1.6rem 2rem 1.6rem;
+    margin-top: 1.2rem;
   }
 }
 
 .timeline__client-label {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.8rem 1.2rem;
-  margin: 0 0 1.6rem;
-  padding-bottom: 1.4rem;
-  border-bottom: 1px solid $border-gold;
+  display: list-item;
+  position: relative;
+  width: 100%;
+  min-height: 4.8rem;
+  margin: 0;
+  padding: 1.6rem 3.6rem 1.6rem 2rem;
+  border-bottom: none;
   font-family: "Cormorant Garamond", serif;
   font-size: 2.4rem;
   font-weight: 600;
   line-height: 1.2;
   color: $text-primary;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(201, 169, 98, 0.16);
+
+  &::marker {
+    content: "";
+    display: none;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.6rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-right: 1.5px solid $gold;
+    border-bottom: 1.5px solid $gold;
+    transform: translateY(-80%) rotate(45deg);
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    color: $gold-light;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: -4px;
+  }
 
   @include respond(phone) {
+    min-height: 5.2rem;
+    padding: 1.4rem 3.2rem 1.4rem 1.6rem;
     font-size: 2rem;
   }
 }
 
+.timeline__client[open] .timeline__client-label {
+  border-bottom: 1px solid $border-gold;
+
+  &::after {
+    transform: translateY(-20%) rotate(-135deg);
+  }
+}
+
+.timeline__client-body {
+  padding: 2rem 2.4rem 2.4rem 2.2rem;
+
+  @include respond(phone) {
+    padding: 1.6rem 1.6rem 2rem;
+  }
+}
+
+.timeline__client-heading {
+  display: block;
+}
+
 .timeline__client-tag {
+  display: inline-block;
+  margin-right: 1rem;
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $gold;
+  vertical-align: middle;
+
+  @include respond(phone) {
+    display: block;
+    margin: 0 0 0.4rem;
+  }
 }
 
 .timeline__links-label {
@@ -234,4 +302,12 @@
   margin-right: 1rem;
   padding: 0.8rem 1.8rem;
   font-size: 1.2rem;
+
+  @include respond(phone) {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    padding: 1.5rem 1.6rem;
+    text-align: center;
+  }
 }

@@ -17,13 +17,13 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1140px;
+    max-width: $container-max;
     margin: 0 auto;
-    padding: 1.8rem 2.4rem;
+    padding: 1.8rem $container-pad;
     padding-top: max(1.8rem, env(safe-area-inset-top, 0px));
 
     @include respond(phone) {
-      padding: 1.4rem 1.6rem;
+      padding: 1.4rem $container-pad-sm;
       padding-top: max(1.4rem, env(safe-area-inset-top, 0px));
     }
   }
