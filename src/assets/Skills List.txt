@@ -1,32 +1,36 @@
-[LANGUAGES & FRAMEWORKS]
+[LANGUAGES]
 HTML
 CSS
 JavaScript
 TypeScript
+PHP
+Python
+C
+C++
+C#
+
+[FRAMEWORKS & LIBRARIES]
 Vue.js (Certified)
 Pinia
 React
 Redux
 Next.js
-C
-C++
-C#
+Laravel
+Inertia.js
+Flask
+Django
 ASP.NET Core
 jQuery
-Python
-Flask
-PHP
-Laravel
 
 [APIS & INTEGRATION]
 REST API
 GraphQL
-Inertia.js
 Webhooks
 Laravel Reverb / Echo
 Xendit Payments
+Salesforce
 
-[DATABASES & CLOUD]
+[DATABASES, CLOUD & MONITORING]
 MySQL
 SQL (Certified)
 Redis
@@ -34,17 +38,23 @@ Meilisearch
 Microsoft Azure (Certified)
 Cloudflare R2
 Laravel Forge
+Sentry
 Laravel Nightwatch
 
-[PRACTICES & OTHER]
-Full-Stack Development
-Embedded Systems
+[TOOLS & PLATFORMS]
+Linux
 WordPress CMS
 Webflow
 GoDaddy Website Builder
 PHPUnit
 CI/CD
 Fortify / 2FA / WebAuthn
+Cursor
+Claude Code
+
+[PRACTICES]
+Full-Stack Development
+Embedded Systems
 Legacy Code Refactoring
 ISO Auditing
 Technical Training

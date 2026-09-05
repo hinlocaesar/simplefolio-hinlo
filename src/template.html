@@ -235,6 +235,10 @@
                       Shipped with PHPUnit feature tests, deploying to
                       production on a VPS via Laravel Forge.
                     </li>
+                    <li>
+                      Monitored production health, errors, and performance
+                      with Laravel Nightwatch.
+                    </li>
                   </ul>
                   <p class="timeline__links-label">Web technologies stack</p>
                   <div class="timeline__stack">
@@ -253,6 +257,7 @@
                     <span class="tag tag--sm">LangChain / RAG</span>
                     <span class="tag tag--sm">PHPUnit</span>
                     <span class="tag tag--sm">Laravel Forge</span>
+                    <span class="tag tag--sm">Laravel Nightwatch</span>
                   </div>
                   <p class="timeline__links-label">Website links</p>
                   <a
@@ -402,6 +407,10 @@
                       end-client security questionnaires (including SOC 2) to
                       support compliance reviews and vendor risk assessments.
                     </li>
+                    <li>
+                      Used Sentry for error tracking and performance
+                      monitoring in production.
+                    </li>
                   </ul>
                   <p class="timeline__links-label">Web technologies stack</p>
                   <div class="timeline__stack">
@@ -415,6 +424,7 @@
                     <span class="tag tag--sm">Flask</span>
                     <span class="tag tag--sm">SQL</span>
                     <span class="tag tag--sm">SOC 2</span>
+                    <span class="tag tag--sm">Sentry</span>
                   </div>
                   <p class="timeline__links-label">Website links</p>
                   <a
@@ -772,26 +782,34 @@
 
         <div class="skills__grid">
           <div class="skills__group">
-            <h3 class="skills__group-title">Languages &amp; Frameworks</h3>
+            <h3 class="skills__group-title">Languages</h3>
             <div class="skills__tags">
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/html5.svg" alt="" width="18" height="18" />HTML</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/css3.svg" alt="" width="18" height="18" />CSS</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/javascript.svg" alt="" width="18" height="18" />JavaScript</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/typescript.svg" alt="" width="18" height="18" />TypeScript</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/php.svg" alt="" width="18" height="18" />PHP</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/python.svg" alt="" width="18" height="18" />Python</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/c.svg" alt="" width="18" height="18" />C</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cplusplus.svg" alt="" width="18" height="18" />C++</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/csharp.svg" alt="" width="18" height="18" />C#</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Frameworks &amp; Libraries</h3>
+            <div class="skills__tags">
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/vuejs.svg" alt="" width="18" height="18" />Vue.js (Certified)</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/pinia.svg" alt="" width="18" height="18" />Pinia</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/react.svg" alt="" width="18" height="18" />React</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/redux.svg" alt="" width="18" height="18" />Redux</span>
               <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/nextjs.svg" alt="" width="18" height="18" />Next.js</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/c.svg" alt="" width="18" height="18" />C</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cplusplus.svg" alt="" width="18" height="18" />C++</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/csharp.svg" alt="" width="18" height="18" />C#</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/inertia.svg" alt="" width="18" height="18" />Inertia.js</span>
+              <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/flask.svg" alt="" width="18" height="18" />Flask</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/django.svg" alt="" width="18" height="18" />Django</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />ASP.NET Core</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/jquery.svg" alt="" width="18" height="18" />jQuery</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/python.svg" alt="" width="18" height="18" />Python</span>
-              <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/flask.svg" alt="" width="18" height="18" />Flask</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/php.svg" alt="" width="18" height="18" />PHP</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel</span>
             </div>
           </div>
 
@@ -800,15 +818,15 @@
             <div class="skills__tags">
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/rest-api.svg" alt="" width="18" height="18" />REST API</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/graphql.svg" alt="" width="18" height="18" />GraphQL</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/inertia.svg" alt="" width="18" height="18" />Inertia.js</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/webhooks.svg" alt="" width="18" height="18" />Webhooks</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Reverb / Echo</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/xendit.svg" alt="" width="18" height="18" />Xendit Payments</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/salesforce.svg" alt="" width="18" height="18" />Salesforce</span>
             </div>
           </div>
 
           <div class="skills__group">
-            <h3 class="skills__group-title">Databases &amp; Cloud</h3>
+            <h3 class="skills__group-title">Databases, Cloud &amp; Monitoring</h3>
             <div class="skills__tags">
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/mysql.svg" alt="" width="18" height="18" />MySQL</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/sql.svg" alt="" width="18" height="18" />SQL (Certified)</span>
@@ -817,21 +835,31 @@
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/azure.svg" alt="" width="18" height="18" />Microsoft Azure (Certified)</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/cloudflare.svg" alt="" width="18" height="18" />Cloudflare R2</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Forge</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/sentry.svg" alt="" width="18" height="18" />Sentry</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Nightwatch</span>
             </div>
           </div>
 
           <div class="skills__group">
-            <h3 class="skills__group-title">Practices &amp; Other</h3>
+            <h3 class="skills__group-title">Tools &amp; Platforms</h3>
             <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/fullstack.svg" alt="" width="18" height="18" />Full-Stack Development</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/embedded.svg" alt="" width="18" height="18" />Embedded Systems</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/linux.svg" alt="" width="18" height="18" />Linux</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/wordpress.svg" alt="" width="18" height="18" />WordPress CMS</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/webflow.svg" alt="" width="18" height="18" />Webflow</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/godaddy.svg" alt="" width="18" height="18" />GoDaddy Website Builder</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/phpunit.svg" alt="" width="18" height="18" />PHPUnit</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/githubactions.svg" alt="" width="18" height="18" />CI/CD</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/webauthn.svg" alt="" width="18" height="18" />Fortify / 2FA / WebAuthn</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cursor.svg" alt="" width="18" height="18" />Cursor</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/claude.svg" alt="" width="18" height="18" />Claude Code</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Practices</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/fullstack.svg" alt="" width="18" height="18" />Full-Stack Development</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/embedded.svg" alt="" width="18" height="18" />Embedded Systems</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/legacy.svg" alt="" width="18" height="18" />Legacy Code Refactoring</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/iso.svg" alt="" width="18" height="18" />ISO Auditing</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/training.svg" alt="" width="18" height="18" />Technical Training</span>
@@ -870,9 +898,9 @@
                 (Vue 3, Inertia.js, Laravel, Tailwind), covering seeker,
                 employer, and admin surfaces. Features Xendit payments with
                 signed webhooks, Meilisearch/Redis-backed search, realtime
-                chat via Laravel Reverb and Echo, and a BIR-accredited
-                Computerized Accounting System integrated as a companion
-                service.
+                chat via Laravel Reverb and Echo, Laravel Nightwatch for
+                production monitoring, and a BIR-accredited Computerized
+                Accounting System integrated as a companion service.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">Vue 3</span>
@@ -882,6 +910,7 @@
                 <span class="tag tag--sm">Meilisearch</span>
                 <span class="tag tag--sm">Redis</span>
                 <span class="tag tag--sm">Xendit</span>
+                <span class="tag tag--sm">Laravel Nightwatch</span>
               </div>
               <div class="project-card__links">
                 <a
@@ -967,8 +996,9 @@
                 organizations nationwide. Contributed full-stack features at
                 Elgada across React, Next.js, GraphQL, Vue, Laravel, and Python
                 (Flask), including internal sales tools connected to
-                Salesforce, UI and SQL performance work, legacy refactors, and
-                client-facing security due diligence for SOC 2 reviews.
+                Salesforce, UI and SQL performance work, legacy refactors,
+                client-facing security due diligence for SOC 2 reviews, and
+                Sentry for error tracking and performance monitoring.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">Salesforce</span>
@@ -980,6 +1010,7 @@
                 <span class="tag tag--sm">Python</span>
                 <span class="tag tag--sm">Flask</span>
                 <span class="tag tag--sm">AI</span>
+                <span class="tag tag--sm">Sentry</span>
               </div>
               <div class="project-card__links">
                 <a
