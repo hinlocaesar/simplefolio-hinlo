@@ -44,6 +44,7 @@ Laravel Nightwatch
 [TOOLS & PLATFORMS]
 Linux
 WordPress CMS
+Elementor
 Webflow
 GoDaddy Website Builder
 PHPUnit
