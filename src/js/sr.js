@@ -25,7 +25,7 @@ export default function initSr() {
   );
 
   ScrollReveal().reveal(
-    ".hero-headline, .hero__name, .hero__subtitle, .hero__cta, .hero__facts",
+    ".hero__mobile-portrait, .hero-headline, .hero__name, .hero__subtitle, .hero__cta, .hero__facts",
     assignProps({ origin: "bottom" }, defaultProps)
   );
 

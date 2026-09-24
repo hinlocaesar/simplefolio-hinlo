@@ -119,6 +119,19 @@
     min-width: 0;
   }
 
+  &__mobile-portrait {
+    display: none;
+  }
+
+  &__mobile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    transform: scale(2.45);
+    transform-origin: center 22%;
+  }
+
   &__name {
     margin: 0 0 2rem;
     color: rgba(255, 255, 255, 0.68);
@@ -294,6 +307,21 @@
 }
 
 @media (max-width: 37.5em) {
+  .hero__mobile-portrait {
+    display: block;
+    width: 9.6rem;
+    aspect-ratio: 1;
+    margin: 0 auto 2.4rem;
+    padding: 0.35rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 50%;
+    background: #000000;
+    box-shadow:
+      0 0 0 0.25rem $accent,
+      0 1.2rem 3rem rgba(0, 0, 0, 0.55);
+  }
+
   .hero__subtitle {
     font-size: 1.55rem;
   }

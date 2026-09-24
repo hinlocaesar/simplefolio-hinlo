@@ -113,6 +113,128 @@
   }
 }
 
+.timeline__item--freelance {
+  .timeline__label {
+    font-size: 2rem;
+  }
+
+  .timeline__meta {
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .timeline__dot {
+    background: #35c759;
+    box-shadow: 0 0 0 0.1rem rgba(53, 199, 89, 0.5);
+  }
+
+  .timeline__client {
+    border-left-color: #35c759;
+  }
+
+  .timeline__client-tag {
+    color: #35c759;
+  }
+
+  .timeline__project-group {
+    overflow: hidden;
+    border: 1px solid #303030;
+    border-left: 0.4rem solid #35c759;
+    border-radius: $radius-sm;
+    background: #0c0c0c;
+  }
+
+  .timeline__project-group-summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 5.2rem;
+    padding: 1.4rem 4rem 1.4rem 1.8rem;
+    color: $white-color;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 1.6rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-right: 0.2rem solid #35c759;
+      border-bottom: 0.2rem solid #35c759;
+      transform: translateY(-75%) rotate(45deg);
+      transition: transform $transition-fast;
+    }
+
+    &:hover {
+      background: #111111;
+    }
+  }
+
+  .timeline__project-group[open] .timeline__project-group-summary {
+    border-bottom: 1px solid #303030;
+
+    &::after {
+      transform: translateY(-25%) rotate(-135deg);
+    }
+  }
+
+  .timeline__project-group-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .timeline__project-group-tag {
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(53, 199, 89, 0.65);
+    border-radius: 2px;
+    background: rgba(53, 199, 89, 0.12);
+    color: #35c759;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .timeline__project-group-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .timeline__project-group-count {
+    margin-left: auto;
+    color: $text-muted;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .timeline__project-group-body {
+    display: grid;
+    gap: 1rem;
+    padding: 1.2rem;
+
+    .timeline__client,
+    .timeline__client + .timeline__client {
+      margin-top: 0;
+    }
+  }
+}
+
 .timeline__client {
   margin-top: 1.2rem;
   padding: 0;
