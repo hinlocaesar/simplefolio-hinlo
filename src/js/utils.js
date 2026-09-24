@@ -6,7 +6,7 @@ export function addResume(resumeUrl) {
     button.setAttribute("href", resumeUrl);
     button.setAttribute(
       "download",
-      "Caesar_Hinlo_Resume_Full_Stack_Developer.docx"
+      "Senior_Full_Stack_Developer_Caesar_Hinlo_Resume.docx"
     );
   });
 }

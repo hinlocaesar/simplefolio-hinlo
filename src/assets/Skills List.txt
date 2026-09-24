@@ -57,6 +57,8 @@ CI/CD
 Fortify / 2FA / WebAuthn
 Cursor
 Claude Code
+Clearforce
+Jira
 
 [PRACTICES]
 Full-Stack Development

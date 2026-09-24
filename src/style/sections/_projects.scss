@@ -103,7 +103,8 @@
   flex: 0 0 32rem;
   flex-direction: column;
   width: 32rem;
-  height: 69rem;
+  height: auto;
+  min-height: 0;
   max-width: 100%;
   min-width: 0;
   overflow: hidden;
@@ -122,7 +123,7 @@
   @include respond(phone) {
     flex-basis: 79vw;
     width: 79vw;
-    height: 73rem;
+    height: auto;
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -170,6 +171,24 @@
 .project-card__image--product {
   aspect-ratio: 1 / 1;
   padding: 1.6rem;
+  background: $product-photo-bg;
+
+  img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover & img {
+      transform: scale(1.025);
+      filter: brightness(1);
+    }
+  }
+}
+
+.project-card__image--diagram {
+  aspect-ratio: 16 / 9;
+  padding: 1rem;
   background: $product-photo-bg;
 
   img {
