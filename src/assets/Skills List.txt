@@ -18,8 +18,12 @@ Next.js
 Laravel
 Inertia.js
 Flask
+Express.js + Node.js
 ASP.NET Core
 jQuery
+Tailwind CSS
+shadcn/ui
+Semantic UI
 
 [APIS & INTEGRATION]
 REST API
@@ -27,14 +31,16 @@ GraphQL
 Webhooks
 Laravel Reverb / Echo
 Xendit Payments
-Salesforce
 
 [DATABASES, CLOUD & MONITORING]
 MySQL
-SQL (Certified)
+PostgreSQL
+Prisma ORM
+SQL
 Redis
 Meilisearch
 Microsoft Azure (Certified)
+Amazon Web Services (AWS)
 Cloudflare R2
 Laravel Forge
 Sentry
@@ -47,7 +53,6 @@ WordPress Studio
 Elementor
 Webflow
 GoDaddy Website Builder
-PHPUnit
 CI/CD
 Fortify / 2FA / WebAuthn
 Cursor

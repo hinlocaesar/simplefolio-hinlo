@@ -46,6 +46,38 @@
   line-height: 1.2;
 }
 
+.skills__subgroup {
+  min-width: 0;
+
+  & + & {
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid #303030;
+  }
+}
+
+.skills__subgroup-title {
+  margin: 0 0 1.2rem;
+  color: $text-muted;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.skills__combined-tag {
+  gap: 0.65rem;
+}
+
+.skills__plus {
+  margin: 0 0.1rem;
+  color: $accent-light;
+  font-size: 1.2rem !important;
+  font-weight: 900;
+  line-height: 1;
+}
+
 .skills__tags {
   display: flex;
   flex-wrap: wrap;
@@ -77,6 +109,39 @@
     &:hover {
       border-color: rgba(229, 9, 20, 0.72);
       background: rgba(229, 9, 20, 0.12);
+      color: $white-color;
+      transform: translateY(-0.2rem);
+    }
+  }
+}
+
+.tag--strong {
+  position: relative;
+  margin-top: 0.8rem;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: #101010;
+  color: $white-color;
+
+  &::before {
+    content: "Strong";
+    position: absolute;
+    top: -0.75rem;
+    left: 0.7rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    background: #35c759;
+    color: #07110a;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.7);
+      background: #191919;
       color: $white-color;
       transform: translateY(-0.2rem);
     }
