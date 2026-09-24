@@ -1,5 +1,3 @@
-@import "./vendors/bootstrap.scss";
-
 @import "./abstracts/mixins";
 @import "./abstracts/variables";
 @import "./abstracts/helpers";
@@ -21,5 +19,4 @@
 @import "./sections/projects";
 @import "./sections/contact";
 
-// Final visual layer: Apple-inspired light surfaces and system typography.
-@import "./apple-theme";
+// Cinematic streaming theme is composed directly from the modular layers above.

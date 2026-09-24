@@ -18,7 +18,6 @@ Next.js
 Laravel
 Inertia.js
 Flask
-Django
 ASP.NET Core
 jQuery
 

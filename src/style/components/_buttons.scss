@@ -1,84 +1,93 @@
-/* Call to Action Button */
 .cta-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   position: relative;
-  padding: 1.2rem 3.2rem;
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  min-height: 4.8rem;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid transparent;
   border-radius: $radius-sm;
-  border: 1px solid transparent;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   line-height: 1;
+  text-transform: none;
   cursor: pointer;
-  transition: $transition-base;
+  transition: background-color $transition-fast, border-color $transition-fast,
+    color $transition-fast, transform $transition-fast;
 
-  @include respond(phone) {
-    padding: 1.1rem 2.4rem;
+  i {
     font-size: 1.3rem;
   }
+
+  @include respond(phone) {
+    min-height: 4.6rem;
+    padding: 1.1rem 1.8rem;
+    font-size: 1.4rem;
+  }
 }
 
-/* Primary — solid gold fill */
 .cta-btn--primary {
-  background-color: $gold;
-  border-color: $gold;
-  color: $bg-primary;
+  border-color: $accent;
+  background: $accent;
+  color: $white-color;
 
   &:hover {
-    background-color: $gold-light;
-    border-color: $gold-light;
-    box-shadow: 0 0 2.4rem rgba(201, 169, 98, 0.35);
-    transform: translateY(-1px);
+    border-color: $accent-light;
+    background: $accent-light;
+    transform: translateY(-0.2rem);
   }
 }
 
-/* Outline — gold border, transparent fill */
 .cta-btn--outline {
-  background-color: transparent;
-  border-color: $border-gold-strong;
-  color: $gold;
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(20, 20, 20, 0.72);
+  color: $white-color;
 
   &:hover {
-    background-color: rgba(201, 169, 98, 0.1);
-    border-color: $gold;
+    border-color: $white-color;
+    background: $white-color;
+    color: $black-color;
   }
 }
 
-/* Outline light — subtle border for tertiary actions */
 .cta-btn--outline-light {
-  background-color: transparent;
-  border-color: rgba($text-primary, 0.35);
-  color: $text-primary;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.24);
+  color: $white-color;
+  backdrop-filter: blur(0.8rem);
+  -webkit-backdrop-filter: blur(0.8rem);
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-color: $text-primary;
-    color: $text-primary;
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.12);
+    color: $white-color;
   }
 }
 
-/* Ghost — text-only with underline reveal */
 .cta-btn--ghost {
+  min-height: auto;
   padding: 1.2rem 0.4rem;
-  color: $text-primary;
-  border: none;
+  border: 0;
+  background: transparent;
+  color: $white-color;
 
   &::after {
     content: "";
     position: absolute;
-    left: 0.4rem;
     right: 0.4rem;
-    bottom: 0.6rem;
-    height: 1px;
-    background-color: $gold;
+    bottom: 0.5rem;
+    left: 0.4rem;
+    height: 0.2rem;
+    background: $accent;
     transform: scaleX(0);
     transform-origin: left;
-    transition: $transition-base;
+    transition: transform $transition-fast;
   }
 
   &:hover {
-    color: $gold;
+    color: $white-color;
 
     &::after {
       transform: scaleX(1);

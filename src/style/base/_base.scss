@@ -1,43 +1,74 @@
 html {
+  color-scheme: dark;
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: clip;
+  background: $bg-primary;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  text-align: center;
-  background-color: $bg-primary;
-  color: $text-primary;
   position: relative;
+  margin: 0;
   overflow-x: clip;
+  background: $bg-primary;
+  color: $text-primary;
+  font-family: $font-stack;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.nav-open,
+body.lightbox-open {
+  overflow: hidden;
 }
 
 img,
 video {
+  display: block;
   max-width: 100%;
 }
 
-body.nav-open {
-  overflow: hidden;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-// Subtle film-grain overlay for depth
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-::selection {
-  background-color: $border-gold-strong;
-  color: $bg-primary;
+button {
+  font: inherit;
 }
 
 * {
   box-sizing: border-box;
+}
+
+*::selection {
+  background: $accent;
+  color: $white-color;
+}
+
+:focus-visible {
+  outline: 2px solid $accent-light;
+  outline-offset: 4px;
+}
+
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,38 +1,75 @@
 #contact {
-  background-color: $bg-surface;
+  background: $bg-primary;
   color: $text-primary;
-  border-top: 1px solid $border-gold;
 }
 
 .contact-wrapper {
-  max-width: 56rem;
-  margin: 0 auto 6.4rem;
+  position: relative;
+  max-width: none;
+  margin: 0 0 7.2rem;
+  padding: clamp(4rem, 7vw, 7.2rem);
+  overflow: hidden;
+  border-radius: $radius-sm;
+  background: $accent;
+  color: $black-color;
 
-  &__text {
-    margin-bottom: 3.2rem;
-    font-size: 2.2rem;
-    color: $text-muted;
+  &::after {
+    content: "";
+    position: absolute;
+    right: -8rem;
+    bottom: -14rem;
+    width: 38rem;
+    height: 38rem;
+    border: 6rem solid rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+  }
 
-    @include respond(phone) {
-      font-size: 1.8rem;
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.contact-wrapper__text {
+  max-width: 90rem;
+  margin: 0 0 3.2rem;
+  color: $black-color;
+  font-size: clamp(2.8rem, 5vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.contact-wrapper__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+
+  .cta-btn--primary {
+    border-color: $black-color;
+    background: $black-color;
+    color: $white-color;
+  }
+
+  .cta-btn--outline {
+    border-color: $black-color;
+    background: transparent;
+    color: $black-color;
+
+    &:hover {
+      background: $black-color;
+      color: $white-color;
     }
   }
 
-  &__cta {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3.2rem;
-    flex-wrap: wrap;
+  @include respond(phone) {
+    flex-direction: column;
+    align-items: stretch;
 
-    @include respond(phone) {
-      flex-direction: column;
-      align-items: stretch;
-
-      .cta-btn {
-        width: 100%;
-        text-align: center;
-      }
+    .cta-btn {
+      width: 100%;
     }
   }
 }
@@ -43,63 +80,73 @@
   list-style: none;
 
   li {
-    margin-bottom: 0.8rem;
-    font-size: 1.5rem;
-    color: $text-muted;
+    margin-bottom: 0.6rem;
+    color: rgba(0, 0, 0, 0.72);
+    font-size: 1.4rem;
+    font-weight: 600;
   }
 
   a {
-    color: $text-muted;
-    transition: $transition-fast;
+    color: $black-color;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.5);
+    text-underline-offset: 0.3rem;
 
     &:hover {
-      color: $gold;
+      color: $white-color;
     }
   }
 }
 
 .references {
-  max-width: 90rem;
+  max-width: 122rem;
   margin: 0 auto;
   padding-top: 4.8rem;
-  border-top: 1px solid $border-gold;
+  border-top: 0.2rem solid $accent;
 
   &__title {
-    margin-bottom: 3.2rem;
-    font-size: $mid-font-size;
-    font-weight: 600;
+    margin: 0 0 3.2rem;
+    color: $white-color;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
   }
 }
 
 .references__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.4rem;
-  text-align: left;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
 
-  @include respond(phone) {
+  @include respond(tab-port) {
     grid-template-columns: 1fr;
   }
 }
 
 .reference-card {
-  padding: 2rem;
   min-width: 0;
-  background-color: $bg-elevated;
-  border: 1px solid $border-gold;
-  border-radius: $radius-md;
+  padding: 2rem;
+  border: 1px solid #303030;
+  border-radius: $radius-sm;
+  background: $bg-surface;
+  transition: border-color $transition-fast, transform $transition-fast;
+
+  &:hover {
+    border-color: rgba(229, 9, 20, 0.62);
+    transform: translateY(-0.3rem);
+  }
 
   &__name {
-    margin-bottom: 0.4rem;
+    margin: 0 0 0.4rem;
+    color: $white-color;
     font-size: 1.6rem;
-    font-weight: 600;
-    color: $text-primary;
+    font-weight: 800;
   }
 
   &__role {
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
+    margin: 0 0 1rem;
     color: $text-muted;
+    font-size: 1.3rem;
   }
 
   &__contact {
@@ -107,23 +154,22 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 0.6rem;
-    font-size: 1.2rem;
+    margin: 0;
     color: $text-muted;
+    font-size: 1.15rem;
 
     a {
       color: $text-muted;
       overflow-wrap: anywhere;
-      transition: $transition-fast;
 
       &:hover {
-        color: $gold;
+        color: $accent-light;
       }
     }
   }
 
   &__sep {
     flex-shrink: 0;
-    color: $text-muted;
 
     @include respond(phone) {
       display: none;

@@ -1,32 +1,57 @@
 #skills {
-  background-color: $bg-primary;
+  background: $bg-primary;
   color: $text-primary;
 }
 
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4.8rem;
-  text-align: left;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  min-width: 0;
+
+  @include respond(tab-land) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   @include respond(tab-port) {
     grid-template-columns: 1fr;
-    gap: 3.6rem;
+  }
+}
+
+.skills__group {
+  min-width: 0;
+  min-height: 21rem;
+  padding: 2.4rem;
+  border: 1px solid #303030;
+  border-radius: $radius-sm;
+  background: $bg-surface;
+  transition: border-color $transition-fast, background-color $transition-fast,
+    transform $transition-fast;
+
+  &:hover {
+    border-color: #484848;
+    background: #1b1b1b;
+    transform: translateY(-0.3rem);
   }
 }
 
 .skills__group-title {
-  margin-bottom: 1.8rem;
-  font-size: $mid-font-size;
-  font-weight: 600;
+  margin: 0 0 2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 0.2rem solid $accent;
+  color: $white-color;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
 }
 
 .skills__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  min-width: 0;
+  gap: 0.8rem;
   width: 100%;
+  min-width: 0;
 }
 
 .tag {
@@ -35,22 +60,25 @@
   gap: 0.7rem;
   flex: 0 1 auto;
   max-width: 100%;
-  padding: 0.8rem 1.8rem;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: $text-muted;
-  background-color: $bg-elevated;
-  border: 1px solid $border-gold;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid #383838;
   border-radius: $radius-sm;
+  background: #0b0b0b;
+  color: $text-muted;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
   white-space: normal;
   overflow-wrap: anywhere;
-  transition: $transition-base;
+  transition: background-color $transition-fast, border-color $transition-fast,
+    color $transition-fast, transform $transition-fast;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      color: $gold-light;
-      border-color: $border-gold-strong;
-      transform: translateY(-2px);
+      border-color: rgba(229, 9, 20, 0.72);
+      background: rgba(229, 9, 20, 0.12);
+      color: $white-color;
+      transform: translateY(-0.2rem);
     }
   }
 }
@@ -67,11 +95,6 @@
 }
 
 .tag--sm {
-  padding: 0.5rem 1.2rem;
-  font-size: 1.2rem;
-
-  @include respond(phone) {
-    padding: 0.4rem 1rem;
-    font-size: 1.1rem;
-  }
+  padding: 0.5rem 0.9rem;
+  font-size: 1.05rem;
 }

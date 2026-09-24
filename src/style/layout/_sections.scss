@@ -1,30 +1,30 @@
 .section {
-  padding: 10rem 0;
+  position: relative;
+  padding: 9.6rem 0;
   overflow-x: clip;
+  scroll-margin-top: 6.4rem;
+
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
 
   @include respond(phone) {
-    padding: 6rem 0;
+    padding: 6.4rem 0;
   }
 
   .container {
-    min-width: 0;
-    width: 100%;
+    width: min(100% - 9.6rem, $container-max);
     max-width: $container-max;
-    margin-left: auto;
+    min-width: 0;
     margin-right: auto;
-    padding-left: $container-pad;
-    padding-right: $container-pad;
+    margin-left: auto;
+
+    @include respond(tab-port) {
+      width: min(100% - 6.4rem, $container-max);
+    }
 
     @include respond(phone) {
-      padding-left: $container-pad-sm;
-      padding-right: $container-pad-sm;
+      width: min(100% - 3.2rem, $container-max);
     }
-  }
-}
-
-// Legacy selector kept for any un-migrated section wrappers
-section {
-  @include respond(phone) {
-    border: none;
   }
 }

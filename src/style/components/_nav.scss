@@ -1,49 +1,65 @@
 .site-nav {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: 1000;
   border-bottom: 1px solid transparent;
-  transition: $transition-base;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.88), transparent);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 
   &.is-scrolled {
-    @include glass-surface();
-    border-bottom-color: $border-gold;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(1.6rem);
+    -webkit-backdrop-filter: blur(1.6rem);
   }
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: min(100% - 9.6rem, $container-max);
     max-width: $container-max;
+    min-height: 7.2rem;
     margin: 0 auto;
-    padding: 1.8rem $container-pad;
-    padding-top: max(1.8rem, env(safe-area-inset-top, 0px));
+    padding: 1.2rem 0;
+    padding-top: max(1.2rem, env(safe-area-inset-top, 0px));
+
+    @include respond(tab-port) {
+      width: min(100% - 6.4rem, $container-max);
+    }
 
     @include respond(phone) {
-      padding: 1.4rem $container-pad-sm;
-      padding-top: max(1.4rem, env(safe-area-inset-top, 0px));
+      width: min(100% - 3.2rem, $container-max);
+      min-height: 6.4rem;
     }
   }
 
   &__logo {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 2.4rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: $text-primary;
+    position: relative;
+    z-index: 1002;
+    color: $accent;
+    font-family: $font-stack;
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+
+    span {
+      color: $white-color;
+    }
 
     &:hover {
-      color: $gold;
+      color: $accent-light;
     }
   }
 
   &__links {
     display: flex;
     align-items: center;
-    gap: 3.6rem;
+    gap: clamp(2rem, 3vw, 3.6rem);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -53,16 +69,20 @@
       top: 0;
       right: 0;
       bottom: 0;
+      z-index: 1001;
       flex-direction: column;
+      align-items: flex-start;
       justify-content: center;
-      gap: 4rem;
-      width: min(28rem, 100vw);
-      background-color: $bg-surface;
-      border-left: 1px solid $border-gold;
-      transform: translateX(100%);
+      gap: 2.8rem;
+      width: min(36rem, 88vw);
+      padding: 8rem 4.8rem;
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0b0b0b;
+      box-shadow: -2rem 0 5rem rgba(0, 0, 0, 0.55);
+      transform: translateX(105%);
       visibility: hidden;
       pointer-events: none;
-      transition: $transition-base;
+      transition: transform 0.35s ease, visibility 0.35s ease;
 
       &.is-open {
         transform: translateX(0);
@@ -74,28 +94,30 @@
 
   &__link {
     position: relative;
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: $text-muted;
-    transition: $transition-fast;
+    padding: 0.8rem 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    transition: color $transition-fast;
 
     &::after {
       content: "";
       position: absolute;
-      left: 0;
       right: 0;
-      bottom: -0.6rem;
-      height: 1px;
-      background-color: $gold;
+      bottom: 0.2rem;
+      left: 0;
+      height: 0.25rem;
+      background: $accent;
       transform: scaleX(0);
-      transition: $transition-base;
+      transform-origin: left;
+      transition: transform $transition-fast;
     }
 
     &:hover,
     &.is-active {
-      color: $text-primary;
+      color: $white-color;
 
       &::after {
         transform: scaleX(1);
@@ -103,23 +125,66 @@
     }
   }
 
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  &__availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: border-color $transition-fast, color $transition-fast;
+
+    &::before {
+      content: "";
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      background: #35c759;
+      box-shadow: 0 0 0 0 rgba(53, 199, 89, 0.45);
+      animation: availability-pulse 2.4s infinite;
+    }
+
+    &:hover {
+      border-color: $white-color;
+      color: $white-color;
+    }
+
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+
   &__toggle {
+    position: relative;
+    z-index: 1002;
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
-    width: 2.8rem;
-    height: 2.8rem;
-    background: none;
-    border: none;
+    gap: 0.6rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
     cursor: pointer;
-    z-index: 1001;
 
     span {
       display: block;
-      height: 1px;
-      background-color: $text-primary;
-      transition: $transition-base;
+      width: 2.4rem;
+      height: 0.2rem;
+      background: $white-color;
+      transition: transform $transition-fast, opacity $transition-fast;
     }
 
     @include respond(tab-port) {
@@ -128,13 +193,15 @@
 
     &.is-active {
       span:nth-child(1) {
-        transform: translateY(0.55rem) rotate(45deg);
+        transform: translateY(0.8rem) rotate(45deg);
       }
+
       span:nth-child(2) {
         opacity: 0;
       }
+
       span:nth-child(3) {
-        transform: translateY(-0.55rem) rotate(-45deg);
+        transform: translateY(-0.8rem) rotate(-45deg);
       }
     }
   }
@@ -145,9 +212,22 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(0.4rem);
+  -webkit-backdrop-filter: blur(0.4rem);
 
   &.is-open {
     display: block;
+  }
+}
+
+@keyframes availability-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(53, 199, 89, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 0 0 0.55rem rgba(53, 199, 89, 0);
   }
 }

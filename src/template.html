@@ -9,6 +9,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
     <title>Caesar Hinlo | Certified Vue.js Developer &amp; Senior Full-Stack Developer</title>
@@ -18,7 +20,7 @@
     />
     <meta
       name="description"
-      content="Caesar Herman Hinlo, Certified Vue.js Developer and Senior Full-Stack Software Engineer with 12+ years of experience across embedded systems and modern web development using Vue, React, Next.js, Python, and Laravel."
+      content="Caesar Herman Hinlo, Certified Vue.js Developer and Senior Full-Stack Software Engineer with 14 years of experience across embedded systems and modern web development using Vue, React, Next.js, Python, and Laravel."
     />
 
     <!-- Required librarys -->
@@ -28,7 +30,9 @@
     />
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-      ScrollReveal({ reset: false });
+      if (window.ScrollReveal) {
+        ScrollReveal({ reset: false });
+      }
     </script>
   </head>
 
@@ -36,26 +40,38 @@
     <div id="top"></div>
 
     <!-- **** Navigation **** -->
-    <nav class="site-nav" id="siteNav">
+    <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
       <div class="site-nav__inner">
-        <a class="site-nav__logo" href="#top">C<span class="text-gold">H</span></a>
+        <a
+          class="site-nav__logo"
+          href="#hero"
+          aria-label="Caesar Hinlo home"
+          >C<span>H</span>.</a
+        >
         <ul class="site-nav__links" id="navLinks">
-          <li><a class="site-nav__link" href="#about">Experience</a></li>
+          <li><a class="site-nav__link" href="#hero">Home</a></li>
           <li><a class="site-nav__link" href="#skills">Skills</a></li>
+          <li><a class="site-nav__link" href="#about">Experience</a></li>
           <li><a class="site-nav__link" href="#projects">Projects</a></li>
           <li><a class="site-nav__link" href="#credentials">Credentials</a></li>
           <li><a class="site-nav__link" href="#contact">Contact</a></li>
         </ul>
-        <button
-          class="site-nav__toggle"
-          id="navToggle"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="site-nav__actions">
+          <a class="site-nav__availability" href="#contact"
+            >Available for work</a
+          >
+          <button
+            class="site-nav__toggle"
+            id="navToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </nav>
     <div class="site-nav__backdrop" id="navBackdrop"></div>
@@ -78,32 +94,23 @@
         <div class="hero__grid">
           <div class="hero__content">
             <h1 class="hero-headline load-hidden">
-              <span class="hero-headline__line">
-                Certified <span class="text-gold">Vue.js</span> Developer
+              <span class="hero-headline__line">Senior Full‑Stack Engineer</span>
+              <span class="hero-headline__line hero-headline__line--secondary">
+                <span class="hero-headline__separator" aria-hidden="true">|</span>
+                <span>Front‑End Developer</span>
               </span>
-              <span class="hero-headline__line">&amp; Senior Full-Stack Developer</span>
             </h1>
-            <p class="hero-name load-hidden">Caesar Herman Hinlo</p>
-            <span class="hero-divider load-hidden" aria-hidden="true"></span>
-            <div class="hero-subtitle load-hidden">
-              <p>
-                I have 12+ years of experience building complex production software.
-                I take products from idea to launch, solo or with a team.
-                I am a senior full-stack developer, ISO auditor, patent
-                trainer, and team lead. I ranked in the top 5% at Kyocera
-                (formerly Epson) and was one of the chosen few sent to the
-                R&amp;D site in Osaka, Japan for tech transfer and product
-                rollouts.
-              </p>
-              <p>
-                As Team Leader and Component Leader, I contributed features
-                to a product lineup that reached ¥500 billion in global
-                sales, about $3.19 billion USD.
-              </p>
-            </div>
-            <div class="hero-cta load-hidden">
+            <p class="hero__name load-hidden">Caesar Herman Hinlo</p>
+            <p class="hero__subtitle load-hidden">
+              I have 14 years of experience turning complex ideas into
+              production software, spanning 7 years in embedded firmware and 7
+              years building modern full-stack web products from first commit
+              to launch.
+            </p>
+            <div class="hero__cta load-hidden">
               <a class="cta-btn cta-btn--primary" href="#projects">
-                View Projects
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+                Explore my work
               </a>
               <a
                 rel="noreferrer"
@@ -111,7 +118,8 @@
                 class="cta-btn cta-btn--outline"
                 href="https://www.loom.com/share/04eb2e57c6874b908bde3ae457d1c23e"
               >
-                Video Introduction
+                <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+                Watch overview
               </a>
               <a
                 rel="noreferrer"
@@ -119,24 +127,144 @@
                 class="cta-btn cta-btn--outline-light cta-btn--resume"
                 href=""
               >
-                View Resume
+                View résumé
               </a>
             </div>
-          </div>
-
-          <div class="hero__portrait load-hidden">
-            <div class="hero__portrait-ring">
-              <img
-                class="hero__photo"
-                src="assets/profile.jpg"
-                alt="Portrait of Caesar Hinlo"
-              />
+            <div class="hero__facts load-hidden" aria-label="Career highlights">
+              <div class="hero__fact">
+                <span class="hero__fact-value">14</span>
+                <span class="hero__fact-label">Years building</span>
+              </div>
+              <div class="hero__fact">
+                <span class="hero__fact-value">Top 5%</span>
+                <span class="hero__fact-label">Kyocera (Former Epson) hire</span>
+              </div>
+              <div class="hero__fact">
+                <span class="hero__fact-value">$3.19B</span>
+                <span class="hero__fact-label"
+                  >2012–2020 Kyocera product-line sales impact</span
+                >
+              </div>
+              <div class="hero__fact">
+                <span class="hero__fact-value">Team Leader</span>
+                <span class="hero__fact-label">Product &amp; engineering teams</span>
+              </div>
+              <div class="hero__fact">
+                <span class="hero__fact-value">Patent Trainer</span>
+                <span class="hero__fact-label">Patent documentation &amp; submissions</span>
+              </div>
+              <div class="hero__fact">
+                <span class="hero__fact-value">ISO Auditor</span>
+                <span class="hero__fact-label">Internal quality-system audits</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="hero__scroll-cue" aria-hidden="true">Keep exploring</div>
     </header>
     <!-- /END Hero Section -->
+
+    <!-- **** Skills Section **** -->
+    <section id="skills" class="section">
+      <div class="container">
+        <p class="section-eyebrow">Expertise</p>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+
+        <div class="skills__grid">
+          <div class="skills__group">
+            <h3 class="skills__group-title">Languages</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/html5.svg" alt="" width="18" height="18" />HTML</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/css3.svg" alt="" width="18" height="18" />CSS</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/javascript.svg" alt="" width="18" height="18" />JavaScript</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/typescript.svg" alt="" width="18" height="18" />TypeScript</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/php.svg" alt="" width="18" height="18" />PHP</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/python.svg" alt="" width="18" height="18" />Python</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/c.svg" alt="" width="18" height="18" />C</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cplusplus.svg" alt="" width="18" height="18" />C++</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/csharp.svg" alt="" width="18" height="18" />C#</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Frameworks &amp; Libraries</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/vuejs.svg" alt="" width="18" height="18" />Vue.js (Certified)</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/pinia.svg" alt="" width="18" height="18" />Pinia</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/react.svg" alt="" width="18" height="18" />React</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/redux.svg" alt="" width="18" height="18" />Redux</span>
+              <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/nextjs.svg" alt="" width="18" height="18" />Next.js</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/inertia.svg" alt="" width="18" height="18" />Inertia.js</span>
+              <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/flask.svg" alt="" width="18" height="18" />Flask</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />ASP.NET Core</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/jquery.svg" alt="" width="18" height="18" />jQuery</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">APIs &amp; Integration</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/rest-api.svg" alt="" width="18" height="18" />REST API</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/graphql.svg" alt="" width="18" height="18" />GraphQL</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/webhooks.svg" alt="" width="18" height="18" />Webhooks</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Reverb / Echo</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/xendit.svg" alt="" width="18" height="18" />Xendit Payments</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/salesforce.svg" alt="" width="18" height="18" />Salesforce</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Databases, Cloud &amp; Monitoring</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/mysql.svg" alt="" width="18" height="18" />MySQL</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/sql.svg" alt="" width="18" height="18" />SQL (Certified)</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/redis.svg" alt="" width="18" height="18" />Redis</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/meilisearch.svg" alt="" width="18" height="18" />Meilisearch</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/azure.svg" alt="" width="18" height="18" />Microsoft Azure (Certified)</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cloudflare.svg" alt="" width="18" height="18" />Cloudflare R2</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Forge</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/sentry.svg" alt="" width="18" height="18" />Sentry</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Nightwatch</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Tools &amp; Platforms</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/linux.svg" alt="" width="18" height="18" />Linux</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/wordpress.svg" alt="" width="18" height="18" />WordPress CMS</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/wordpress-studio.svg" alt="" width="18" height="18" />WordPress Studio</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/elementor.svg" alt="" width="18" height="18" />Elementor</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/webflow.svg" alt="" width="18" height="18" />Webflow</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/godaddy.svg" alt="" width="18" height="18" />GoDaddy Website Builder</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/phpunit.svg" alt="" width="18" height="18" />PHPUnit</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/githubactions.svg" alt="" width="18" height="18" />CI/CD</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/webauthn.svg" alt="" width="18" height="18" />Fortify / 2FA / WebAuthn</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cursor.svg" alt="" width="18" height="18" />Cursor</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/claude.svg" alt="" width="18" height="18" />Claude Code</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Practices</h3>
+            <div class="skills__tags">
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/fullstack.svg" alt="" width="18" height="18" />Full-Stack Development</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/embedded.svg" alt="" width="18" height="18" />Embedded Systems</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/legacy.svg" alt="" width="18" height="18" />Legacy Code Refactoring</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/iso.svg" alt="" width="18" height="18" />ISO Auditing</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/training.svg" alt="" width="18" height="18" />Technical Training</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cursor.svg" alt="" width="18" height="18" />AI-Assisted Development</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/scrum.svg" alt="" width="18" height="18" />Scrum</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/waterfall.svg" alt="" width="18" height="18" />Waterfall</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/vmodel.svg" alt="" width="18" height="18" />V-Model</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /END Skills Section -->
 
     <!-- **** About Section **** -->
     <section id="about" class="section">
@@ -153,24 +281,6 @@
             in JP-PH tech transfer and modernizing legacy code.
           </p>
 
-          <div class="about__highlights load-hidden">
-            <div class="about__highlight">
-              <span class="about__highlight-value">12+</span>
-              <span class="about__highlight-label">Years Experience</span>
-            </div>
-            <div class="about__highlight">
-              <span class="about__highlight-value">Patent</span>
-              <span class="about__highlight-label">Trainer</span>
-            </div>
-            <div class="about__highlight">
-              <span class="about__highlight-value">Senior</span>
-              <span class="about__highlight-label">Full-Stack Developer</span>
-            </div>
-            <div class="about__highlight">
-              <span class="about__highlight-value">ISO</span>
-              <span class="about__highlight-label">Internal Auditor</span>
-            </div>
-          </div>
         </div>
 
         <div class="timeline">
@@ -781,107 +891,7 @@
     </section>
     <!-- /END About Section -->
 
-    <!-- **** Skills Section **** -->
-    <section id="skills" class="section">
-      <div class="container">
-        <p class="section-eyebrow">Expertise</p>
-        <h2 class="section-title">Skills &amp; Tools</h2>
 
-        <div class="skills__grid">
-          <div class="skills__group">
-            <h3 class="skills__group-title">Languages</h3>
-            <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/html5.svg" alt="" width="18" height="18" />HTML</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/css3.svg" alt="" width="18" height="18" />CSS</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/javascript.svg" alt="" width="18" height="18" />JavaScript</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/typescript.svg" alt="" width="18" height="18" />TypeScript</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/php.svg" alt="" width="18" height="18" />PHP</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/python.svg" alt="" width="18" height="18" />Python</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/c.svg" alt="" width="18" height="18" />C</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cplusplus.svg" alt="" width="18" height="18" />C++</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/csharp.svg" alt="" width="18" height="18" />C#</span>
-            </div>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="skills__group-title">Frameworks &amp; Libraries</h3>
-            <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/vuejs.svg" alt="" width="18" height="18" />Vue.js (Certified)</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/pinia.svg" alt="" width="18" height="18" />Pinia</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/react.svg" alt="" width="18" height="18" />React</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/redux.svg" alt="" width="18" height="18" />Redux</span>
-              <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/nextjs.svg" alt="" width="18" height="18" />Next.js</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/inertia.svg" alt="" width="18" height="18" />Inertia.js</span>
-              <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/flask.svg" alt="" width="18" height="18" />Flask</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/django.svg" alt="" width="18" height="18" />Django</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />ASP.NET Core</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/jquery.svg" alt="" width="18" height="18" />jQuery</span>
-            </div>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="skills__group-title">APIs &amp; Integration</h3>
-            <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/rest-api.svg" alt="" width="18" height="18" />REST API</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/graphql.svg" alt="" width="18" height="18" />GraphQL</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/webhooks.svg" alt="" width="18" height="18" />Webhooks</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Reverb / Echo</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/xendit.svg" alt="" width="18" height="18" />Xendit Payments</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/salesforce.svg" alt="" width="18" height="18" />Salesforce</span>
-            </div>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="skills__group-title">Databases, Cloud &amp; Monitoring</h3>
-            <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/mysql.svg" alt="" width="18" height="18" />MySQL</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/sql.svg" alt="" width="18" height="18" />SQL (Certified)</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/redis.svg" alt="" width="18" height="18" />Redis</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/meilisearch.svg" alt="" width="18" height="18" />Meilisearch</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/azure.svg" alt="" width="18" height="18" />Microsoft Azure (Certified)</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cloudflare.svg" alt="" width="18" height="18" />Cloudflare R2</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Forge</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/sentry.svg" alt="" width="18" height="18" />Sentry</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel Nightwatch</span>
-            </div>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="skills__group-title">Tools &amp; Platforms</h3>
-            <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/linux.svg" alt="" width="18" height="18" />Linux</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/wordpress.svg" alt="" width="18" height="18" />WordPress CMS</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/wordpress-studio.svg" alt="" width="18" height="18" />WordPress Studio</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/elementor.svg" alt="" width="18" height="18" />Elementor</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/webflow.svg" alt="" width="18" height="18" />Webflow</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/godaddy.svg" alt="" width="18" height="18" />GoDaddy Website Builder</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/phpunit.svg" alt="" width="18" height="18" />PHPUnit</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/githubactions.svg" alt="" width="18" height="18" />CI/CD</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/webauthn.svg" alt="" width="18" height="18" />Fortify / 2FA / WebAuthn</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cursor.svg" alt="" width="18" height="18" />Cursor</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/claude.svg" alt="" width="18" height="18" />Claude Code</span>
-            </div>
-          </div>
-
-          <div class="skills__group">
-            <h3 class="skills__group-title">Practices</h3>
-            <div class="skills__tags">
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/fullstack.svg" alt="" width="18" height="18" />Full-Stack Development</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/embedded.svg" alt="" width="18" height="18" />Embedded Systems</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/legacy.svg" alt="" width="18" height="18" />Legacy Code Refactoring</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/iso.svg" alt="" width="18" height="18" />ISO Auditing</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/training.svg" alt="" width="18" height="18" />Technical Training</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/cursor.svg" alt="" width="18" height="18" />AI-Assisted Development</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/scrum.svg" alt="" width="18" height="18" />Scrum</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/waterfall.svg" alt="" width="18" height="18" />Waterfall</span>
-              <span class="tag"><img class="tag__icon" src="assets/skill-icons/vmodel.svg" alt="" width="18" height="18" />V-Model</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- /END Skills Section -->
 
     <!-- **** Projects Section **** -->
     <section id="projects" class="section">
@@ -889,16 +899,56 @@
         <p class="section-eyebrow">Selected Work</p>
         <h2 class="section-title">Projects</h2>
 
-        <h3 class="projects__subheading">Production Applications</h3>
-        <div class="projects__grid projects__grid--featured">
+        <div class="projects__rail">
+          <div class="projects__rail-head">
+            <div>
+              <h3 class="projects__subheading">Production Originals</h3>
+              <p class="projects__rail-copy">
+                Web products designed, engineered, and launched end to end.
+              </p>
+            </div>
+            <div class="projects__rail-nav" aria-label="Production project controls">
+              <button
+                type="button"
+                class="projects__rail-button"
+                data-rail-control="previous"
+                data-rail-target="production-projects"
+                aria-label="Scroll production projects left"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="projects__rail-button"
+                data-rail-control="next"
+                data-rail-target="production-projects"
+                aria-label="Scroll production projects right"
+              >
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="projects__grid"
+            id="production-projects"
+            data-horizontal-rail
+            tabindex="0"
+            aria-label="Production projects"
+          >
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/discoverjobs/desktop.png"
+              data-lightbox-alt="DiscoverJobs remote job board"
+              aria-label="View full DiscoverJobs screenshot"
+            >
               <img
                 alt="DiscoverJobs, US jobs listing"
                 src="assets/project-images/discoverjobs/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">DiscoverJobs</h4>
               <p class="project-card__meta">DevResearch · Client Project</p>
@@ -989,13 +1039,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/streamlineverify/desktop.png"
+              data-lightbox-alt="Streamline Verify healthcare compliance platform"
+              aria-label="View full Streamline Verify screenshot"
+            >
               <img
                 alt="Streamline Verify, healthcare compliance platform"
                 src="assets/project-images/streamlineverify/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">Streamline Verify</h4>
               <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
@@ -1042,13 +1098,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/cosawi/desktop.png"
+              data-lightbox-alt="Cosawi business transformation consultancy website"
+              aria-label="View full Cosawi screenshot"
+            >
               <img
                 alt="Cosawi consultancy website"
                 src="assets/project-images/cosawi/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">Cosawi</h4>
               <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
@@ -1078,13 +1140,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/lanterragroup/desktop.png"
+              data-lightbox-alt="Lanterra Group real estate development website"
+              aria-label="View full Lanterra Group screenshot"
+            >
               <img
                 alt="Lanterra Group, real estate development website"
                 src="assets/project-images/lanterragroup/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">Lanterra Group</h4>
               <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
@@ -1114,13 +1182,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/thefallsrvpark/desktop.png"
+              data-lightbox-alt="The Falls RV Park marketing and booking website"
+              aria-label="View full The Falls RV Park screenshot"
+            >
               <img
                 alt="The Falls RV Park website"
                 src="assets/project-images/thefallsrvpark/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">The Falls RV Park</h4>
               <p class="project-card__meta">DevResearch · Client Project</p>
@@ -1150,13 +1224,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/evajonesyoung/desktop.png"
+              data-lightbox-alt="Eva D. Jones-Young official website"
+              aria-label="View full Eva D. Jones-Young screenshot"
+            >
               <img
                 alt="Eva D. Jones-Young official website"
                 src="assets/project-images/evajonesyoung/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">Eva D. Jones-Young</h4>
               <p class="project-card__meta">Client Project</p>
@@ -1195,13 +1275,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/sweetmagicpopcorn/desktop.png"
+              data-lightbox-alt="Sweet Magic Popcorn brand and e-commerce website"
+              aria-label="View full Sweet Magic Popcorn screenshot"
+            >
               <img
                 alt="Sweet Magic Popcorn website"
                 src="assets/project-images/sweetmagicpopcorn/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">Sweet Magic Popcorn</h4>
               <p class="project-card__meta">Client Project</p>
@@ -1240,13 +1326,19 @@
           </article>
 
           <article class="project-card project-card--featured">
-            <div class="project-card__image">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/retreat2pk/desktop.png"
+              data-lightbox-alt="The Retreat at Possum Kingdom Lake website"
+              aria-label="View full The Retreat screenshot"
+            >
               <img
                 alt="The Retreat at Possum Kingdom Lake website"
                 src="assets/project-images/retreat2pk/desktop.png"
                 loading="lazy"
               />
-            </div>
+            </button>
             <div class="project-card__body">
               <h4 class="project-card__title">The Retreat</h4>
               <p class="project-card__meta">DevResearch · Client Project</p>
@@ -1274,10 +1366,46 @@
               </div>
             </div>
           </article>
+          </div>
         </div>
 
-        <h3 class="projects__subheading">Enterprise &amp; Firmware</h3>
-        <div class="projects__grid">
+        <div class="projects__rail">
+          <div class="projects__rail-head">
+            <div>
+              <h3 class="projects__subheading">Enterprise &amp; Firmware</h3>
+              <p class="projects__rail-copy">
+                A second act in embedded platforms, device software, and
+                production engineering systems.
+              </p>
+            </div>
+            <div class="projects__rail-nav" aria-label="Enterprise project controls">
+              <button
+                type="button"
+                class="projects__rail-button"
+                data-rail-control="previous"
+                data-rail-target="enterprise-projects"
+                aria-label="Scroll enterprise projects left"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="projects__rail-button"
+                data-rail-control="next"
+                data-rail-target="enterprise-projects"
+                aria-label="Scroll enterprise projects right"
+              >
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="projects__grid"
+            id="enterprise-projects"
+            data-horizontal-rail
+            tabindex="0"
+            aria-label="Enterprise and firmware projects"
+          >
           <article class="project-card">
             <button
               type="button"
@@ -1569,6 +1697,7 @@
               </div>
             </div>
           </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1872,7 +2001,7 @@
     <!-- /END Contact Section -->
 
     <!-- **** Footer Section **** -->
-    <footer class="footer navbar-static-bottom">
+    <footer class="footer">
       <div class="container">
         <a rel="noreferrer" href="#top" class="back-to-top" aria-label="Back to top">
           <i class="fa-solid fa-chevron-up fa-2x" aria-hidden="true"></i>
