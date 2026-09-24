@@ -323,61 +323,47 @@
                   </span>
                   </summary>
                   <div class="timeline__client-body">
-                  <ul class="timeline__list">
+                  <ul class="timeline__list timeline__list--labeled">
                     <li>
-                      Built a multi-market remote job board on the VILT stack
-                      (Vue 3, Inertia.js, Laravel, Tailwind), live at
-                      <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href="https://discoverjobs.org"
-                        >discoverjobs.org</a>,
-                      covering seeker, employer, and admin surfaces
-                      as sole developer.
+                      <strong>
+                        Full-Stack Job Board (
+                        <a
+                          rel="noreferrer"
+                          target="_blank"
+                          href="https://discoverjobs.org"
+                          >discoverjobs.org</a
+                        >):
+                      </strong>
+                      Built and deployed a multi-market platform (Vue 3,
+                      Inertia.js, Laravel, Tailwind) handling seeker, employer,
+                      and admin surfaces.
                     </li>
                     <li>
-                      Integrated Xendit payments via a custom invoice API
-                      client, with signed webhooks driving automated
-                      paid-listing activation.
+                      <strong>Payments &amp; Storage:</strong> Integrated
+                      automated paid listings via Xendit API/webhooks and
+                      Cloudflare R2 for file storage.
                     </li>
                     <li>
-                      Used Cloudflare R2 (S3-compatible object storage) for
-                      scalable file and media storage.
+                      <strong>Search &amp; Performance:</strong> Engineered
+                      typo-tolerant search using Meilisearch and Redis cache
+                      warming fed by external job aggregation APIs.
                     </li>
                     <li>
-                      Aggregated listings from external job APIs with
-                      scheduled cache warming to prepopulate the job board at
-                      launch, indexed for fast, typo-tolerant discovery using
-                      Meilisearch and Redis.
+                      <strong>Real-Time &amp; Security:</strong> Implemented
+                      WebSocket chat/notifications (Laravel Reverb/Echo) and
+                      robust security with 2FA, passkeys (Fortify), and RBAC
+                      policies.
                     </li>
                     <li>
-                      Implemented realtime application chat and notifications
-                      using Laravel Reverb and Echo over private WebSocket
-                      channels.
+                      <strong>AI &amp; Microservices:</strong> Built a
+                      BIR-accredited accounting microservice in under 1 month
+                      and integrated an AI admin tool (LangChain/RAG) for tax
+                      data extraction.
                     </li>
                     <li>
-                      Hardened authentication with Laravel Fortify, optional
-                      2FA (TOTP), and passkeys/WebAuthn; enforced authorization
-                      via Policies across seeker, employer, and admin roles.
-                    </li>
-                    <li>
-                      Designed a BIR-accredited Computerized Accounting System
-                      (CAS) as a separate Laravel service integrated via an
-                      internal API client. Built and deployed within 1 month,
-                      structured so it can ship as its own product, and has
-                      since drawn informal licensing interest from an
-                      accounting firm. Integrated AI document validation for
-                      uploaded BIR Form 2307s using LangChain, prompt
-                      engineering, and RAG to extract and cross-check form
-                      fields against submitted data.
-                    </li>
-                    <li>
-                      Shipped with PHPUnit feature tests, deploying to
-                      production on a VPS via Laravel Forge.
-                    </li>
-                    <li>
-                      Monitored production health, errors, and performance
-                      with Laravel Nightwatch.
+                      <strong>DevOps &amp; QA:</strong> Maintained PHPUnit test
+                      suites, automated Forge deployments, and health monitoring
+                      via Laravel Nightwatch.
                     </li>
                   </ul>
                   <p class="timeline__links-label">Web technologies stack</p>
@@ -439,43 +425,28 @@
                   </span>
                   </summary>
                   <div class="timeline__client-body">
-                  <ul class="timeline__list">
+                  <ul class="timeline__list timeline__list--labeled">
                     <li>
-                      Built features for Streamline Verify, a U.S. healthcare
-                      compliance and exclusion-screening platform used by
-                      licensed healthcare organizations nationwide, including
-                      internal sales tools integrated with Salesforce.
+                      <strong>Full-Stack Engineering:</strong> Developed core
+                      compliance features for Streamline Verify using React,
+                      Next.js, Express, Node.js, GraphQL, Vue, Laravel, and
+                      Python (Flask).
                     </li>
                     <li>
-                      Implemented 10–50 front-end/back-end features and bug
-                      fixes per month to keep the product stable.
+                      <strong>Performance &amp; Optimization:</strong> Boosted
+                      query speeds and responsiveness up to 40% via targeted UI
+                      and SQL optimizations; refactored legacy code for
+                      scalability.
                     </li>
                     <li>
-                      Improved internal documentation, including onboarding
-                      materials that help new team members get up to speed
-                      faster.
+                      <strong>Security &amp; Compliance:</strong> Managed
+                      technical security due diligence, leading responses for
+                      client SOC 2 questionnaires and vendor risk assessments.
                     </li>
                     <li>
-                      Performed UI and SQL performance optimizations that
-                      cut query time and improved responsiveness by up to 40%.
-                    </li>
-                    <li>
-                      Refactored legacy source code onto modern stacks so
-                      the codebase is easier to maintain and extend.
-                    </li>
-                    <li>
-                      Worked across a multi-stack environment spanning React,
-                      Next.js, GraphQL, Vue, Laravel, and Python (Flask).
-                    </li>
-                    <li>
-                      Served as a technical point of contact for client-facing
-                      security due diligence, responding directly to
-                      end-client security questionnaires (including SOC 2) to
-                      support compliance reviews and vendor risk assessments.
-                    </li>
-                    <li>
-                      Used Sentry for error tracking and performance
-                      monitoring in production.
+                      <strong>Leadership &amp; Mentorship:</strong> Mentored
+                      junior engineers, directing daily task execution, code
+                      reviews, and quality standards.
                     </li>
                   </ul>
                   <p class="timeline__links-label">Web technologies stack</p>
@@ -483,6 +454,8 @@
                     <span class="tag tag--sm">Salesforce</span>
                     <span class="tag tag--sm">React</span>
                     <span class="tag tag--sm">Next.js</span>
+                    <span class="tag tag--sm">Express.js</span>
+                    <span class="tag tag--sm">Node.js</span>
                     <span class="tag tag--sm">GraphQL</span>
                     <span class="tag tag--sm">Vue</span>
                     <span class="tag tag--sm">Laravel</span>
@@ -519,7 +492,7 @@
               <div class="timeline__item">
                 <span class="timeline__dot"></span>
                 <p class="timeline__label">
-                  Web Developer &amp; Board Member, Champion4Heroes
+                  Full-Stack Developer &amp; Board Member, Champion4Heroes
                 </p>
                 <p class="timeline__meta">
                   2020 – 2021 · Remote, 501(c)(3) nonprofit uniting World
@@ -535,16 +508,16 @@
                   </span>
                   </summary>
                   <div class="timeline__client-body">
-                  <ul class="timeline__list">
+                  <ul class="timeline__list timeline__list--labeled">
                     <li>
-                      Developed and maintained the organization's website
-                      remotely from the Philippines while serving as a Board
-                      Member involved in strategy and decision-making.
+                      <strong>Board Governance &amp; Strategy:</strong> Served
+                      as a remote Board Member, driving strategic
+                      decision-making and operational process improvements.
                     </li>
                     <li>
-                      Conducted interviews with boxing champions and researched
-                      their careers to support recognition events in the United
-                      States.
+                      <strong>Web Development &amp; Maintenance:</strong>
+                      Developed and maintained the core organizational website
+                      using WordPress and Next.js.
                     </li>
                   </ul>
                   <p class="timeline__links-label">Website links</p>
@@ -580,43 +553,29 @@
                   </span>
                   </summary>
                   <div class="timeline__client-body">
-                  <ul class="timeline__list">
+                  <ul class="timeline__list timeline__list--labeled">
                     <li>
-                      Hired among the top 5% of applicants that fiscal year,
-                      per HR presentation.
+                      <strong>Embedded &amp; Full-Stack Engineering:</strong>
+                      Led C/C++ embedded software development for multifunctional
+                      printers; built extended web features using ASP.NET Core,
+                      C#, PHP, and jQuery.
                     </li>
                     <li>
-                      Reviewed source code for quality, consistency, and
-                      coding standards.
+                      <strong>Global Leadership &amp; Tech Transfer:</strong>
+                      Selected for 3–5 Osaka, Japan assignments to lead
+                      Japan-to-Philippines technology transfers, team training,
+                      and product rollouts.
                     </li>
                     <li>
-                      Served as Component Leader responsible for planning,
-                      analysis, design, implementation, and unit testing of
-                      embedded software for multifunctional printers using C,
-                      C++, and proprietary company frameworks.
+                      <strong>Mentorship &amp; Instruction:</strong> Taught
+                      Unit Testing standards to 30+ new developers and mentored
+                      engineers through patent documentation and submission.
                     </li>
                     <li>
-                      One of the first ISO internal auditors, part of the team
-                      that helped the company pass its first-round ISO
-                      certification.
-                    </li>
-                    <li>
-                      Unit Test Instructor for 15–30+ new software developers
-                      on testing standards and practices.
-                    </li>
-                    <li>
-                      Designed and implemented features using ASP.NET Core, C#,
-                      PHP, and jQuery, extending product capabilities beyond
-                      embedded systems.
-                    </li>
-                    <li>
-                      Patent Instructor who guided engineers through patent
-                      documentation and submission.
-                    </li>
-                    <li>
-                      Selected for 3–5 assignments in Osaka, Japan, leading
-                      JP-to-PH tech transfer, team training, and product
-                      rollouts.
+                      <strong>Quality, ISO &amp; Hiring:</strong> Ranked in the
+                      top 5% of hires; served as an initial ISO internal auditor
+                      helping secure first-round certification while conducting
+                      code quality reviews.
                     </li>
                   </ul>
                   <p class="timeline__links-label">Technologies stack</p>
@@ -700,7 +659,7 @@
 
               <div class="timeline__item timeline__item--freelance">
                 <span class="timeline__dot"></span>
-                <p class="timeline__label">Freelance Web Developer</p>
+                <p class="timeline__label">Freelance Web Developer &middot; Minor Projects</p>
                 <p class="timeline__meta">Remote</p>
 
 
@@ -1007,13 +966,21 @@
               <h4 class="project-card__title">DiscoverJobs</h4>
               <p class="project-card__meta">DevResearch · Client Project</p>
               <p class="project-card__desc">
-                Multi-market remote job board built solo on the VILT stack
-                (Vue 3, Inertia.js, Laravel, Tailwind), covering seeker,
-                employer, and admin surfaces. Features Xendit payments with
-                signed webhooks, Meilisearch/Redis-backed search, realtime
-                chat via Laravel Reverb and Echo, Laravel Nightwatch for
-                production monitoring, and a BIR-accredited Computerized
-                Accounting System integrated as a companion service.
+                Full-Stack Job Board (discoverjobs.org): Built and deployed a
+                multi-market platform (Vue 3, Inertia.js, Laravel, Tailwind)
+                handling seeker, employer, and admin surfaces. Payments &amp;
+                Storage: Integrated automated paid listings via Xendit
+                API/webhooks and Cloudflare R2 for file storage. Search &amp;
+                Performance: Engineered typo-tolerant search using Meilisearch
+                and Redis cache warming fed by external job aggregation APIs.
+                Real-Time &amp; Security: Implemented WebSocket chat and
+                notifications (Laravel Reverb/Echo) with 2FA, passkeys
+                (Fortify), and RBAC policies. AI &amp; Microservices: Built a
+                BIR-accredited accounting microservice in under 1 month and
+                integrated an AI admin tool (LangChain/RAG) for tax data
+                extraction. DevOps &amp; QA: Maintained PHPUnit test suites,
+                automated Forge deployments, and health monitoring via Laravel
+                Nightwatch.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">Vue 3</span>
@@ -1101,19 +1068,23 @@
               <h4 class="project-card__title">Streamline Verify</h4>
               <p class="project-card__meta">Elgada BPO Solutions · Client Project</p>
               <p class="project-card__desc">
-                Client of Elgada BPO Solutions. U.S. healthcare compliance and
-                exclusion-screening platform used by licensed healthcare
-                organizations nationwide. Contributed full-stack features at
-                Elgada across React, Next.js, GraphQL, Vue, Laravel, and Python
-                (Flask), including internal sales tools connected to
-                Salesforce, UI and SQL performance work, legacy refactors,
-                client-facing security due diligence for SOC 2 reviews, and
-                Sentry for error tracking and performance monitoring.
+                Full-Stack Engineering: Developed core compliance features for
+                Streamline Verify using React, Next.js, Express, Node.js,
+                GraphQL, Vue, Laravel, and Python (Flask). Performance &amp;
+                Optimization: Boosted query speeds and responsiveness up to 40%
+                via targeted UI and SQL optimizations; refactored legacy code
+                for scalability. Security &amp; Compliance: Managed technical
+                security due diligence, leading responses for client SOC 2
+                questionnaires and vendor risk assessments. Leadership &amp;
+                Mentorship: Mentored junior engineers, directing daily task
+                execution, code reviews, and quality standards.
               </p>
               <div class="project-card__tags">
                 <span class="tag tag--sm">Salesforce</span>
                 <span class="tag tag--sm">React</span>
                 <span class="tag tag--sm">Next.js</span>
+                <span class="tag tag--sm">Express.js</span>
+                <span class="tag tag--sm">Node.js</span>
                 <span class="tag tag--sm">GraphQL</span>
                 <span class="tag tag--sm">Vue</span>
                 <span class="tag tag--sm">Laravel</span>
@@ -1848,7 +1819,7 @@
                   Microsoft Foundations of Coding (Coursera)
                 </p>
                 <p class="credentials__item-meta">
-                  Microsoft (Coursera), 2025
+                  Microsoft (Coursera)
                 </p>
                 <ul class="credentials__verify-list">
                   <li>
