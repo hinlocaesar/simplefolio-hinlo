@@ -30,9 +30,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      # package-lock.json is gitignored in this repo, so `npm ci` is not an option.
+      # package-lock.json is gitignored in this repo, so neither `npm ci` nor
+      # setup-node's `cache: npm` (which needs a lockfile to hash) can be used.
       - name: Install dependencies
         run: npm install
 
