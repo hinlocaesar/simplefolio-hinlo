@@ -44,12 +44,11 @@ jobs:
       - name: Add .nojekyll
         run: touch dist/.nojekyll
 
+      # Requires Pages to be enabled once in Settings > Pages with source
+      # "GitHub Actions". The `enablement` input cannot do it for us: it needs
+      # a token other than GITHUB_TOKEN, which Actions does not provide.
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Turns Pages on for the repo if it is still disabled, using the
-          # job's GITHUB_TOKEN (requires "pages: write" above).
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
