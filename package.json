@@ -1,5 +1,5 @@
 {
-  "name": "simplefolio",
+  "name": "portfolio",
   "version": "1.0.1",
   "private": "true",
   "engines": {
@@ -36,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/cobidev/simplefolio/issues"
   },
-  "homepage": "https://hinlocaesar.github.io/simplefolio-hinlo/",
+  "homepage": "https://hinlocaesar.github.io/portfolio/",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^14.0.0",
