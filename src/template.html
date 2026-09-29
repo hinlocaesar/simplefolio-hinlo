@@ -102,10 +102,6 @@
             </div>
             <h1 class="hero-headline load-hidden">
               <span class="hero-headline__line">Senior Full‑Stack Engineer</span>
-              <span class="hero-headline__line hero-headline__line--secondary">
-                <span class="hero-headline__separator" aria-hidden="true">|</span>
-                <span>Front‑End Developer</span>
-              </span>
             </h1>
             <p class="hero__name load-hidden">Caesar Herman Hinlo</p>
             <p class="hero__subtitle load-hidden">
@@ -189,7 +185,11 @@
                 <span class="tag tag--strong"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/nextjs.svg" alt="" width="18" height="18" />Next.js</span>
                 <span class="tag"><img class="tag__icon" src="assets/skill-icons/laravel.svg" alt="" width="18" height="18" />Laravel</span>
                 <span class="tag"><img class="tag__icon tag__icon--invert" src="assets/skill-icons/flask.svg" alt="" width="18" height="18" />Flask</span>
-                <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />ASP.NET Core</span>
+                <span class="tag tag--strong"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />ASP.NET Core</span>
+                <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />.NET</span>
+                <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />Entity Framework Core</span>
+                <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />Blazor</span>
+                <span class="tag"><img class="tag__icon" src="assets/skill-icons/dotnetcore.svg" alt="" width="18" height="18" />SignalR</span>
                 <span class="tag tag--strong skills__combined-tag" aria-label="Express.js and Node.js">
                   <img class="tag__icon" src="assets/skill-icons/express.svg" alt="" width="18" height="18" />Express.js
                   <span class="skills__plus" aria-hidden="true">+</span>
@@ -244,6 +244,7 @@
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/postgresql.svg" alt="" width="18" height="18" />PostgreSQL</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/prisma.svg" alt="" width="18" height="18" />Prisma ORM</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/sql.svg" alt="" width="18" height="18" />SQL</span>
+              <span class="tag"><img class="tag__icon" src="assets/skill-icons/sql.svg" alt="" width="18" height="18" />Microsoft SQL Server</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/redis.svg" alt="" width="18" height="18" />Redis</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/meilisearch.svg" alt="" width="18" height="18" />Meilisearch</span>
               <span class="tag"><img class="tag__icon" src="assets/skill-icons/azure.svg" alt="" width="18" height="18" />Microsoft Azure (Certified)</span>
@@ -1009,63 +1010,6 @@
             tabindex="0"
             aria-label="Production projects"
           >
-          <article class="project-card project-card--featured">
-            <button
-              type="button"
-              class="project-card__image project-card__image--expandable"
-              data-lightbox-gallery='[{"src":"assets/project-images/filipinova/desktop.webp","alt":"Filipino VA home page, Hire the best Filipino virtual assistants"},{"src":"assets/project-images/filipinova/jobs.webp","alt":"Filipino VA job search page with filters for skill, pay and job type"},{"src":"assets/project-images/filipinova/home-full.webp","alt":"Filipino VA home page, full scroll from hero to footer"}]'
-              aria-label="View full Filipino VA screenshots"
-            >
-              <img
-                alt="Filipino VA job board, Hire the best Filipino virtual assistants"
-                src="assets/project-images/thumbs/filipinova/desktop.webp"
-                srcset="assets/project-images/thumbs/filipinova/desktop-320.webp 320w, assets/project-images/thumbs/filipinova/desktop-640.webp 640w, assets/project-images/thumbs/filipinova/desktop-960.webp 960w, assets/project-images/thumbs/filipinova/desktop.webp 1280w"
-                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-                width="1280"
-                height="720"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="project-card__expand-hint">
-                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
-                View full screenshots
-              </span>
-            </button>
-            <div class="project-card__body">
-              <h4 class="project-card__title">Filipino VA</h4>
-              <p class="project-card__meta">
-                DevResearch &middot; Product Build &middot; In Development
-              </p>
-              <p class="project-card__desc">
-                Remote-work job marketplace connecting employers with
-                pre-vetted Filipino VAs, built end to end at DevResearch. The
-                stack is Umbraco-based: Umbraco 17 runs headless behind the
-                Content Delivery API for CMS-managed pages and admin listing
-                moderation, feeding an ASP.NET Core marketplace API with EF
-                Core, PostgreSQL, and rotating JWT refresh tokens. The
-                prerendered Vue 3 + TypeScript + Vite frontend covers worker
-                profiles, job posting, search and filtering, applications and
-                shortlisting, with 125 unit and 35 integration tests. Not yet
-                publicly launched.
-              </p>
-              <div class="project-card__tags">
-                <span class="tag tag--sm">Umbraco 17</span>
-                <span class="tag tag--sm">Headless CMS</span>
-                <span class="tag tag--sm">ASP.NET Core</span>
-                <span class="tag tag--sm">C#</span>
-                <span class="tag tag--sm">EF Core</span>
-                <span class="tag tag--sm">PostgreSQL</span>
-                <span class="tag tag--sm">Vue 3</span>
-                <span class="tag tag--sm">TypeScript</span>
-                <span class="tag tag--sm">Vite</span>
-                <span class="tag tag--sm">Tailwind CSS</span>
-                <span class="tag tag--sm">Pinia</span>
-                <span class="tag tag--sm">REST API</span>
-                <span class="tag tag--sm">JWT</span>
-                <span class="tag tag--sm">Vitest</span>
-              </div>
-            </div>
-          </article>
 
           <article class="project-card project-card--featured">
             <button
@@ -1230,6 +1174,62 @@
                   target="_blank"
                   class="project-card__link"
                   href="https://streamlineverify.com/"
+                  >Click to launch site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/champion4heroes/desktop.webp"
+              data-lightbox-alt="Champions 4 Heroes nonprofit website"
+              aria-label="View full Champions 4 Heroes screenshot"
+            >
+              <img
+                alt="Champions 4 Heroes nonprofit website"
+                src="assets/project-images/thumbs/champion4heroes/desktop.webp"
+                srcset="assets/project-images/thumbs/champion4heroes/desktop-320.webp 320w, assets/project-images/thumbs/champion4heroes/desktop-640.webp 640w, assets/project-images/thumbs/champion4heroes/desktop-960.webp 960w, assets/project-images/thumbs/champion4heroes/desktop.webp 1280w"
+                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                width="1280"
+                height="719"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Champions 4 Heroes</h4>
+              <p class="project-card__meta">
+                Champion4Heroes &middot; Board Member &amp; Web Developer
+              </p>
+              <p class="project-card__desc">
+                Nonprofit site for Champions 4 Heroes, a 501(c)(3) program of the
+                Michael Nathan Twining Foundation that unites World Champion
+                athletes and veterans to raise awareness for traumatic brain
+                injury, while honoring SSG Michael &quot;Nate&quot; Twining of the
+                101st Airborne. Built and maintained on Umbraco: authored the
+                mission, story, and program content, wired up the video embeds,
+                partner listings, and contact flow, and handled the on-page SEO
+                and social metadata. Also served on the board, driving strategy
+                and operational process improvements.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Umbraco</span>
+                <span class="tag tag--sm">.NET</span>
+                <span class="tag tag--sm">C#</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+                <span class="tag tag--sm">SEO</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://hinlocaesar.github.io/champion-4-heroes/"
                   >Click to launch site</a
                 >
               </div>
@@ -1704,6 +1704,111 @@
             <button
               type="button"
               class="project-card__image project-card__image--expandable"
+              data-lightbox="assets/project-images/thefallsrvpark/desktop.webp"
+              data-lightbox-alt="The Falls RV Park marketing and booking website"
+              aria-label="View full The Falls RV Park screenshot"
+            >
+              <img
+                alt="The Falls RV Park website"
+                src="assets/project-images/thumbs/thefallsrvpark/desktop.webp"
+                srcset="assets/project-images/thumbs/thefallsrvpark/desktop-320.webp 320w, assets/project-images/thumbs/thefallsrvpark/desktop-640.webp 640w, assets/project-images/thumbs/thefallsrvpark/desktop-960.webp 960w, assets/project-images/thumbs/thefallsrvpark/desktop.webp 1280w"
+                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                width="1280"
+                height="719"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <div class="project-card__body">
+              <h4 class="project-card__title">The Falls RV Park</h4>
+              <p class="project-card__meta">Freelance &middot; Minor Project</p>
+              <p class="project-card__desc">
+                Marketing and booking site for The Falls RV Park in Davis,
+                Oklahoma. Covers amenities, rates, policies, FAQ, gallery, and
+                online reservations for full-hookup RV sites and onsite cabins.
+                Built with GoDaddy Website Builder, including membership
+                bookings and contact details for onsite managers.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">GoDaddy</span>
+                <span class="tag tag--sm">HTML</span>
+                <span class="tag tag--sm">CSS</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+              <div class="project-card__links">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="project-card__link"
+                  href="https://thefallsrvpark.com/"
+                  >Click to launch site</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured project-card--minor">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
+              data-lightbox-gallery='[{"src":"assets/project-images/filipinova/desktop.webp","alt":"Filipino VA home page, Hire the best Filipino virtual assistants"},{"src":"assets/project-images/filipinova/jobs.webp","alt":"Filipino VA job search page with filters for skill, pay and job type"},{"src":"assets/project-images/filipinova/home-full.webp","alt":"Filipino VA home page, full scroll from hero to footer"}]'
+              aria-label="View full Filipino VA screenshots"
+            >
+              <img
+                alt="Filipino VA job board, Hire the best Filipino virtual assistants"
+                src="assets/project-images/thumbs/filipinova/desktop.webp"
+                srcset="assets/project-images/thumbs/filipinova/desktop-320.webp 320w, assets/project-images/thumbs/filipinova/desktop-640.webp 640w, assets/project-images/thumbs/filipinova/desktop-960.webp 960w, assets/project-images/thumbs/filipinova/desktop.webp 1280w"
+                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                width="1280"
+                height="720"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project-card__expand-hint">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                View full screenshots
+              </span>
+            </button>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Filipino VA</h4>
+              <p class="project-card__meta">
+                DevResearch &middot; Product Build &middot; In Development
+              </p>
+              <p class="project-card__desc">
+                Remote-work job marketplace connecting employers with
+                pre-vetted Filipino VAs, built end to end at DevResearch. The
+                stack is Umbraco-based: Umbraco 17 runs headless behind the
+                Content Delivery API for CMS-managed pages and admin listing
+                moderation, feeding an ASP.NET Core marketplace API with EF
+                Core, PostgreSQL, and rotating JWT refresh tokens. The
+                prerendered Vue 3 + TypeScript + Vite frontend covers worker
+                profiles, job posting, search and filtering, applications and
+                shortlisting, with 125 unit and 35 integration tests. Not yet
+                publicly launched.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Umbraco 17</span>
+                <span class="tag tag--sm">Headless CMS</span>
+                <span class="tag tag--sm">ASP.NET Core</span>
+                <span class="tag tag--sm">C#</span>
+                <span class="tag tag--sm">EF Core</span>
+                <span class="tag tag--sm">PostgreSQL</span>
+                <span class="tag tag--sm">Vue 3</span>
+                <span class="tag tag--sm">TypeScript</span>
+                <span class="tag tag--sm">Vite</span>
+                <span class="tag tag--sm">Tailwind CSS</span>
+                <span class="tag tag--sm">Pinia</span>
+                <span class="tag tag--sm">REST API</span>
+                <span class="tag tag--sm">JWT</span>
+                <span class="tag tag--sm">Vitest</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured project-card--minor">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
               data-lightbox="assets/project-images/cosawi/desktop.webp"
               data-lightbox-alt="Cosawi business transformation consultancy website"
               aria-label="View full Cosawi screenshot"
@@ -1798,14 +1903,14 @@
             <button
               type="button"
               class="project-card__image project-card__image--expandable"
-              data-lightbox="assets/project-images/thefallsrvpark/desktop.webp"
-              data-lightbox-alt="The Falls RV Park marketing and booking website"
-              aria-label="View full The Falls RV Park screenshot"
+              data-lightbox="assets/project-images/sweetpopcorn/desktop.webp"
+              data-lightbox-alt="Sweet Magic Popcorn custom-built website"
+              aria-label="View full Sweet Magic Popcorn custom build screenshot"
             >
               <img
-                alt="The Falls RV Park website"
-                src="assets/project-images/thumbs/thefallsrvpark/desktop.webp"
-                srcset="assets/project-images/thumbs/thefallsrvpark/desktop-320.webp 320w, assets/project-images/thumbs/thefallsrvpark/desktop-640.webp 640w, assets/project-images/thumbs/thefallsrvpark/desktop-960.webp 960w, assets/project-images/thumbs/thefallsrvpark/desktop.webp 1280w"
+                alt="Sweet Magic Popcorn custom-built website"
+                src="assets/project-images/thumbs/sweetpopcorn/desktop.webp"
+                srcset="assets/project-images/thumbs/sweetpopcorn/desktop-320.webp 320w, assets/project-images/thumbs/sweetpopcorn/desktop-640.webp 640w, assets/project-images/thumbs/sweetpopcorn/desktop-960.webp 960w, assets/project-images/thumbs/sweetpopcorn/desktop.webp 1280w"
                 sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
                 width="1280"
                 height="719"
@@ -1814,27 +1919,31 @@
               />
             </button>
             <div class="project-card__body">
-              <h4 class="project-card__title">The Falls RV Park</h4>
+              <h4 class="project-card__title">
+                Sweet Magic Popcorn (Custom Build)
+              </h4>
               <p class="project-card__meta">Freelance &middot; Minor Project</p>
               <p class="project-card__desc">
-                Marketing and booking site for The Falls RV Park in Davis,
-                Oklahoma. Covers amenities, rates, policies, FAQ, gallery, and
-                online reservations for full-hookup RV sites and onsite cabins.
-                Built with GoDaddy Website Builder, including membership
-                bookings and contact details for onsite managers.
+                Hand-coded rebuild of the Sweet Magic Popcorn brand and shop,
+                replacing the GoDaddy builder site with a static
+                HTML/CSS/JavaScript build on GitHub Pages. Covers product,
+                packages, kernels, seasonings, nutrition, cooking, story,
+                documentary, media, and contact pages with a sticky header,
+                dropdown and mobile navigation, and full SEO and social
+                metadata.
               </p>
               <div class="project-card__tags">
-                <span class="tag tag--sm">GoDaddy</span>
                 <span class="tag tag--sm">HTML</span>
                 <span class="tag tag--sm">CSS</span>
                 <span class="tag tag--sm">JavaScript</span>
+                <span class="tag tag--sm">GitHub Pages</span>
               </div>
               <div class="project-card__links">
                 <a
                   rel="noreferrer"
                   target="_blank"
                   class="project-card__link"
-                  href="https://thefallsrvpark.com/"
+                  href="https://hinlocaesar.github.io/sweet-popcorn/"
                   >Click to launch site</a
                 >
               </div>
@@ -1933,113 +2042,6 @@
                   >Click to launch site</a
                 >
                 
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card project-card--featured project-card--minor">
-            <button
-              type="button"
-              class="project-card__image project-card__image--expandable"
-              data-lightbox="assets/project-images/sweetpopcorn/desktop.webp"
-              data-lightbox-alt="Sweet Magic Popcorn custom-built website"
-              aria-label="View full Sweet Magic Popcorn custom build screenshot"
-            >
-              <img
-                alt="Sweet Magic Popcorn custom-built website"
-                src="assets/project-images/thumbs/sweetpopcorn/desktop.webp"
-                srcset="assets/project-images/thumbs/sweetpopcorn/desktop-320.webp 320w, assets/project-images/thumbs/sweetpopcorn/desktop-640.webp 640w, assets/project-images/thumbs/sweetpopcorn/desktop-960.webp 960w, assets/project-images/thumbs/sweetpopcorn/desktop.webp 1280w"
-                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-                width="1280"
-                height="719"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <div class="project-card__body">
-              <h4 class="project-card__title">
-                Sweet Magic Popcorn (Custom Build)
-              </h4>
-              <p class="project-card__meta">Freelance &middot; Minor Project</p>
-              <p class="project-card__desc">
-                Hand-coded rebuild of the Sweet Magic Popcorn brand and shop,
-                replacing the GoDaddy builder site with a static
-                HTML/CSS/JavaScript build on GitHub Pages. Covers product,
-                packages, kernels, seasonings, nutrition, cooking, story,
-                documentary, media, and contact pages with a sticky header,
-                dropdown and mobile navigation, and full SEO and social
-                metadata.
-              </p>
-              <div class="project-card__tags">
-                <span class="tag tag--sm">HTML</span>
-                <span class="tag tag--sm">CSS</span>
-                <span class="tag tag--sm">JavaScript</span>
-                <span class="tag tag--sm">GitHub Pages</span>
-              </div>
-              <div class="project-card__links">
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="project-card__link"
-                  href="https://hinlocaesar.github.io/sweet-popcorn/"
-                  >Click to launch site</a
-                >
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card project-card--featured project-card--minor">
-            <button
-              type="button"
-              class="project-card__image project-card__image--expandable"
-              data-lightbox="assets/project-images/champion4heroes/desktop.webp"
-              data-lightbox-alt="Champions 4 Heroes nonprofit website"
-              aria-label="View full Champions 4 Heroes screenshot"
-            >
-              <img
-                alt="Champions 4 Heroes nonprofit website"
-                src="assets/project-images/thumbs/champion4heroes/desktop.webp"
-                srcset="assets/project-images/thumbs/champion4heroes/desktop-320.webp 320w, assets/project-images/thumbs/champion4heroes/desktop-640.webp 640w, assets/project-images/thumbs/champion4heroes/desktop-960.webp 960w, assets/project-images/thumbs/champion4heroes/desktop.webp 1280w"
-                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-                width="1280"
-                height="719"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <div class="project-card__body">
-              <h4 class="project-card__title">Champions 4 Heroes</h4>
-              <p class="project-card__meta">
-                Champion4Heroes &middot; Board Member &amp; Web Developer
-              </p>
-              <p class="project-card__desc">
-                Nonprofit site for Champions 4 Heroes, a 501(c)(3) program of the
-                Michael Nathan Twining Foundation that unites World Champion
-                athletes and veterans to raise awareness for traumatic brain
-                injury, while honoring SSG Michael &quot;Nate&quot; Twining of the
-                101st Airborne. Built and maintained on Umbraco: authored the
-                mission, story, and program content, wired up the video embeds,
-                partner listings, and contact flow, and handled the on-page SEO
-                and social metadata. Also served on the board, driving strategy
-                and operational process improvements.
-              </p>
-              <div class="project-card__tags">
-                <span class="tag tag--sm">Umbraco</span>
-                <span class="tag tag--sm">.NET</span>
-                <span class="tag tag--sm">C#</span>
-                <span class="tag tag--sm">HTML</span>
-                <span class="tag tag--sm">CSS</span>
-                <span class="tag tag--sm">JavaScript</span>
-                <span class="tag tag--sm">SEO</span>
-              </div>
-              <div class="project-card__links">
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="project-card__link"
-                  href="https://hinlocaesar.github.io/champion-4-heroes/"
-                  >Click to launch site</a
-                >
               </div>
             </div>
           </article>
