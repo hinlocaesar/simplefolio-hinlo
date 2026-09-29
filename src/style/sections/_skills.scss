@@ -171,6 +171,22 @@
     text-transform: uppercase;
   }
 
+  // A tag can carry both chips (Preferred + Certified), but they share the top
+  // border, so short labels like "Vue.js" have no room for them side by side.
+  // Reserve space on both sides and tighten the chips for that case only.
+  &.tag--strong {
+    padding-right: 3.6rem;
+    padding-left: 3.6rem;
+
+    &::before,
+    &::after {
+      padding-right: 0.35rem;
+      padding-left: 0.35rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+    }
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       border-color: rgba(255, 154, 31, 0.7);
