@@ -20,6 +20,7 @@
     "screenshots:lanterragroup": "node scripts/capture-lanterragroup-screenshot.mjs",
     "screenshots:thefallsrvpark": "node scripts/capture-thefallsrvpark-screenshot.mjs",
     "screenshots:sweetmagicpopcorn": "node scripts/capture-sweetmagicpopcorn-screenshot.mjs",
+    "screenshots:sweetpopcorn": "node scripts/capture-sweetpopcorn-screenshot.mjs",
     "screenshots:retreat2pk": "node scripts/capture-retreat2pk-screenshot.mjs",
     "screenshots:novatech-howto": "node scripts/capture-novatech-howto-screenshot.mjs",
     "screenshots:evajonesyoung": "node scripts/capture-evajonesyoung-screenshot.mjs"
