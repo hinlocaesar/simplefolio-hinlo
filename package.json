@@ -14,6 +14,7 @@
     "prebuild": "npm run optimize:images && npm run apply:srcset",
     "build": "webpack --config webpack.prod.js",
     "screenshots:discoverjobs": "node scripts/capture-discoverjobs-screenshots.mjs",
+    "screenshots:filipinova": "node scripts/capture-filipinova-screenshots.mjs",
     "screenshots:streamlineverify": "node scripts/capture-streamlineverify-screenshot.mjs",
     "screenshots:champion4heroes": "node scripts/capture-champion4heroes-screenshot.mjs",
     "screenshots:cosawi": "node scripts/capture-cosawi-screenshot.mjs",

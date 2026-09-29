@@ -1013,6 +1013,64 @@
             <button
               type="button"
               class="project-card__image project-card__image--expandable"
+              data-lightbox-gallery='[{"src":"assets/project-images/filipinova/desktop.webp","alt":"Filipino VA home page, Hire the best Filipino virtual assistants"},{"src":"assets/project-images/filipinova/jobs.webp","alt":"Filipino VA job search page with filters for skill, pay and job type"},{"src":"assets/project-images/filipinova/home-full.webp","alt":"Filipino VA home page, full scroll from hero to footer"}]'
+              aria-label="View full Filipino VA screenshots"
+            >
+              <img
+                alt="Filipino VA job board, Hire the best Filipino virtual assistants"
+                src="assets/project-images/thumbs/filipinova/desktop.webp"
+                srcset="assets/project-images/thumbs/filipinova/desktop-320.webp 320w, assets/project-images/thumbs/filipinova/desktop-640.webp 640w, assets/project-images/thumbs/filipinova/desktop-960.webp 960w, assets/project-images/thumbs/filipinova/desktop.webp 1280w"
+                sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                width="1280"
+                height="720"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project-card__expand-hint">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                View full screenshots
+              </span>
+            </button>
+            <div class="project-card__body">
+              <h4 class="project-card__title">Filipino VA</h4>
+              <p class="project-card__meta">
+                DevResearch &middot; Product Build &middot; In Development
+              </p>
+              <p class="project-card__desc">
+                Remote-work job marketplace connecting employers with
+                pre-vetted Filipino VAs, built end to end at DevResearch. The
+                stack is Umbraco-based: Umbraco 17 runs headless behind the
+                Content Delivery API for CMS-managed pages and admin listing
+                moderation, feeding an ASP.NET Core marketplace API with EF
+                Core, PostgreSQL, and rotating JWT refresh tokens. The
+                prerendered Vue 3 + TypeScript + Vite frontend covers worker
+                profiles, job posting, search and filtering, applications and
+                shortlisting, with 125 unit and 35 integration tests. Not yet
+                publicly launched.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Umbraco 17</span>
+                <span class="tag tag--sm">Headless CMS</span>
+                <span class="tag tag--sm">ASP.NET Core</span>
+                <span class="tag tag--sm">C#</span>
+                <span class="tag tag--sm">EF Core</span>
+                <span class="tag tag--sm">PostgreSQL</span>
+                <span class="tag tag--sm">Vue 3</span>
+                <span class="tag tag--sm">TypeScript</span>
+                <span class="tag tag--sm">Vite</span>
+                <span class="tag tag--sm">Tailwind CSS</span>
+                <span class="tag tag--sm">Pinia</span>
+                <span class="tag tag--sm">REST API</span>
+                <span class="tag tag--sm">JWT</span>
+                <span class="tag tag--sm">Vitest</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--featured">
+            <button
+              type="button"
+              class="project-card__image project-card__image--expandable"
               data-lightbox="assets/project-images/discoverjobs/desktop.webp"
               data-lightbox-alt="DiscoverJobs remote job board"
               aria-label="View full DiscoverJobs screenshot"
