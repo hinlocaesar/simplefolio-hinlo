@@ -148,6 +148,39 @@
   }
 }
 
+.tag--certified {
+  position: relative;
+  margin-top: 0.8rem;
+  border-color: rgba(255, 154, 31, 0.38);
+  background: #14100a;
+  color: $white-color;
+
+  &::after {
+    content: "Certified";
+    position: absolute;
+    top: -0.75rem;
+    right: 0.7rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    background: #ff9a1f;
+    color: #1a0d00;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border-color: rgba(255, 154, 31, 0.7);
+      background: #191207;
+      color: $white-color;
+      transform: translateY(-0.2rem);
+    }
+  }
+}
+
 .tag__icon {
   width: 1.6rem;
   height: 1.6rem;
