@@ -21,6 +21,7 @@
     "screenshots:plumvillage": "node scripts/capture-plumvillage-screenshots.mjs",
     "screenshots:animal-welfare-ph": "node scripts/capture-animal-welfare-ph-screenshots.mjs",
     "screenshots:db-project": "node scripts/capture-db-project-screenshots.mjs",
+    "screenshots:councilor-dino-acuna": "node scripts/capture-councilor-dino-acuna-screenshots.mjs",
     "screenshots:streamlineverify": "node scripts/capture-streamlineverify-screenshot.mjs",
     "screenshots:champion4heroes": "node scripts/capture-champion4heroes-screenshot.mjs",
     "screenshots:cosawi": "node scripts/capture-cosawi-screenshot.mjs",
