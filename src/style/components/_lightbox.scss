@@ -25,7 +25,7 @@
 .image-lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba($bg-void, 0.95);
+  background: rgba(0, 0, 0, 0.94);
   cursor: pointer;
   backdrop-filter: blur(0.8rem);
   -webkit-backdrop-filter: blur(0.8rem);
@@ -47,9 +47,9 @@
   height: auto;
   max-width: 100%;
   max-height: calc(92vh - 4rem);
-  border: 1px solid $border-subtle;
-  border-radius: $radius-md;
-  background: $bg-surface;
+  border: 1px solid #333333;
+  border-radius: $radius-sm;
+  background: #111111;
   box-shadow: 0 2.4rem 6rem rgba(0, 0, 0, 0.72);
 
   @include respond(phone) {
@@ -64,9 +64,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba($accent, 0.35);
+  border: 1px solid #4a4a4a;
   border-radius: 50%;
-  background: rgba($bg-void, 0.92);
+  background: rgba(10, 10, 10, 0.92);
   color: $white-color;
   cursor: pointer;
   transition: border-color $transition-fast, background-color $transition-fast,
@@ -132,11 +132,10 @@
 
 .image-lightbox__counter {
   margin: 1.2rem 0 0;
-  color: $accent;
-  font-family: $font-mono;
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  color: $white-color;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 
   &[hidden] {
     display: none;

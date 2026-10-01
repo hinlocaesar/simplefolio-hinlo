@@ -1,11 +1,9 @@
-// Base layer: the void, the nebula, and the surfaces everything sits on.
-
 html {
   color-scheme: dark;
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: clip;
-  background: $bg-void;
+  background: $bg-primary;
 }
 
 body {
@@ -14,74 +12,10 @@ body {
   overflow-x: clip;
   background: $bg-primary;
   color: $text-primary;
-  font-family: $font-display;
+  font-family: $font-stack;
   text-align: left;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-// The nebula. A wide, soft field of violet and indigo light sitting behind the
-// upper page. Kept on a fixed layer so it reads as distant light rather than as
-// something attached to the content, and masked so it never spills into the
-// lower sections as a flat wash.
-body::before {
-  content: "";
-  position: fixed;
-  top: -20vh;
-  left: 50%;
-  z-index: 0;
-  width: 180vw;
-  height: 120vh;
-  pointer-events: none;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(
-      42% 38% at 28% 34%,
-      rgba($violet, 0.5) 0%,
-      rgba($violet, 0.16) 42%,
-      transparent 72%
-    ),
-    radial-gradient(
-      38% 32% at 66% 26%,
-      rgba($indigo, 0.42) 0%,
-      rgba($indigo, 0.12) 46%,
-      transparent 74%
-    ),
-    radial-gradient(
-      30% 26% at 82% 44%,
-      rgba($magenta, 0.22) 0%,
-      transparent 70%
-    ),
-    radial-gradient(
-      46% 30% at 46% 8%,
-      rgba($blue, 0.24) 0%,
-      transparent 72%
-    );
-  filter: blur(30px);
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 82%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    rgba(0, 0, 0, 0.55) 45%,
-    transparent 82%
-  );
-}
-
-// Film grain. One tiny inline SVG turbulence rather than a texture request —
-// it is what stops the large flat gradients from banding on cheap panels.
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.032;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-body > * {
-  position: relative;
-  z-index: 2;
 }
 
 body.nav-open,
@@ -110,11 +44,11 @@ button {
 
 *::selection {
   background: $accent;
-  color: $bg-void;
+  color: $white-color;
 }
 
 :focus-visible {
-  outline: 2px solid $accent;
+  outline: 2px solid $accent-light;
   outline-offset: 4px;
 }
 
@@ -122,28 +56,6 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-// Inline icon sprite -------------------------------------------------------
-
-.icon-sprite {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-.icon {
-  display: inline-block;
-  flex-shrink: 0;
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-  vertical-align: -0.125em;
-}
-
-.icon--lg {
-  font-size: 2em;
 }
 
 @media (prefers-reduced-motion: reduce) {

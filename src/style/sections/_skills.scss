@@ -6,7 +6,7 @@
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.6rem;
+  gap: 1.2rem;
   min-width: 0;
 
   @include respond(tab-land) {
@@ -20,27 +20,30 @@
 
 .skills__group {
   min-width: 0;
-  padding: 2.6rem;
-  @include hud-panel;
+  min-height: 21rem;
+  padding: 2.4rem;
+  border: 1px solid #303030;
+  border-radius: $radius-sm;
+  background: $bg-surface;
+  transition: border-color $transition-fast, background-color $transition-fast,
+    transform $transition-fast;
+
+  &:hover {
+    border-color: #484848;
+    background: #1b1b1b;
+    transform: translateY(-0.3rem);
+  }
 }
 
 .skills__group-title {
   margin: 0 0 2rem;
-  padding-bottom: 1.4rem;
-  color: $text-primary;
-  font-size: 1.9rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-
-  // A lime dot that fills on hover, tying the group to the accent language.
-  &::after {
-    content: "";
-    display: block;
-    width: 2.4rem;
-    height: 0.2rem;
-    margin-top: 1.2rem;
-    background: $accent;
-  }
+  padding-bottom: 1.6rem;
+  border-bottom: 0.2rem solid $accent;
+  color: $white-color;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
 }
 
 .skills__subgroup {
@@ -49,17 +52,16 @@
   & + & {
     margin-top: 2rem;
     padding-top: 1.8rem;
-    border-top: 1px solid $border-subtle;
+    border-top: 1px solid #303030;
   }
 }
 
 .skills__subgroup-title {
   margin: 0 0 1.2rem;
-  color: $text-dim;
-  font-family: $font-mono;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  color: $text-muted;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -70,34 +72,33 @@
 
 .skills__plus {
   margin: 0 0.1rem;
-  color: $accent;
+  color: $accent-light;
   font-size: 1.2rem !important;
-  font-weight: 500;
+  font-weight: 900;
   line-height: 1;
 }
 
 .skills__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.8rem;
   width: 100%;
   min-width: 0;
 }
 
-// Chips: quiet by default, lime-tinted on hover.
 .tag {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
   flex: 0 1 auto;
   max-width: 100%;
-  padding: 0.7rem 1.1rem;
-  border: 1px solid $border-subtle;
-  border-radius: $radius-pill;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 0.8rem 1.1rem;
+  border: 1px solid #383838;
+  border-radius: $radius-sm;
+  background: #0b0b0b;
   color: $text-muted;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1.2;
   white-space: normal;
   overflow-wrap: anywhere;
@@ -106,95 +107,91 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba($accent, 0.5);
-      background: rgba($accent, 0.1);
-      color: $accent-light;
+      border-color: rgba(229, 9, 20, 0.72);
+      background: rgba(229, 9, 20, 0.12);
+      color: $white-color;
       transform: translateY(-0.2rem);
     }
   }
 }
 
-// "Preferred" sits on the same lime accent as the CTAs.
 .tag--strong {
   position: relative;
   margin-top: 0.8rem;
-  border-color: rgba($accent, 0.4);
-  background: rgba($accent, 0.08);
-  color: $text-primary;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: #101010;
+  color: $white-color;
 
   &::before {
     content: "Preferred";
     position: absolute;
     top: -0.75rem;
-    left: 0.9rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: $radius-pill;
-    background: $accent;
-    color: $bg-void;
-    font-family: $font-mono;
-    font-size: 0.65rem;
-    font-weight: 600;
+    left: 0.7rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    background: #35c759;
+    color: #07110a;
+    font-size: 0.7rem;
+    font-weight: 800;
     letter-spacing: 0.08em;
-    line-height: 1.4;
+    line-height: 1;
     text-transform: uppercase;
   }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: $accent;
-      background: rgba($accent, 0.16);
-      color: $accent-light;
+      border-color: rgba(255, 255, 255, 0.7);
+      background: #191919;
+      color: $white-color;
       transform: translateY(-0.2rem);
     }
   }
 }
 
-// Certifications take the violet channel, so a wall of tags still has two
-// clearly different claims in it.
 .tag--certified {
   position: relative;
   margin-top: 0.8rem;
-  border-color: rgba($violet, 0.45);
-  background: rgba($violet, 0.12);
-  color: $text-primary;
+  border-color: rgba(255, 154, 31, 0.38);
+  background: #14100a;
+  color: $white-color;
 
   &::after {
     content: "Certified";
     position: absolute;
     top: -0.75rem;
-    right: 0.9rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: $radius-pill;
-    background: $violet;
-    color: #fff;
-    font-family: $font-mono;
-    font-size: 0.65rem;
-    font-weight: 600;
+    right: 0.7rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    background: #ff9a1f;
+    color: #1a0d00;
+    font-size: 0.7rem;
+    font-weight: 800;
     letter-spacing: 0.08em;
-    line-height: 1.4;
+    line-height: 1;
     text-transform: uppercase;
   }
 
-  // A tag can carry both chips, but they share the top edge, so short labels
-  // need room reserved on both sides.
+  // A tag can carry both chips (Preferred + Certified), but they share the top
+  // border, so short labels like "Vue.js" have no room for them side by side.
+  // Reserve space on both sides and tighten the chips for that case only.
   &.tag--strong {
     padding-right: 3.6rem;
     padding-left: 3.6rem;
 
     &::before,
     &::after {
-      padding-right: 0.4rem;
-      padding-left: 0.4rem;
-      font-size: 0.6rem;
+      padding-right: 0.35rem;
+      padding-left: 0.35rem;
+      font-size: 0.62rem;
       letter-spacing: 0.05em;
     }
   }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: $violet;
-      background: rgba($violet, 0.22);
-      color: $text-primary;
+      border-color: rgba(255, 154, 31, 0.7);
+      background: #191207;
+      color: $white-color;
       transform: translateY(-0.2rem);
     }
   }
@@ -212,6 +209,6 @@
 }
 
 .tag--sm {
-  padding: 0.45rem 0.85rem;
+  padding: 0.5rem 0.9rem;
   font-size: 1.05rem;
 }

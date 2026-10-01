@@ -6,10 +6,10 @@
 .projects__rail {
   position: relative;
   min-width: 0;
-  margin-top: 4rem;
+  margin-top: 3.2rem;
 
   & + .projects__rail {
-    margin-top: 6.4rem;
+    margin-top: 7.2rem;
   }
 }
 
@@ -18,24 +18,24 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 2.4rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 .projects__subheading {
   margin: 0;
-  color: $text-primary;
+  color: $white-color;
   font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 .projects__rail-copy {
   max-width: 65rem;
-  margin: 0.7rem 0 0;
+  margin: 0.6rem 0 0;
   color: $text-muted;
   font-size: 1.35rem;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .projects__rail-nav {
@@ -51,22 +51,22 @@
   width: 4.4rem;
   height: 4.4rem;
   padding: 0;
-  border: 1px solid $border-subtle;
+  border: 1px solid #575757;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  color: $text-primary;
+  background: rgba(10, 10, 10, 0.8);
+  color: $white-color;
   cursor: pointer;
   transition: border-color $transition-fast, background-color $transition-fast,
     color $transition-fast, opacity $transition-fast;
 
   &:hover:not(:disabled) {
-    border-color: $accent;
-    background: $accent;
-    color: $bg-void;
+    border-color: $white-color;
+    background: $white-color;
+    color: $black-color;
   }
 
   &:disabled {
-    opacity: 0.28;
+    opacity: 0.3;
     cursor: default;
   }
 
@@ -77,7 +77,7 @@
 
 .projects__grid {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.2rem;
   width: 100%;
   min-width: 0;
   margin: 0;
@@ -99,46 +99,44 @@
 }
 
 .project-card {
-  position: relative;
   display: flex;
-  flex: 0 0 34rem;
+  flex: 0 0 32rem;
   flex-direction: column;
-  width: 34rem;
+  width: 32rem;
   height: auto;
   min-height: 0;
   max-width: 100%;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid $border-subtle;
-  border-radius: $radius-lg;
-  background: $bg-primary;
+  border: 1px solid #303030;
+  border-radius: $radius-sm;
+  background: #1c1c1c;
   scroll-snap-align: start;
-  transition: border-color $transition-base, background-color $transition-base,
-    box-shadow $transition-base, transform $transition-base;
+  transition: border-color $transition-fast, box-shadow $transition-fast,
+    transform $transition-fast;
 
   @include respond(tab-land) {
-    flex-basis: 36rem;
-    width: 36rem;
+    flex-basis: 34rem;
+    width: 34rem;
   }
 
   @include respond(phone) {
-    flex-basis: 82vw;
-    width: 82vw;
+    flex-basis: 79vw;
+    width: 79vw;
     height: auto;
   }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba($accent, 0.4);
-      background: $bg-elevated;
-      box-shadow: 0 2rem 4.5rem rgba(0, 0, 0, 0.55);
+      border-color: rgba(229, 9, 20, 0.7);
+      box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.55);
       transform: translateY(-0.5rem);
     }
   }
 }
 
 .project-card--minor .project-card__meta {
-  color: $online;
+  color: #35c759;
 }
 
 .project-card__image {
@@ -151,8 +149,7 @@
   padding: 0;
   overflow: hidden;
   border: 0;
-  border-bottom: 1px solid $border-subtle;
-  background: $bg-void;
+  background: #090909;
   color: inherit;
 
   img {
@@ -160,13 +157,13 @@
     height: 100%;
     max-width: 100%;
     object-fit: cover;
-    transition: transform 0.6s $ease-out-expo, filter 0.4s ease;
+    transition: transform 0.55s ease, filter 0.55s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .project-card:hover & img {
-      transform: scale(1.04);
-      filter: brightness(0.9);
+      transform: scale(1.045);
+      filter: brightness(0.86);
     }
   }
 }
@@ -183,8 +180,8 @@
 
   @media (hover: hover) and (pointer: fine) {
     .project-card:hover & img {
-      transform: scale(1.02);
-      filter: brightness(1.04);
+      transform: scale(1.025);
+      filter: brightness(1);
     }
   }
 }
@@ -201,8 +198,8 @@
 
   @media (hover: hover) and (pointer: fine) {
     .project-card:hover & img {
-      transform: scale(1.02);
-      filter: brightness(1.04);
+      transform: scale(1.025);
+      filter: brightness(1);
     }
   }
 }
@@ -221,16 +218,13 @@
   align-items: center;
   gap: 0.6rem;
   max-width: calc(100% - 2.4rem);
-  padding: 0.6rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: $radius-pill;
-  background: rgba(7, 7, 10, 0.82);
-  color: $text-primary;
-  font-family: $font-mono;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: $radius-sm;
+  background: rgba(0, 0, 0, 0.88);
+  color: $white-color;
+  font-size: 1.05rem;
+  font-weight: 700;
   pointer-events: none;
   backdrop-filter: blur(0.8rem);
   -webkit-backdrop-filter: blur(0.8rem);
@@ -238,8 +232,7 @@
 
 .project-card__image--expandable:hover .project-card__expand-hint {
   border-color: $accent;
-  background: $accent;
-  color: $bg-void;
+  background: rgba(229, 9, 20, 0.92);
 }
 
 .project-card__body {
@@ -248,7 +241,7 @@
   flex-direction: column;
   width: 100%;
   min-width: 0;
-  padding: 2.2rem;
+  padding: 2rem;
   overflow: hidden;
   overflow-wrap: break-word;
 
@@ -258,23 +251,22 @@
 }
 
 .project-card__title {
-  margin: 0 0 0.6rem;
-  color: $text-primary;
+  margin: 0 0 0.7rem;
+  color: $white-color;
   font-size: 2.1rem;
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
   overflow-wrap: anywhere;
 }
 
 .project-card__meta {
-  min-height: 1.8rem;
+  min-height: 1.9rem;
   margin: 0 0 1.2rem;
-  color: $accent;
-  font-family: $font-mono;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  color: $accent-light;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
   line-height: 1.4;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -282,13 +274,13 @@
 
 .project-card__desc {
   display: -webkit-box;
-  margin: 0 0 1.8rem;
+  margin: 0 0 1.6rem;
   overflow: hidden;
   color: $text-muted;
   font-size: 1.35rem;
-  line-height: 1.65;
+  line-height: 1.55;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 7;
 }
 
 .project-card__tags {
@@ -304,12 +296,10 @@
 .project-card__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem 1.6rem;
+  gap: 0.8rem 1.8rem;
   width: 100%;
   min-width: 0;
   margin-top: auto;
-  padding-top: 1.4rem;
-  border-top: 1px solid $border-subtle;
 }
 
 .project-card__link {
@@ -320,16 +310,16 @@
   padding: 0;
   border: 0;
   background: none;
-  color: $text-primary;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  color: $white-color;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
   cursor: pointer;
 
   &::after {
     content: "↗";
-    color: $accent;
-    font-size: 1.3rem;
+    color: $accent-light;
+    font-size: 1.35rem;
     line-height: 1;
   }
 

@@ -1,103 +1,100 @@
-// The hero is the establishing shot: a nebula of violet light behind a very
-// large Bricolage headline, with one word set in Instrument Serif italic and
-// lime so the type pairing does the work.
-
 .hero {
   position: relative;
+  min-height: min(96rem, 100vh);
+  min-height: min(96rem, 100svh);
   display: flex;
   align-items: center;
-  min-height: min(94rem, 100vh);
-  min-height: min(94rem, 100svh);
-  padding: 14rem 0 8rem;
   overflow: hidden;
   isolation: isolate;
-  background: transparent;
-  color: $text-primary;
-
-  // A faint grid, far dimmer than the old Tron one — just enough structure to
-  // read as an instrument panel behind the nebula.
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-    background-size: 7rem 7rem;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000, transparent 75%);
-    -webkit-mask-image: radial-gradient(
-      ellipse 70% 60% at 50% 40%,
-      #000,
-      transparent 75%
-    );
-  }
-
-  // Dots marking the corners of the content well, the way a capture frame does.
-  &::after {
-    content: "";
-    position: absolute;
-    top: 11rem;
-    right: max(4rem, calc((100vw - $container-max) / 2));
-    left: max(4rem, calc((100vw - $container-max) / 2));
-    z-index: -1;
-    height: calc(100% - 19rem);
-    pointer-events: none;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: $radius-lg;
-  }
+  padding: 12rem 0 8rem;
+  background: $bg-primary;
+  color: $white-color;
 
   @include respond(tab-port) {
     min-height: auto;
-    padding: 13rem 0 6.4rem;
+    padding: 12rem 0 7.2rem;
   }
 
   @include respond(phone) {
-    padding: 11rem 0 5.6rem;
+    padding: 10.4rem 0 6.4rem;
+    padding-top: max(10.4rem, calc(env(safe-area-inset-top, 0px) + 8.8rem));
+  }
 
-    &::after {
-      display: none;
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &__bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 63% center;
+    filter: saturate(0.86) contrast(1.08) brightness(0.92);
+    transform: scaleX(-1) scale(1.03);
+  }
+
+  &__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 20% 44% at 70% 44%,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.04) 48%,
+        rgba(0, 0, 0, 0.38) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.9) 31%,
+        rgba(0, 0, 0, 0.38) 63%,
+        rgba(0, 0, 0, 0.26) 100%
+      ),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, transparent 30%, rgba(0, 0, 0, 0.9) 100%),
+      linear-gradient(120deg, rgba(229, 9, 20, 0.14), transparent 42%);
+
+    @include respond(tab-port) {
+      background:
+        radial-gradient(
+          ellipse 38% 34% at 52% 42%,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.12) 52%,
+          rgba(0, 0, 0, 0.62) 100%
+        ),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.42)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.76), transparent 35%, rgba(0, 0, 0, 0.96));
     }
   }
 
-  // Nebula light sources. These sit behind the copy and drift slightly on
-  // scroll (see initHeroParallax in js/scroll.js).
   &__glow {
     position: absolute;
     z-index: -2;
+    width: 60rem;
+    height: 60rem;
     border-radius: 50%;
     pointer-events: none;
-    filter: blur(60px);
 
-    &--one {
-      top: -8%;
-      left: 18%;
-      width: 62rem;
-      height: 46rem;
-      background: radial-gradient(circle, rgba($violet, 0.5), transparent 68%);
+    &--right {
+      top: -18%;
+      right: -18%;
+      background: radial-gradient(circle, rgba(229, 9, 20, 0.2), transparent 68%);
     }
 
-    &--two {
-      top: 6%;
-      right: 10%;
-      width: 52rem;
-      height: 40rem;
-      background: radial-gradient(circle, rgba($indigo, 0.4), transparent 70%);
-    }
-
-    &--three {
-      bottom: -20%;
-      left: 34%;
-      width: 46rem;
-      height: 34rem;
-      background: radial-gradient(circle, rgba($accent, 0.09), transparent 70%);
+    &--left {
+      bottom: -35%;
+      left: -20%;
+      background: radial-gradient(circle, rgba(229, 9, 20, 0.08), transparent 68%);
     }
   }
 
   &__container {
     position: relative;
     z-index: 1;
-    width: min(100% - 8rem, $container-max);
+    width: min(100% - 9.6rem, $container-max);
     max-width: $container-max;
     margin: 0 auto;
 
@@ -112,18 +109,13 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-    align-items: end;
-    gap: 5rem;
-
-    @include respond(tab-land) {
-      grid-template-columns: 1fr;
-      gap: 3.6rem;
-    }
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
   }
 
   &__content {
     width: 100%;
+    max-width: 88rem;
     min-width: 0;
   }
 
@@ -135,38 +127,27 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(0.9) contrast(1.1) brightness(0.95);
+    object-position: center 22%;
+    transform: scale(2.45);
+    transform-origin: center 22%;
   }
 
   &__name {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.9rem;
-    margin: 0 0 2.4rem;
-    color: $text-muted;
-    font-family: $font-mono;
-    font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: 0.24em;
+    margin: 0 0 2rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-
-    // Lime status dot, matching the nav pill.
-    &::before {
-      content: "";
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background: $accent;
-    }
   }
 
   &__subtitle {
-    max-width: 62rem;
-    margin: 2.8rem 0 0;
-    color: $text-muted;
-    font-size: clamp(1.7rem, 1.6vw, 2rem);
+    max-width: 68rem;
+    margin-bottom: 3.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1.65rem, 1.7vw, 1.95rem);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
   &__cta {
@@ -174,77 +155,17 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 1.2rem;
-    margin-top: 3.2rem;
-  }
-
-  // The right-hand column: the WebGL diagram over a short statement.
-  &__aside {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-bottom: 0.8rem;
-  }
-
-  &__orbit {
-    position: relative;
-    aspect-ratio: 1;
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: $radius-lg;
-    background:
-      radial-gradient(60% 60% at 50% 50%, rgba(109, 40, 217, 0.22), transparent 70%),
-      rgba(255, 255, 255, 0.02);
-    // Fades in once the lazily-loaded Three.js chunk has drawn, so the panel is
-    // never an empty box sitting above the fold waiting on the network.
-    opacity: 0;
-    transition: opacity 0.8s $ease-out-expo;
-
-    &.is-ready {
-      opacity: 1;
-    }
-  }
-
-  &__orbit-canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  // A caption plate in the corner, so the diagram reads as instrumentation
-  // rather than as wallpaper.
-  &__orbit-caption {
-    position: absolute;
-    bottom: 1.1rem;
-    left: 1.2rem;
-    color: $text-dim;
-    font-family: $font-mono;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  &__aside-text {
-    margin: 0;
-    color: $text-dim;
-    font-size: 1.35rem;
-    line-height: 1.7;
+    margin-bottom: 4rem;
   }
 
   &__facts {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2.4rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.8rem 3.2rem;
     width: 100%;
     min-width: 0;
-    margin-top: 5.6rem;
-    padding-top: 2.8rem;
-    border-top: 1px solid $border-subtle;
-
-    @include respond(tab-port) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    padding-top: 2.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   &__fact {
@@ -255,45 +176,43 @@
   }
 
   &__fact-value {
-    color: $text-primary;
-    font-size: clamp(2.2rem, 2.6vw, 2.9rem);
-    font-weight: 600;
-    letter-spacing: -0.045em;
+    color: $white-color;
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
     line-height: 1;
     overflow-wrap: anywhere;
   }
 
   &__fact-label {
     margin: 0;
-    color: $text-dim;
-    font-family: $font-mono;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.4;
     text-transform: uppercase;
   }
 
   &__scroll-cue {
     position: absolute;
-    right: max(4rem, calc((100vw - $container-max) / 2));
+    right: max(4.8rem, calc((100vw - $container-max) / 2));
     bottom: 2.8rem;
     z-index: 2;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    color: $text-dim;
-    font-family: $font-mono;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
+    gap: 1.2rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     writing-mode: vertical-rl;
 
     &::after {
       content: "";
-      width: 0.15rem;
-      height: 3.6rem;
+      width: 0.2rem;
+      height: 4rem;
       background: linear-gradient($accent, transparent);
       animation: scroll-cue 1.8s ease-in-out infinite;
     }
@@ -304,40 +223,55 @@
   }
 }
 
-// The display headline. Large, tight, and optical. Each line is authored
-// separately in the markup, so the wrap points are deliberate rather than left
-// to the container width.
 .hero-headline {
-  max-width: 88rem;
-  margin: 0;
-  color: $text-primary;
-  font-size: clamp(3.4rem, 6.6vw, 7.2rem);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 0.94;
+  max-width: 78rem;
+  margin: 0 0 2.4rem;
+  color: $white-color;
+  font-size: clamp(3.4rem, 4.5vw, 5.6rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+  text-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.48);
 
   &__line {
     display: block;
-    // Below this the authored lines would collide, so wrapping is allowed to
-    // take over and the type steps down instead.
     white-space: nowrap;
 
-    &:last-child {
-      white-space: normal;
+    &--secondary {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-top: 0.8rem;
+      color: rgba(255, 255, 255, 0.9);
     }
   }
 
-  @include respond(tab-port) {
-    max-width: 46rem;
+  &__separator {
+    color: $accent-light;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1;
+    transform: translateY(-0.08em);
   }
 
   @include respond(phone) {
-    max-width: 30rem;
-    font-size: clamp(2.8rem, 12.5vw, 3.6rem);
-    line-height: 0.98;
+    max-width: 35rem;
+    margin-bottom: 1.8rem;
+    font-size: clamp(2.3rem, 6.3vw, 3.4rem);
+    line-height: 1.08;
 
     .hero-headline__line {
       white-space: normal;
+    }
+
+    .hero-headline__line--secondary {
+      align-items: flex-start;
+      gap: 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    .hero-headline__separator {
+      margin-top: 0.25rem;
     }
   }
 }
@@ -345,8 +279,8 @@
 @keyframes scroll-cue {
   0%,
   100% {
-    opacity: 0.3;
-    transform: scaleY(0.5);
+    opacity: 0.4;
+    transform: scaleY(0.55);
     transform-origin: top;
   }
 
@@ -358,23 +292,34 @@
 }
 
 @media (max-width: 56.25em) {
+  .hero__bg {
+    object-position: left center;
+    transform: scale(1.06);
+  }
+
   .hero__content {
-    max-width: none;
+    max-width: 76rem;
+  }
+
+  .hero__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 37.5em) {
   .hero__mobile-portrait {
     display: block;
-    width: 7.6rem;
+    width: 9.6rem;
     aspect-ratio: 1;
-    margin: 0 0 2.4rem;
-    padding: 0.3rem;
+    margin: 0 auto 2.4rem;
+    padding: 0.35rem;
     overflow: hidden;
-    border: 1px solid rgba(212, 255, 63, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.48);
     border-radius: 50%;
-    background: $bg-void;
-    box-shadow: 0 0 2.4rem rgba(212, 255, 63, 0.2);
+    background: #000000;
+    box-shadow:
+      0 0 0 0.25rem $accent,
+      0 1.2rem 3rem rgba(0, 0, 0, 0.55);
   }
 
   .hero__subtitle {
@@ -384,7 +329,7 @@
   .hero__cta {
     flex-direction: column;
     align-items: stretch;
-    margin-top: 2.4rem;
+    margin-bottom: 3.2rem;
 
     .cta-btn {
       width: 100%;
@@ -392,13 +337,17 @@
   }
 
   .hero__facts {
-    gap: 2rem 1.4rem;
-    margin-top: 3.6rem;
+    gap: 2.4rem 1.6rem;
     padding-top: 2rem;
   }
 
-  .hero__fact-label {
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
+  .hero__fact-value {
+    font-size: 2.2rem;
   }
+
+  .hero__fact-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+
 }

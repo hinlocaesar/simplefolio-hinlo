@@ -1,11 +1,11 @@
 .footer {
   padding: 5.6rem 0 4.8rem;
-  border-top: 1px solid $border-subtle;
-  background: $bg-void;
+  border-top: 1px solid #242424;
+  background: $bg-primary;
   color: $text-muted;
 
   .container {
-    width: min(100% - 8rem, $container-max);
+    width: min(100% - 9.6rem, $container-max);
     max-width: $container-max;
     margin: 0 auto;
 
@@ -20,14 +20,14 @@
 
   &__text {
     margin: 0;
-    color: $text-dim;
+    color: rgba(255, 255, 255, 0.48);
     font-size: 1.2rem;
 
     a {
       color: inherit;
 
       &:hover {
-        color: $accent;
+        color: $accent-light;
       }
     }
   }
@@ -36,7 +36,7 @@
     width: 100%;
     margin: 3.2rem 0;
     border: 0;
-    border-top: 1px solid $border-subtle;
+    border-top: 1px solid #242424;
     opacity: 1;
   }
 }
@@ -53,10 +53,10 @@
     justify-content: center;
     width: 4.4rem;
     height: 4.4rem;
-    border: 1px solid $border-subtle;
+    border: 1px solid #383838;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
-    color: $text-primary;
+    background: #101010;
+    color: $white-color;
     font-size: 1.7rem;
     transition: border-color $transition-fast, background-color $transition-fast,
       color $transition-fast, transform $transition-fast;
@@ -64,7 +64,7 @@
     &:hover {
       border-color: $accent;
       background: $accent;
-      color: $bg-void;
+      color: $white-color;
       transform: translateY(-0.2rem);
     }
   }
@@ -77,16 +77,14 @@
   width: 4.4rem;
   height: 4.4rem;
   margin: 0 0 2.4rem;
-  border: 1px solid $border-subtle;
+  border: 1px solid #383838;
   border-radius: 50%;
-  color: $text-primary;
+  color: $white-color;
   font-size: 1.4rem;
-  transition: border-color $transition-fast, background-color $transition-fast,
-    color $transition-fast;
+  transition: border-color $transition-fast, background-color $transition-fast;
 
   &:hover {
     border-color: $accent;
     background: $accent;
-    color: $bg-void;
   }
 }

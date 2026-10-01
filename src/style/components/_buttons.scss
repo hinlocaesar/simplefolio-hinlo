@@ -1,33 +1,29 @@
-// Controls: a lime pill for the primary action, a quiet outline for everything
-// else. Rounded rather than squared — this theme is soft-edged, not machined.
-
 .cta-btn {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
+  gap: 1rem;
+  position: relative;
   min-height: 4.8rem;
-  padding: 0 2.4rem;
-  overflow: hidden;
-  border: 1px solid transparent;
-  border-radius: $radius-pill;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid transparent;
+  border-radius: $radius-sm;
   font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   line-height: 1;
+  text-transform: none;
   cursor: pointer;
   transition: background-color $transition-fast, border-color $transition-fast,
-    color $transition-fast, transform $transition-fast, box-shadow $transition-fast;
+    color $transition-fast, transform $transition-fast;
 
-  i,
-  .icon {
-    font-size: 1.2rem;
+  i {
+    font-size: 1.3rem;
   }
 
   @include respond(phone) {
     min-height: 4.6rem;
-    padding: 0 1.8rem;
+    padding: 1.1rem 1.8rem;
     font-size: 1.4rem;
   }
 }
@@ -35,70 +31,63 @@
 .cta-btn--primary {
   border-color: $accent;
   background: $accent;
-  color: $bg-void;
-  box-shadow: 0 0.8rem 2.4rem rgba($accent, 0.22);
+  color: $white-color;
 
   &:hover {
     border-color: $accent-light;
     background: $accent-light;
-    box-shadow: 0 1rem 3rem rgba($accent, 0.34);
     transform: translateY(-0.2rem);
   }
 }
 
 .cta-btn--outline {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.04);
-  color: $text-primary;
-  backdrop-filter: blur(0.8rem);
-  -webkit-backdrop-filter: blur(0.8rem);
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(20, 20, 20, 0.72);
+  color: $white-color;
 
   &:hover {
-    border-color: $text-primary;
-    background: rgba(255, 255, 255, 0.1);
-    color: $text-primary;
-    transform: translateY(-0.2rem);
+    border-color: $white-color;
+    background: $white-color;
+    color: $black-color;
   }
 }
 
 .cta-btn--outline-light {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(10, 10, 15, 0.5);
-  color: $text-primary;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.24);
+  color: $white-color;
   backdrop-filter: blur(0.8rem);
   -webkit-backdrop-filter: blur(0.8rem);
 
   &:hover {
-    border-color: $accent;
-    background: rgba(212, 255, 63, 0.12);
-    color: $accent;
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.12);
+    color: $white-color;
   }
 }
 
-// Text link with an underline that wipes in from the left.
 .cta-btn--ghost {
   min-height: auto;
-  padding: 0.8rem 0;
+  padding: 1.2rem 0.4rem;
   border: 0;
   background: transparent;
-  color: $text-muted;
-  font-size: 1.5rem;
+  color: $white-color;
 
   &::after {
     content: "";
     position: absolute;
-    right: 0;
-    bottom: 0.4rem;
-    left: 0;
-    height: 0.15rem;
+    right: 0.4rem;
+    bottom: 0.5rem;
+    left: 0.4rem;
+    height: 0.2rem;
     background: $accent;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform $transition-base;
+    transition: transform $transition-fast;
   }
 
   &:hover {
-    color: $accent;
+    color: $white-color;
 
     &::after {
       transform: scaleX(1);
