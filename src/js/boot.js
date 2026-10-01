@@ -53,7 +53,6 @@ export default function initBoot() {
     if (done) return;
     done = true;
     overlay.classList.add("is-complete");
-    document.documentElement.classList.remove("is-booting");
 
     window.removeEventListener("keydown", finish);
     window.removeEventListener("pointerdown", finish);
@@ -61,7 +60,10 @@ export default function initBoot() {
     window.removeEventListener("touchstart", finish);
 
     // The exit transition needs the node to stay put until it has played.
-    window.setTimeout(() => overlay.remove(), 700);
+    window.setTimeout(() => {
+      overlay.remove();
+      document.documentElement.classList.remove("is-booting");
+    }, 650);
   };
 
   window.addEventListener("keydown", finish, { passive: true });

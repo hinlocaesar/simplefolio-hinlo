@@ -185,8 +185,10 @@
   }
 }
 
-// While booting, the page itself is held back so the visitor sees the machine
-// come up rather than a half-rendered document behind the overlay.
+// While booting, the page stays laid out and painting underneath the overlay.
+// It is deliberately *not* scroll-locked: a decorative intro should never make
+// the page unresponsive, and the content behind it keeps rendering so the
+// largest-contentful-paint element is ready the moment the overlay clears.
 .is-booting body {
-  overflow: hidden;
+  cursor: progress;
 }

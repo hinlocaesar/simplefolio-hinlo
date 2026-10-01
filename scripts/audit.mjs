@@ -13,6 +13,7 @@ import { launch } from "chrome-launcher";
 import lighthouse from "lighthouse";
 import http from "node:http";
 import fs from "node:fs";
+import zlib from "node:zlib";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -38,6 +39,9 @@ function arg(flag) {
   return i > -1 ? process.argv[i + 1] : undefined;
 }
 
+/** Text types worth compressing. Mirrors what GitHub Pages serves. */
+const COMPRESSIBLE = new Set([".html", ".js", ".css", ".json", ".svg"]);
+
 function serveDist() {
   const server = http.createServer((req, res) => {
     let file = path.join(DIST, decodeURIComponent(req.url.split("?")[0]));
@@ -49,7 +53,21 @@ function serveDist() {
       res.writeHead(404);
       return res.end("not found");
     }
-    res.writeHead(200, { "Content-Type": MIME[path.extname(file)] ?? "application/octet-stream" });
+
+    const ext = path.extname(file);
+    const headers = { "Content-Type": MIME[ext] ?? "application/octet-stream" };
+
+    // Serving the 84 KB HTML uncompressed measured the wrong thing entirely —
+    // production has it gzipped, so the numbers would be pessimistic and
+    // misleading about what to optimise.
+    const accepts = String(req.headers["accept-encoding"] ?? "").includes("gzip");
+    if (accepts && COMPRESSIBLE.has(ext)) {
+      headers["Content-Encoding"] = "gzip";
+      res.writeHead(200, headers);
+      return fs.createReadStream(file).pipe(zlib.createGzip()).pipe(res);
+    }
+
+    res.writeHead(200, headers);
     fs.createReadStream(file).pipe(res);
   });
   return new Promise((resolve) => {
@@ -71,16 +89,22 @@ async function main() {
 
   const chrome = await launch({ chromeFlags: ["--headless=new", "--no-sandbox"] });
   try {
+    const mobile = arg("--only") === "mobile";
     const result = await lighthouse(
       url,
       { port: chrome.port, output: "json", logLevel: "error" },
       {
         extends: "lighthouse:default",
+        // Lighthouse's simulated throttling, not "provided". Without it the
+        // score only reflects how busy this machine happened to be, and swings
+        // by 50+ points between identical runs, which makes it useless for
+        // judging whether a change helped.
         settings: {
-          formFactor: arg("--only") === "mobile" ? "mobile" : "desktop",
-          screenEmulation: { mobile: false, width: 1440, height: 900, deviceScaleFactor: 1 },
-          emulatedUserAgent: false,
-          throttlingMethod: "provided",
+          formFactor: mobile ? "mobile" : "desktop",
+          screenEmulation: mobile
+            ? { mobile: true, width: 412, height: 823, deviceScaleFactor: 1.75 }
+            : { mobile: false, width: 1350, height: 940, deviceScaleFactor: 1 },
+          throttlingMethod: "simulate",
         },
       }
     );
@@ -104,6 +128,37 @@ async function main() {
         if (detail?.node?.snippet) {
           console.log(`      ${detail.node.snippet.slice(0, 160)}`);
         }
+      }
+    }
+
+    // The score alone does not say what to do. These are the numbers and the
+    // opportunities that actually move it.
+    console.log("\nMetrics:");
+    for (const id of ["first-contentful-paint", "largest-contentful-paint", "total-blocking-time", "cumulative-layout-shift", "speed-index", "interactive"]) {
+      const a = lhr.audits[id];
+      if (!a) continue;
+      // displayValue is a preformatted string and is absent on some audits;
+      // numericValue is milliseconds for everything except CLS, which is a
+      // unitless ratio.
+      const value = a.displayValue ?? (typeof a.numericValue === "number" ? a.numericValue.toFixed(id === "cumulative-layout-shift" ? 4 : 0) : "?");
+      console.log(`  ${String(value).padStart(7)}  ${a.title}`);
+    }
+
+    const opportunities = lhr.audits["opportunities"]?.details?.items ?? [];
+    if (opportunities.length) {
+      console.log("\nOpportunities:");
+      for (const item of opportunities.slice(0, 8)) {
+        console.log(`  -${Math.round(item.savingsMs)}ms  ${item.title}`);
+      }
+    }
+
+    const requests = lhr.audits["network-requests"]?.details?.items ?? [];
+    if (requests.length) {
+      const bytes = requests.reduce((n, r) => n + (r.transferSize ?? 0), 0);
+      console.log(`\nTransfer: ${(bytes / 1024).toFixed(0)} KB across ${requests.length} requests`);
+      const slowest = [...requests].sort((a, b) => (b.endTime ?? 0) - (a.endTime ?? 0)).slice(0, 6);
+      for (const r of slowest) {
+        console.log(`  ${Math.round(r.endTime)}ms  ${(r.transferSize / 1024).toFixed(0)}KB  ${r.url.replace(lhr.finalDisplayedUrl, "") || r.url}`);
       }
     }
   } finally {

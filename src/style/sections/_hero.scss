@@ -200,10 +200,9 @@
     object-fit: cover;
     object-position: center 20%;
     // Desaturate so the duotone below has something to recolour, the same two
-    // steps the hero background goes through.
+    // steps the hero background goes through. No zoom: the source is already
+    // cropped to the circle.
     filter: grayscale(0.92) contrast(1.12) brightness(0.92);
-    transform: scale(2.1);
-    transform-origin: center 20%;
   }
 
   &__name {
@@ -310,8 +309,12 @@
   letter-spacing: -0.04em;
   line-height: 1.06;
   text-shadow: 0 0 4rem rgba($accent, 0.28);
-  // Power-on: the line resolves out of a chromatic split and snaps to place.
-  animation: glitch-in 1.1s $ease-out-expo both;
+  // Power-on. Deliberately transform/opacity only: an earlier version animated
+  // `filter: blur()` and `text-shadow` too, which forces the whole headline
+  // layer to repaint every frame and measurably pushed up blocking time. This
+  // version composites instead, and the chromatic split comes from the static
+  // glow plus the sweep crossing the hero.
+  animation: glitch-in 0.9s $ease-out-expo both;
 
   &__line {
     display: block;
@@ -367,31 +370,25 @@
   }
 }
 
+// Transform and opacity only, so the whole run stays on the compositor.
 @keyframes glitch-in {
   0% {
     opacity: 0;
-    text-shadow: -0.5rem 0 rgba($accent, 0.9), 0.5rem 0 rgba($signal, 0.9);
-    filter: blur(0.5rem);
-    transform: translateX(-0.6rem);
+    transform: translateX(-0.8rem) scaleX(1.02);
   }
 
   40% {
     opacity: 1;
-    text-shadow: 0.3rem 0 rgba($accent, 0.7), -0.3rem 0 rgba($signal, 0.7);
-    filter: blur(0.15rem);
-    transform: translateX(0.3rem);
+    transform: translateX(0.3rem) scaleX(0.995);
   }
 
   70% {
-    text-shadow: -0.15rem 0 rgba($accent, 0.4), 0.15rem 0 rgba($signal, 0.4);
-    filter: blur(0);
-    transform: translateX(-0.1rem);
+    transform: translateX(-0.1rem) scaleX(1);
   }
 
   100% {
-    text-shadow: 0 0 4rem rgba($accent, 0.28);
-    filter: blur(0);
-    transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
   }
 }
 

@@ -22,7 +22,8 @@
   transition: background-color $transition-fast, border-color $transition-fast,
     color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
 
-  i {
+  i,
+  .icon {
     font-size: 1.2rem;
   }
 
