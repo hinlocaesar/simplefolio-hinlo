@@ -1,37 +1,72 @@
-// COLORS — cinematic streaming palette
-$bg-primary: #000000;
-$bg-surface: #141414;
-$bg-elevated: #1f1f1f;
+// COLORS — "TRON / TERMINATOR" HUD palette
+//
+// The identity is a system readout: near-black voids, a cold cyan signal for
+// anything interactive, and a hot amber used sparingly as the warning channel.
+// Surfaces are tinted blue-black rather than neutral grey so that every cyan
+// glow has something to sit on.
 
-$accent: #e50914;
-$accent-light: #f6121d;
+$bg-void: #03060b;
+$bg-primary: #060b12;
+$bg-surface: #081018;
+$bg-elevated: #0d1823;
+$bg-raised: #12212e;
 
-$text-primary: #ffffff;
-$text-muted: #b3b3b3;
+// Tron signal (primary / interactive)
+$accent: #00d9f5;
+$accent-light: #7df3ff;
+$accent-deep: #0891b2;
 
-$border-accent: rgba(255, 255, 255, 0.12);
-$border-accent-strong: rgba(229, 9, 20, 0.72);
+// Terminator channel (warnings, "in development", emphasis)
+$signal: #ff9e2c;
+$signal-light: #ffc46b;
 
-$product-photo-bg: #0b0b0b;
+// Status
+$online: #3ddc84;
+
+$text-primary: #f2fbff;
+$text-muted: #93a9bb;
+// The dimmest tone, used for the small mono labels. Kept at ~5.5:1 on the void
+// so it clears WCAG AA for body-size text rather than being decoration-only.
+$text-dim: #75899e;
+
+$border-accent: rgba(0, 217, 245, 0.22);
+$border-accent-strong: rgba(0, 217, 245, 0.55);
+
+$product-photo-bg: #04080d;
 
 $white-color: #ffffff;
 $black-color: #000000;
 
 // TYPOGRAPHY
+// Space Grotesk is the workhorse: geometric, slightly technical, and far more
+// contemporary than the Arial stack this started on. JetBrains Mono carries the
+// HUD voice — eyebrow labels, tags, metadata, readouts.
+$font-stack: "Space Grotesk Variable", "Space Grotesk", -apple-system,
+  BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
+  SFMono-Regular, Menlo, monospace;
+
 $default-font-size: 1.6rem;
 $big-font-size: 4.8rem;
 $mid-font-size: 2.4rem;
-$font-stack: Arial, Helvetica, "Helvetica Neue", sans-serif;
 
 // LAYOUT
 $container-max: 160rem;
 $container-pad: 4.8rem;
 $container-pad-sm: 2rem;
 
+$nav-height: 7.2rem;
+
 // RADIUS
-$radius-sm: 4px;
-$radius-md: 8px;
+// Squarer corners read as instrumentation; the old 4px/8px felt like a consumer
+// web app.
+$radius-sm: 2px;
+$radius-md: 4px;
 
 // TRANSITIONS
 $transition-fast: all 0.2s ease;
 $transition-base: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+// MOTION — one shared vocabulary so every animation feels like the same machine
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);

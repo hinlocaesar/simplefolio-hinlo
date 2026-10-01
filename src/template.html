@@ -39,13 +39,27 @@
   <body>
     <div id="top"></div>
 
+    <!-- Decorative boot sequence. Removed by scripts/boot.js on first load,
+         skipped entirely under prefers-reduced-motion, and never focusable, so
+         assistive tech does not encounter it. -->
+    <div class="boot" aria-hidden="true">
+      <div class="boot__inner">
+        <div class="boot__head">
+          <span>CE.HINLO // SYS</span>
+          <span>v14.2</span>
+        </div>
+        <div class="boot__log"></div>
+        <div class="boot__bar"></div>
+      </div>
+    </div>
+
     <!-- **** Navigation **** -->
     <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
       <div class="site-nav__inner">
         <a
           class="site-nav__logo"
           href="#hero"
-          aria-label="Caesar Hinlo home"
+          aria-label="CH. — Caesar Hinlo, back to top"
           >C<span>H</span>.</a
         >
         <ul class="site-nav__links" id="navLinks">

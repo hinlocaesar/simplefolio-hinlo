@@ -26,6 +26,16 @@ module.exports = {
         test: /\.(png|jpe?g|webp|gif|svg)$/i,
         type: "asset/resource",
       },
+      // Self-hosted variable fonts. Emitted through the asset pipeline so the
+      // woff2 files get content-hashed and can be cached indefinitely, instead
+      // of shipping as loose files from the template directory.
+      {
+        test: /\.(woff2?)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/fonts/[name].[contenthash][ext]",
+        },
+      },
       {
         test: /\.(docx)$/,
         use: [

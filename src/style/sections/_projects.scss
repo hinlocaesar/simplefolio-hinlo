@@ -23,10 +23,10 @@
 
 .projects__subheading {
   margin: 0;
-  color: $white-color;
+  color: $text-primary;
   font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.1;
 }
 
@@ -51,22 +51,23 @@
   width: 4.4rem;
   height: 4.4rem;
   padding: 0;
-  border: 1px solid #575757;
+  border: 1px solid rgba($accent, 0.3);
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.8);
-  color: $white-color;
+  background: rgba($bg-void, 0.7);
+  color: $accent;
   cursor: pointer;
   transition: border-color $transition-fast, background-color $transition-fast,
-    color $transition-fast, opacity $transition-fast;
+    color $transition-fast, box-shadow $transition-fast, opacity $transition-fast;
 
   &:hover:not(:disabled) {
-    border-color: $white-color;
-    background: $white-color;
-    color: $black-color;
+    border-color: $accent;
+    background: rgba($accent, 0.16);
+    color: $accent-light;
+    box-shadow: 0 0 1.8rem rgba($accent, 0.4);
   }
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 0.28;
     cursor: default;
   }
 
@@ -99,6 +100,7 @@
 }
 
 .project-card {
+  position: relative;
   display: flex;
   flex: 0 0 32rem;
   flex-direction: column;
@@ -108,12 +110,12 @@
   max-width: 100%;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid #303030;
+  border: 1px solid rgba($accent, 0.16);
   border-radius: $radius-sm;
-  background: #1c1c1c;
+  background: $bg-elevated;
   scroll-snap-align: start;
-  transition: border-color $transition-fast, box-shadow $transition-fast,
-    transform $transition-fast;
+  transition: border-color $transition-base, box-shadow $transition-base,
+    transform $transition-base;
 
   @include respond(tab-land) {
     flex-basis: 34rem;
@@ -126,17 +128,39 @@
     height: auto;
   }
 
+  // A lit top edge that brightens on hover — the card "arms" rather than just
+  // lifting.
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: 0.2rem;
+    background: linear-gradient(90deg, $accent, rgba($accent, 0));
+    opacity: 0.45;
+    transition: opacity $transition-base, box-shadow $transition-base;
+    pointer-events: none;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba(229, 9, 20, 0.7);
-      box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.55);
+      border-color: rgba($accent, 0.5);
+      box-shadow: 0 1.8rem 4.5rem rgba(0, 0, 0, 0.6),
+        0 0 2.8rem rgba($accent, 0.16);
       transform: translateY(-0.5rem);
+
+      &::before {
+        opacity: 1;
+        box-shadow: 0 0 1.6rem rgba($accent, 0.9);
+      }
     }
   }
 }
 
 .project-card--minor .project-card__meta {
-  color: #35c759;
+  color: $online;
 }
 
 .project-card__image {
@@ -149,7 +173,7 @@
   padding: 0;
   overflow: hidden;
   border: 0;
-  background: #090909;
+  background: $bg-void;
   color: inherit;
 
   img {
@@ -163,7 +187,9 @@
   @media (hover: hover) and (pointer: fine) {
     .project-card:hover & img {
       transform: scale(1.045);
-      filter: brightness(0.86);
+      // Screenshots are bright and colourful; dimming toward the cyan palette
+      // keeps the card from shouting over the rest of the page.
+      filter: brightness(0.7) saturate(0.9);
     }
   }
 }
@@ -181,7 +207,7 @@
   @media (hover: hover) and (pointer: fine) {
     .project-card:hover & img {
       transform: scale(1.025);
-      filter: brightness(1);
+      filter: brightness(1.05) saturate(0.85);
     }
   }
 }
@@ -199,7 +225,7 @@
   @media (hover: hover) and (pointer: fine) {
     .project-card:hover & img {
       transform: scale(1.025);
-      filter: brightness(1);
+      filter: brightness(1.05) saturate(0.85);
     }
   }
 }
@@ -219,12 +245,15 @@
   gap: 0.6rem;
   max-width: calc(100% - 2.4rem);
   padding: 0.7rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba($accent, 0.4);
   border-radius: $radius-sm;
-  background: rgba(0, 0, 0, 0.88);
-  color: $white-color;
-  font-size: 1.05rem;
-  font-weight: 700;
+  background: rgba($bg-void, 0.88);
+  color: $text-primary;
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   pointer-events: none;
   backdrop-filter: blur(0.8rem);
   -webkit-backdrop-filter: blur(0.8rem);
@@ -232,7 +261,8 @@
 
 .project-card__image--expandable:hover .project-card__expand-hint {
   border-color: $accent;
-  background: rgba(229, 9, 20, 0.92);
+  background: rgba($accent, 0.85);
+  color: $bg-void;
 }
 
 .project-card__body {
@@ -252,10 +282,10 @@
 
 .project-card__title {
   margin: 0 0 0.7rem;
-  color: $white-color;
+  color: $text-primary;
   font-size: 2.1rem;
-  font-weight: 800;
-  letter-spacing: -0.045em;
+  font-weight: 700;
+  letter-spacing: -0.035em;
   line-height: 1.1;
   overflow-wrap: anywhere;
 }
@@ -263,10 +293,11 @@
 .project-card__meta {
   min-height: 1.9rem;
   margin: 0 0 1.2rem;
-  color: $accent-light;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
+  color: $accent;
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   line-height: 1.4;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -278,7 +309,7 @@
   overflow: hidden;
   color: $text-muted;
   font-size: 1.35rem;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
 }
@@ -300,6 +331,8 @@
   width: 100%;
   min-width: 0;
   margin-top: auto;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba($accent, 0.14);
 }
 
 .project-card__link {
@@ -310,16 +343,18 @@
   padding: 0;
   border: 0;
   background: none;
-  color: $white-color;
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
+  color: $text-primary;
+  font-family: $font-mono;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
 
   &::after {
     content: "↗";
-    color: $accent-light;
-    font-size: 1.35rem;
+    color: $accent;
+    font-size: 1.3rem;
     line-height: 1;
   }
 

@@ -22,27 +22,18 @@
   min-width: 0;
   min-height: 21rem;
   padding: 2.4rem;
-  border: 1px solid #303030;
-  border-radius: $radius-sm;
-  background: $bg-surface;
-  transition: border-color $transition-fast, background-color $transition-fast,
-    transform $transition-fast;
-
-  &:hover {
-    border-color: #484848;
-    background: #1b1b1b;
-    transform: translateY(-0.3rem);
-  }
+  @include hud-panel;
+  @include hud-corners(1.4rem, rgba($accent, 0.4));
 }
 
 .skills__group-title {
   margin: 0 0 2rem;
   padding-bottom: 1.6rem;
-  border-bottom: 0.2rem solid $accent;
-  color: $white-color;
+  @include hud-header;
+  color: $text-primary;
   font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.2;
 }
 
@@ -52,16 +43,17 @@
   & + & {
     margin-top: 2rem;
     padding-top: 1.8rem;
-    border-top: 1px solid #303030;
+    border-top: 1px solid rgba($accent, 0.14);
   }
 }
 
 .skills__subgroup-title {
   margin: 0 0 1.2rem;
-  color: $text-muted;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  color: $text-dim;
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -72,9 +64,9 @@
 
 .skills__plus {
   margin: 0 0.1rem;
-  color: $accent-light;
+  color: $accent;
   font-size: 1.2rem !important;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -86,6 +78,7 @@
   min-width: 0;
 }
 
+// Tags are chips on a console: dark fill, thin cyan edge, mono label.
 .tag {
   display: inline-flex;
   align-items: center;
@@ -93,23 +86,26 @@
   flex: 0 1 auto;
   max-width: 100%;
   padding: 0.8rem 1.1rem;
-  border: 1px solid #383838;
+  border: 1px solid rgba($accent, 0.2);
   border-radius: $radius-sm;
-  background: #0b0b0b;
+  background: rgba($bg-void, 0.6);
   color: $text-muted;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-family: $font-mono;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   line-height: 1.2;
   white-space: normal;
   overflow-wrap: anywhere;
   transition: background-color $transition-fast, border-color $transition-fast,
-    color $transition-fast, transform $transition-fast;
+    color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba(229, 9, 20, 0.72);
-      background: rgba(229, 9, 20, 0.12);
-      color: $white-color;
+      border-color: rgba($accent, 0.7);
+      background: rgba($accent, 0.12);
+      color: $accent-light;
+      box-shadow: 0 0 1.6rem rgba($accent, 0.24);
       transform: translateY(-0.2rem);
     }
   }
@@ -118,9 +114,9 @@
 .tag--strong {
   position: relative;
   margin-top: 0.8rem;
-  border-color: rgba(255, 255, 255, 0.28);
-  background: #101010;
-  color: $white-color;
+  border-color: rgba($online, 0.42);
+  background: rgba($online, 0.08);
+  color: $text-primary;
 
   &::before {
     content: "Preferred";
@@ -129,10 +125,10 @@
     left: 0.7rem;
     padding: 0.15rem 0.45rem;
     border-radius: 2px;
-    background: #35c759;
-    color: #07110a;
+    background: $online;
+    color: $bg-void;
     font-size: 0.7rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.08em;
     line-height: 1;
     text-transform: uppercase;
@@ -140,20 +136,23 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba(255, 255, 255, 0.7);
-      background: #191919;
+      border-color: $online;
+      background: rgba($online, 0.16);
       color: $white-color;
+      box-shadow: 0 0 1.6rem rgba($online, 0.28);
       transform: translateY(-0.2rem);
     }
   }
 }
 
+// "Certified" sits on the amber channel — it is a claim, so it is the one tag
+// that gets the warning colour rather than the signal colour.
 .tag--certified {
   position: relative;
   margin-top: 0.8rem;
-  border-color: rgba(255, 154, 31, 0.38);
-  background: #14100a;
-  color: $white-color;
+  border-color: rgba($signal, 0.42);
+  background: rgba($signal, 0.08);
+  color: $text-primary;
 
   &::after {
     content: "Certified";
@@ -162,10 +161,10 @@
     right: 0.7rem;
     padding: 0.15rem 0.45rem;
     border-radius: 2px;
-    background: #ff9a1f;
-    color: #1a0d00;
+    background: $signal;
+    color: $bg-void;
     font-size: 0.7rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.08em;
     line-height: 1;
     text-transform: uppercase;
@@ -189,9 +188,10 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba(255, 154, 31, 0.7);
-      background: #191207;
+      border-color: $signal;
+      background: rgba($signal, 0.16);
       color: $white-color;
+      box-shadow: 0 0 1.6rem rgba($signal, 0.28);
       transform: translateY(-0.2rem);
     }
   }
@@ -210,5 +210,5 @@
 
 .tag--sm {
   padding: 0.5rem 0.9rem;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
 }

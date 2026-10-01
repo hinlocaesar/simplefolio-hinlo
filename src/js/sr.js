@@ -1,5 +1,14 @@
 import assignProps from "./assignProps";
 
+/**
+ * Scroll entrances. ScrollReveal drives them when it loaded; without it (a
+ * blocked CDN, for instance) everything is revealed immediately so the content
+ * is never left invisible.
+ *
+ * The motion vocabulary is deliberately narrow: content rises a short distance
+ * and fades, and multi-item groups stagger. Anything more would fight the
+ * layout on a page this long.
+ */
 export default function initSr() {
   if (typeof window.ScrollReveal !== "function") {
     document.querySelectorAll(".load-hidden").forEach((element) => {
@@ -9,19 +18,17 @@ export default function initSr() {
   }
 
   const defaultProps = {
-    easing: "cubic-bezier(0.2, 0.7, 0.2, 1)",
-    distance: "20px",
-    duration: 900,
+    easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+    distance: "26px",
+    duration: 800,
+    interval: 70,
     desktop: true,
     mobile: true,
   };
 
   ScrollReveal().reveal(
     ".section-eyebrow, .section-title",
-    assignProps(
-      { delay: 100, distance: "0px", origin: "bottom" },
-      defaultProps
-    )
+    assignProps({ delay: 60, distance: "0px", origin: "bottom" }, defaultProps)
   );
 
   ScrollReveal().reveal(
@@ -29,38 +36,25 @@ export default function initSr() {
     assignProps({ origin: "bottom" }, defaultProps)
   );
 
+  ScrollReveal().reveal(".about__summary", assignProps({ origin: "bottom" }, defaultProps));
+
+  ScrollReveal().reveal(".timeline__item", assignProps({ origin: "bottom" }, defaultProps));
+
+  ScrollReveal().reveal(".skills__group", assignProps({ origin: "bottom" }, defaultProps));
+
+  ScrollReveal().reveal(".projects__rail-head", assignProps({ origin: "bottom" }, defaultProps));
+
+  // Cards sit in a horizontal rail that is already horizontally offset, so they
+  // reveal from the left rather than rising — sliding sideways reads as "this
+  // rail is loading", which is what it is.
   ScrollReveal().reveal(
-    ".about__summary",
-    assignProps({ delay: 150, origin: "bottom" }, defaultProps)
+    ".project-card",
+    assignProps({ distance: "34px", origin: "left", interval: 90 }, defaultProps)
   );
 
-  ScrollReveal().reveal(
-    ".timeline__item",
-    assignProps({ interval: 100, origin: "bottom" }, defaultProps)
-  );
+  ScrollReveal().reveal(".credentials__block", assignProps({ origin: "bottom" }, defaultProps));
 
-  ScrollReveal().reveal(
-    ".skills__group",
-    assignProps({ interval: 100, origin: "bottom" }, defaultProps)
-  );
+  ScrollReveal().reveal(".contact-wrapper", assignProps({ origin: "bottom" }, defaultProps));
 
-  ScrollReveal().reveal(
-    ".projects__rail-head",
-    assignProps({ origin: "bottom" }, defaultProps)
-  );
-
-  ScrollReveal().reveal(
-    ".credentials__block",
-    assignProps({ interval: 100, origin: "bottom" }, defaultProps)
-  );
-
-  ScrollReveal().reveal(
-    ".contact-wrapper",
-    assignProps({ delay: 150, origin: "bottom" }, defaultProps)
-  );
-
-  ScrollReveal().reveal(
-    ".reference-card",
-    assignProps({ interval: 100, origin: "bottom" }, defaultProps)
-  );
+  ScrollReveal().reveal(".reference-card", assignProps({ origin: "bottom" }, defaultProps));
 }

@@ -1,7 +1,7 @@
 .footer {
   padding: 5.6rem 0 4.8rem;
-  border-top: 1px solid #242424;
-  background: $bg-primary;
+  border-top: 1px solid rgba($accent, 0.16);
+  background: $bg-void;
   color: $text-muted;
 
   .container {
@@ -20,8 +20,10 @@
 
   &__text {
     margin: 0;
-    color: rgba(255, 255, 255, 0.48);
-    font-size: 1.2rem;
+    color: $text-dim;
+    font-family: $font-mono;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
 
     a {
       color: inherit;
@@ -36,7 +38,7 @@
     width: 100%;
     margin: 3.2rem 0;
     border: 0;
-    border-top: 1px solid #242424;
+    border-top: 1px solid rgba($accent, 0.12);
     opacity: 1;
   }
 }
@@ -53,18 +55,19 @@
     justify-content: center;
     width: 4.4rem;
     height: 4.4rem;
-    border: 1px solid #383838;
+    border: 1px solid rgba($accent, 0.28);
     border-radius: 50%;
-    background: #101010;
-    color: $white-color;
+    background: rgba($bg-surface, 0.8);
+    color: $text-primary;
     font-size: 1.7rem;
     transition: border-color $transition-fast, background-color $transition-fast,
-      color $transition-fast, transform $transition-fast;
+      color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
 
     &:hover {
       border-color: $accent;
-      background: $accent;
-      color: $white-color;
+      background: rgba($accent, 0.16);
+      color: $accent-light;
+      box-shadow: 0 0 1.8rem rgba($accent, 0.4);
       transform: translateY(-0.2rem);
     }
   }
@@ -77,14 +80,17 @@
   width: 4.4rem;
   height: 4.4rem;
   margin: 0 0 2.4rem;
-  border: 1px solid #383838;
+  border: 1px solid rgba($accent, 0.28);
   border-radius: 50%;
-  color: $white-color;
+  color: $accent;
   font-size: 1.4rem;
-  transition: border-color $transition-fast, background-color $transition-fast;
+  transition: border-color $transition-fast, background-color $transition-fast,
+    box-shadow $transition-fast, color $transition-fast;
 
   &:hover {
     border-color: $accent;
-    background: $accent;
+    background: rgba($accent, 0.16);
+    color: $accent-light;
+    box-shadow: 0 0 1.8rem rgba($accent, 0.4);
   }
 }

@@ -1,9 +1,11 @@
+// Base layer: the void, the grid, and the surfaces everything else sits on.
+
 html {
   color-scheme: dark;
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: clip;
-  background: $bg-primary;
+  background: $bg-void;
 }
 
 body {
@@ -16,6 +18,65 @@ body {
   text-align: left;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// The world grid. Two fixed layers behind everything: a fine cyan grid and a
+// coarser one, both fading out well before the viewport edges so the page reads
+// as lit from the centre rather than tiled wall-to-wall.
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: linear-gradient(
+      rgba($accent, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba($accent, 0.055) 1px, transparent 1px);
+  background-size: 6rem 6rem, 6rem 6rem;
+  mask-image: radial-gradient(
+    ellipse 90% 60% at 50% 0%,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 85%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 60% at 50% 0%,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 85%
+  );
+}
+
+// CRT scanlines + vignette. Kept at a very low opacity: this is texture you
+// notice on the second look, not a filter sitting on top of the design.
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.16) 3px,
+    rgba(0, 0, 0, 0.16) 4px
+  );
+  opacity: 0.55;
+}
+
+// Every real element sits above the fixed backdrop layers.
+body > * {
+  position: relative;
+  z-index: 2;
 }
 
 body.nav-open,
@@ -43,12 +104,12 @@ button {
 }
 
 *::selection {
-  background: $accent;
-  color: $white-color;
+  background: rgba($accent, 0.9);
+  color: $bg-void;
 }
 
 :focus-visible {
-  outline: 2px solid $accent-light;
+  outline: 2px solid $accent;
   outline-offset: 4px;
 }
 
@@ -56,6 +117,43 @@ button {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+// Shared HUD primitives -------------------------------------------------------
+
+// Corner brackets, drawn with four gradient edges on a pseudo-element. Used to
+// frame cards and panels so they read as targeting boxes rather than plain
+// rounded rectangles.
+@mixin hud-corners($size: 1.6rem, $color: rgba($accent, 0.55), $thickness: 1px) {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: $size;
+    height: $size;
+    pointer-events: none;
+    transition: opacity $transition-base;
+  }
+
+  &::before {
+    top: -1px;
+    left: -1px;
+    border-top: $thickness solid $color;
+    border-left: $thickness solid $color;
+  }
+
+  &::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: $thickness solid $color;
+    border-bottom: $thickness solid $color;
+  }
+}
+
+// A thin cyan rule that fades out to the right — the divider language of the
+// HUD headings.
+@mixin hud-rule($color: $accent) {
+  background: linear-gradient(90deg, $color, rgba($accent, 0));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -70,5 +168,12 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  // The grid and scanlines are static decoration, so they survive reduced
+  // motion — there is no motion in them to remove.
+  body::before,
+  body::after {
+    animation: none !important;
   }
 }
