@@ -1,5 +1,5 @@
-// The navigation is a persistent HUD strip: a hairline cyan rule along the
-// bottom, a lit scanline on the active item, and a mono availability readout.
+// Navigation: a translucent bar that only asserts itself once the page has
+// scrolled, with the availability pill as the one lime element on it.
 
 .site-nav {
   position: fixed;
@@ -8,16 +8,13 @@
   left: 0;
   z-index: 1000;
   border-bottom: 1px solid transparent;
-  background: linear-gradient(
-    180deg,
-    rgba($bg-void, 0.92),
-    rgba($bg-void, 0.55)
-  );
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background: linear-gradient(180deg, rgba($bg-void, 0.75), rgba($bg-void, 0));
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    backdrop-filter 0.3s ease;
 
   &.is-scrolled {
-    border-bottom-color: rgba($accent, 0.24);
-    background: rgba($bg-void, 0.9);
+    border-bottom-color: $border-subtle;
+    background: rgba($bg-void, 0.82);
     backdrop-filter: blur(1.6rem);
     -webkit-backdrop-filter: blur(1.6rem);
   }
@@ -26,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: min(100% - 9.6rem, $container-max);
+    width: min(100% - 8rem, $container-max);
     max-width: $container-max;
     min-height: $nav-height;
     margin: 0 auto;
@@ -46,29 +43,38 @@
   &__logo {
     position: relative;
     z-index: 1002;
-    color: $accent-light;
-    font-family: $font-stack;
-    font-size: 2.6rem;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    color: $text-primary;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: -0.06em;
+    letter-spacing: -0.05em;
     line-height: 1;
-    text-transform: uppercase;
-    transition: text-shadow $transition-fast, color $transition-fast;
 
+    // The lime dot is the mark; the initials stay quiet so the eye lands on it.
     span {
       color: $accent;
     }
 
+    small {
+      color: $text-dim;
+      font-family: $font-mono;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     &:hover {
-      color: $white-color;
-      text-shadow: 0 0 1.6rem rgba($accent, 0.8);
+      color: $accent-light;
     }
   }
 
   &__links {
     display: flex;
     align-items: center;
-    gap: clamp(2rem, 3vw, 3.6rem);
+    gap: clamp(1.8rem, 2.6vw, 3.2rem);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -82,10 +88,10 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      gap: 2.8rem;
-      width: min(36rem, 88vw);
-      padding: 8rem 4.8rem;
-      border-left: 1px solid rgba($accent, 0.28);
+      gap: 2.4rem;
+      width: min(34rem, 86vw);
+      padding: 8rem 4rem;
+      border-left: 1px solid $border-subtle;
       background: $bg-surface;
       box-shadow: -2rem 0 5rem rgba(0, 0, 0, 0.7);
       transform: translateX(105%);
@@ -103,31 +109,27 @@
 
   &__link {
     position: relative;
-    padding: 0.8rem 0;
+    padding: 0.6rem 0;
     color: $text-muted;
-    font-family: $font-mono;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     font-weight: 500;
-    letter-spacing: 0.16em;
+    letter-spacing: -0.005em;
     line-height: 1;
-    text-transform: uppercase;
     transition: color $transition-fast;
 
-    // Lit underline. The bar is always present at low opacity and only
-    // energises for the active/hovered item, so the strip reads as a live
-    // indicator rail rather than something that jumps when you click.
+    // A lime dot instead of an underline: it sits under the word and only
+    // appears for the active or hovered item.
     &::after {
       content: "";
       position: absolute;
-      right: 0;
-      bottom: 0.2rem;
-      left: 0;
-      height: 0.2rem;
+      bottom: 0;
+      left: 50%;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
       background: $accent;
-      box-shadow: 0 0 1rem rgba($accent, 0.9);
-      opacity: 0.28;
-      transform: scaleX(1);
-      transform-origin: left;
+      opacity: 0;
+      transform: translate(-50%, 0.4rem);
       transition: opacity $transition-fast, transform $transition-base;
     }
 
@@ -137,12 +139,8 @@
 
       &::after {
         opacity: 1;
-        transform: scaleX(1);
+        transform: translate(-50%, 0.2rem);
       }
-    }
-
-    &:hover {
-      color: $accent-light;
     }
   }
 
@@ -152,34 +150,37 @@
     gap: 1.6rem;
   }
 
+  // The one lime element in the navigation.
   &__availability {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem 1.2rem;
-    border: 1px solid rgba($online, 0.35);
-    color: $text-muted;
+    gap: 0.7rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid rgba($accent, 0.4);
+    border-radius: $radius-pill;
+    color: $accent;
     font-family: $font-mono;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     line-height: 1;
     text-transform: uppercase;
-    transition: border-color $transition-fast, color $transition-fast;
+    transition: background-color $transition-fast, border-color $transition-fast,
+      color $transition-fast;
 
     &::before {
       content: "";
-      width: 0.6rem;
-      height: 0.6rem;
+      width: 0.55rem;
+      height: 0.55rem;
       border-radius: 50%;
-      background: $online;
-      box-shadow: 0 0 0.8rem $online;
+      background: currentColor;
       animation: availability-pulse 2.4s infinite;
     }
 
     &:hover {
-      border-color: $online;
-      color: $text-primary;
+      border-color: $accent;
+      background: $accent;
+      color: $bg-void;
     }
 
     @include respond(tab-land) {
@@ -193,7 +194,7 @@
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 0.6rem;
+    gap: 0.55rem;
     width: 4.4rem;
     height: 4.4rem;
     padding: 0;
@@ -203,9 +204,9 @@
 
     span {
       display: block;
-      width: 2.4rem;
+      width: 2.2rem;
       height: 0.2rem;
-      background: $accent;
+      background: $text-primary;
       transition: transform $transition-fast, opacity $transition-fast;
     }
 
@@ -215,7 +216,7 @@
 
     &.is-active {
       span:nth-child(1) {
-        transform: translateY(0.8rem) rotate(45deg);
+        transform: translateY(0.75rem) rotate(45deg);
       }
 
       span:nth-child(2) {
@@ -223,7 +224,7 @@
       }
 
       span:nth-child(3) {
-        transform: translateY(-0.8rem) rotate(-45deg);
+        transform: translateY(-0.75rem) rotate(-45deg);
       }
     }
   }
@@ -246,10 +247,10 @@
 @keyframes availability-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba($online, 0.5);
+    opacity: 1;
   }
 
   50% {
-    box-shadow: 0 0 0 0.55rem rgba($online, 0);
+    opacity: 0.35;
   }
 }

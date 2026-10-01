@@ -1,0 +1,86 @@
+// Marquee strips. Two full-bleed bands of scrolling mono type that sit between
+// sections, matching the reference's dividers. The track is duplicated in the
+// markup and translated -50%, which is what makes the loop seamless.
+
+.marquee {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-top: 1px solid $border-subtle;
+  border-bottom: 1px solid $border-subtle;
+  background: $bg-surface;
+  // The fade at each edge stops the type from being clipped square, which is
+  // what makes it read as travelling rather than cropped.
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+// Lime band — the inverse, used sparingly to punctuate a long page.
+.marquee--lime {
+  border-color: $accent;
+  background: $accent;
+  color: $bg-void;
+
+  .marquee__item {
+    color: $bg-void;
+  }
+
+  .marquee__star {
+    color: $bg-void;
+    opacity: 0.55;
+  }
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 1.4rem 1.2rem;
+  color: $text-primary;
+  font-family: $font-mono;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__star {
+  color: $accent;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+// Below ~100rem the type can scroll comfortably without feeling frantic.
+@media (max-width: 100rem) {
+  .marquee__item {
+    gap: 1.8rem;
+    padding: 1.2rem 0.9rem;
+    font-size: 1.05rem;
+  }
+}

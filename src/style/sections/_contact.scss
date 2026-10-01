@@ -3,31 +3,28 @@
   color: $text-primary;
 }
 
-// The contact panel inverts the palette: a lit cyan slab against the void, the
-// one place on the page that shouts.
+// The closing panel inverts to lime — the loudest moment on the page, and the
+// only place the accent becomes a full-bleed fill.
 .contact-wrapper {
   position: relative;
   max-width: none;
-  margin: 0 0 7.2rem;
-  padding: clamp(4rem, 7vw, 7.2rem);
+  margin: 0 0 6.4rem;
+  padding: clamp(3.6rem, 7vw, 7.2rem);
   overflow: hidden;
-  border-radius: $radius-sm;
-  background:
-    linear-gradient(135deg, $accent 0%, $accent-deep 55%, #0b5f74 100%);
+  border-radius: $radius-lg;
+  background: $accent;
   color: $bg-void;
-  box-shadow: 0 2rem 6rem rgba($accent, 0.22);
 
-  // Concentric HUD rings bleeding off the corner.
+  // Soft radial light, the inverse of the hero's nebula.
   &::after {
     content: "";
     position: absolute;
-    right: -10rem;
-    bottom: -16rem;
-    width: 44rem;
-    height: 44rem;
-    border: 6rem solid rgba(0, 0, 0, 0.1);
+    top: -30%;
+    right: -8%;
+    width: 46rem;
+    height: 46rem;
     border-radius: 50%;
-    box-shadow: 0 0 0 6rem rgba(0, 0, 0, 0.06);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 62%);
     pointer-events: none;
   }
 
@@ -38,13 +35,13 @@
 }
 
 .contact-wrapper__text {
-  max-width: 90rem;
+  max-width: 84rem;
   margin: 0 0 3.2rem;
   color: $bg-void;
-  font-size: clamp(2.8rem, 5vw, 6rem);
-  font-weight: 700;
+  font-size: clamp(2.8rem, 5.6vw, 6rem);
+  font-weight: 600;
   letter-spacing: -0.05em;
-  line-height: 1;
+  line-height: 0.98;
   text-wrap: balance;
 }
 
@@ -54,30 +51,29 @@
   gap: 1.2rem;
   margin-bottom: 3.2rem;
 
-  // On the lit slab the buttons invert: dark ink on cyan, then cyan on dark.
+  // On lime, the primary action inverts to ink and the outline becomes a
+  // hairline. Same pair, inverted logic.
   .cta-btn--primary {
     border-color: $bg-void;
     background: $bg-void;
-    color: $text-primary;
-    box-shadow: 0 0 2.4rem rgba(0, 0, 0, 0.4);
+    color: $accent;
 
     &:hover {
       border-color: $black-color;
       background: $black-color;
       color: $accent-light;
-      box-shadow: 0 0 3rem rgba(0, 0, 0, 0.55);
     }
   }
 
   .cta-btn--outline {
-    border-color: rgba(3, 6, 11, 0.7);
+    border-color: rgba(7, 7, 10, 0.35);
     background: transparent;
     color: $bg-void;
 
     &:hover {
+      border-color: $bg-void;
       background: $bg-void;
-      color: $text-primary;
-      box-shadow: 0 0 2.4rem rgba(0, 0, 0, 0.4);
+      color: $accent;
     }
   }
 
@@ -97,20 +93,20 @@
   list-style: none;
 
   li {
-    margin-bottom: 0.6rem;
-    color: rgba(3, 6, 11, 0.72);
+    margin-bottom: 0.5rem;
+    color: rgba(7, 7, 10, 0.68);
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   a {
     color: $bg-void;
     text-decoration: underline;
-    text-decoration-color: rgba(3, 6, 11, 0.5);
+    text-decoration-color: rgba(7, 7, 10, 0.45);
     text-underline-offset: 0.3rem;
 
     &:hover {
-      color: $white-color;
+      color: $black-color;
     }
   }
 }
@@ -119,13 +115,13 @@
   max-width: 122rem;
   margin: 0 auto;
   padding-top: 4.8rem;
-  border-top: 0.2rem solid $accent;
+  border-top: 1px solid $border-subtle;
 
   &__title {
-    margin: 0 0 3.2rem;
+    margin: 0 0 3rem;
     color: $text-primary;
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 2.2rem;
+    font-weight: 600;
     letter-spacing: -0.03em;
   }
 }
@@ -133,7 +129,7 @@
 .references__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.2rem;
+  gap: 1.6rem;
 
   @include respond(tab-port) {
     grid-template-columns: 1fr;
@@ -142,15 +138,15 @@
 
 .reference-card {
   min-width: 0;
-  padding: 2rem;
+  padding: 2.2rem;
   @include hud-panel;
-  @include hud-corners(1.3rem, rgba($accent, 0.35));
 
   &__name {
     margin: 0 0 0.4rem;
     color: $text-primary;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   &__role {
@@ -165,16 +161,16 @@
     align-items: center;
     gap: 0.6rem;
     margin: 0;
-    color: $text-muted;
+    color: $text-dim;
     font-family: $font-mono;
     font-size: 1.05rem;
 
     a {
-      color: $text-muted;
+      color: $text-dim;
       overflow-wrap: anywhere;
 
       &:hover {
-        color: $accent-light;
+        color: $accent;
       }
     }
   }

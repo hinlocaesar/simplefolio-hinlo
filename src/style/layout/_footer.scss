@@ -1,11 +1,11 @@
 .footer {
   padding: 5.6rem 0 4.8rem;
-  border-top: 1px solid rgba($accent, 0.16);
+  border-top: 1px solid $border-subtle;
   background: $bg-void;
   color: $text-muted;
 
   .container {
-    width: min(100% - 9.6rem, $container-max);
+    width: min(100% - 8rem, $container-max);
     max-width: $container-max;
     margin: 0 auto;
 
@@ -21,15 +21,13 @@
   &__text {
     margin: 0;
     color: $text-dim;
-    font-family: $font-mono;
-    font-size: 1.05rem;
-    letter-spacing: 0.04em;
+    font-size: 1.2rem;
 
     a {
       color: inherit;
 
       &:hover {
-        color: $accent-light;
+        color: $accent;
       }
     }
   }
@@ -38,7 +36,7 @@
     width: 100%;
     margin: 3.2rem 0;
     border: 0;
-    border-top: 1px solid rgba($accent, 0.12);
+    border-top: 1px solid $border-subtle;
     opacity: 1;
   }
 }
@@ -55,19 +53,18 @@
     justify-content: center;
     width: 4.4rem;
     height: 4.4rem;
-    border: 1px solid rgba($accent, 0.28);
+    border: 1px solid $border-subtle;
     border-radius: 50%;
-    background: rgba($bg-surface, 0.8);
+    background: rgba(255, 255, 255, 0.03);
     color: $text-primary;
     font-size: 1.7rem;
     transition: border-color $transition-fast, background-color $transition-fast,
-      color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
+      color $transition-fast, transform $transition-fast;
 
     &:hover {
       border-color: $accent;
-      background: rgba($accent, 0.16);
-      color: $accent-light;
-      box-shadow: 0 0 1.8rem rgba($accent, 0.4);
+      background: $accent;
+      color: $bg-void;
       transform: translateY(-0.2rem);
     }
   }
@@ -80,17 +77,16 @@
   width: 4.4rem;
   height: 4.4rem;
   margin: 0 0 2.4rem;
-  border: 1px solid rgba($accent, 0.28);
+  border: 1px solid $border-subtle;
   border-radius: 50%;
-  color: $accent;
+  color: $text-primary;
   font-size: 1.4rem;
   transition: border-color $transition-fast, background-color $transition-fast,
-    box-shadow $transition-fast, color $transition-fast;
+    color $transition-fast;
 
   &:hover {
     border-color: $accent;
-    background: rgba($accent, 0.16);
-    color: $accent-light;
-    box-shadow: 0 0 1.8rem rgba($accent, 0.4);
+    background: $accent;
+    color: $bg-void;
   }
 }

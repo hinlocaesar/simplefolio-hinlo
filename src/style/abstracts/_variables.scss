@@ -1,48 +1,51 @@
-// COLORS — "TRON / TERMINATOR" HUD palette
+// COLORS — "RESEARCH LAB" palette
 //
-// The identity is a system readout: near-black voids, a cold cyan signal for
-// anything interactive, and a hot amber used sparingly as the warning channel.
-// Surfaces are tinted blue-black rather than neutral grey so that every cyan
-// glow has something to sit on.
+// Near-black violet grounds, a single acid-lime signal, and a nebula of violet
+// and indigo light behind the hero. Lime is the only saturated colour in the
+// interface: it marks what is actionable, so it is used sparingly and never for
+// large fills of body text.
 
-$bg-void: #03060b;
-$bg-primary: #060b12;
-$bg-surface: #081018;
-$bg-elevated: #0d1823;
-$bg-raised: #12212e;
+$bg-void: #07070a;
+$bg-primary: #0a0a0f;
+$bg-surface: #0f0f16;
+$bg-elevated: #15151e;
+$bg-raised: #1c1c27;
 
-// Tron signal (primary / interactive)
-$accent: #00d9f5;
-$accent-light: #7df3ff;
-$accent-deep: #0891b2;
+$accent: #d4ff3f;
+$accent-light: #e6ff8a;
+$accent-deep: #a8cc22;
 
-// Terminator channel (warnings, "in development", emphasis)
-$signal: #ff9e2c;
-$signal-light: #ffc46b;
+// Nebula — only ever used as light, never as a fill behind text.
+$violet: #6d28d9;
+$indigo: #4338ca;
+$blue: #1d4ed8;
+$magenta: #a21caf;
 
-// Status
-$online: #3ddc84;
+$text-primary: #f6f7f9;
+$text-muted: #a1a2b0;
+// The dimmest tone, for mono metadata and captions. Held at ~5.4:1 on the void
+// so it still clears WCAG AA at body size instead of being decoration-only.
+$text-dim: #83858f;
 
-$text-primary: #f2fbff;
-$text-muted: #93a9bb;
-// The dimmest tone, used for the small mono labels. Kept at ~5.5:1 on the void
-// so it clears WCAG AA for body-size text rather than being decoration-only.
-$text-dim: #75899e;
+$border-accent: rgba(212, 255, 63, 0.2);
+$border-accent-strong: rgba(212, 255, 63, 0.55);
+$border-subtle: rgba(255, 255, 255, 0.09);
 
-$border-accent: rgba(0, 217, 245, 0.22);
-$border-accent-strong: rgba(0, 217, 245, 0.55);
-
-$product-photo-bg: #04080d;
+$product-photo-bg: #0b0b11;
 
 $white-color: #ffffff;
 $black-color: #000000;
 
+$online: #3ddc84;
+
 // TYPOGRAPHY
-// Space Grotesk is the workhorse: geometric, slightly technical, and far more
-// contemporary than the Arial stack this started on. JetBrains Mono carries the
-// HUD voice — eyebrow labels, tags, metadata, readouts.
-$font-stack: "Space Grotesk Variable", "Space Grotesk", -apple-system,
+// Bricolage Grotesque carries the voice: a variable grotesque with real
+// personality at display sizes and enough range to work as body text too.
+// Instrument Serif appears only in italic, used for a single emphasised word
+// per heading — that contrast is the whole point of pairing them.
+$font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", -apple-system,
   BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 $font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace,
   SFMono-Regular, Menlo, monospace;
 
@@ -51,22 +54,22 @@ $big-font-size: 4.8rem;
 $mid-font-size: 2.4rem;
 
 // LAYOUT
-$container-max: 160rem;
+$container-max: 152rem;
 $container-pad: 4.8rem;
 $container-pad-sm: 2rem;
 
 $nav-height: 7.2rem;
 
 // RADIUS
-// Squarer corners read as instrumentation; the old 4px/8px felt like a consumer
-// web app.
-$radius-sm: 2px;
-$radius-md: 4px;
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-pill: 999px;
 
 // TRANSITIONS
 $transition-fast: all 0.2s ease;
 $transition-base: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 
-// MOTION — one shared vocabulary so every animation feels like the same machine
+// MOTION
 $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 $ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);

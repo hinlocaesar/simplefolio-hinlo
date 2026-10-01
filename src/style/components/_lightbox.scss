@@ -47,8 +47,8 @@
   height: auto;
   max-width: 100%;
   max-height: calc(92vh - 4rem);
-  border: 1px solid rgba($accent, 0.28);
-  border-radius: $radius-sm;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
   background: $bg-surface;
   box-shadow: 0 2.4rem 6rem rgba(0, 0, 0, 0.72);
 

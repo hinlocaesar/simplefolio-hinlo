@@ -9,8 +9,14 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
+  // Source maps for the shipped bundle. Lighthouse flags large first-party JS
+  // without them, and they make a production stack trace actually debuggable.
+  devtool: "source-map",
   output: {
     filename: "[name].[contenthash].bundle.js",
+    // Lazy chunks (Three.js) need their own naming scheme, otherwise they fall
+    // back to a numeric id and stop being cacheable across builds.
+    chunkFilename: "[name].[contenthash].chunk.js",
     path: path.resolve(__dirname, "dist"),
   },
   optimization: {

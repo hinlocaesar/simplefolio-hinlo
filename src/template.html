@@ -14,17 +14,10 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
     <!--
-      The hero background is the largest-contentful-paint element, so it is
-      fetched ahead of the stylesheet finishing rather than being discovered
-      after the CSS parses. fetchpriority does the same job without a second
-      request.
+      No font preload: webpack emits the woff2 files with a content hash in the
+      filename, so a hardcoded path here would 404. `font-display: swap` in the
+      fontsource CSS covers the first paint instead.
     -->
-    <link
-      rel="preload"
-      as="image"
-      href="assets/hero-team.webp"
-      fetchpriority="high"
-    />
 
     <title>Caesar Hinlo | Certified Vue.js Developer &amp; Senior Full-Stack Developer</title>
     <meta
@@ -37,10 +30,9 @@
     />
 
     <!--
-      Scroll reveals are implemented locally in src/js/sr.js. They used to come
-      from a ScrollReveal CDN build, but that was a render-blocking third-party
-      script sitting in <head>, which put a DNS lookup and TLS handshake on the
-      critical path for every visitor.
+      Motion (smooth scroll, scroll reveals, marquees) is handled by Lenis and
+      GSAP/ScrollTrigger from src/js/scroll.js. Everything respects
+      prefers-reduced-motion; see the note in that file.
     -->
   </head>
 
@@ -66,28 +58,14 @@
       <symbol id="i-github" viewBox="0 0 496 512"><path d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5l0 52C323 491.5 335.5 500 350.5 494 441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5l0-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21z"/></symbol>
     </svg>
 
-    <!-- Decorative boot sequence. Removed by scripts/boot.js on first load,
-         skipped entirely under prefers-reduced-motion, and never focusable, so
-         assistive tech does not encounter it. -->
-    <div class="boot" aria-hidden="true">
-      <div class="boot__inner">
-        <div class="boot__head">
-          <span>CE.HINLO // SYS</span>
-          <span>v14.2</span>
-        </div>
-        <div class="boot__log"></div>
-        <div class="boot__bar"></div>
-      </div>
-    </div>
-
     <!-- **** Navigation **** -->
     <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
       <div class="site-nav__inner">
         <a
           class="site-nav__logo"
           href="#hero"
-          aria-label="CH. — Caesar Hinlo, back to top"
-          >C<span>H</span>.</a
+          aria-label="CH. Senior Engineer — Caesar Hinlo, back to top"
+          >C<span>H</span>. <small>Senior Engineer</small></a
         >
         <ul class="site-nav__links" id="navLinks">
           <li><a class="site-nav__link" href="#hero">Home</a></li>
@@ -120,24 +98,16 @@
 
     <!-- **** Hero Section **** -->
     <header id="hero" class="hero">
-      <div class="hero__media" aria-hidden="true">
-        <img
-          class="hero__bg"
-          src="assets/hero-team.webp"
-          alt=""
-          decoding="async"
-        />
-        <div class="hero__scrim"></div>
-      </div>
-      <div class="hero__glow hero__glow--right" aria-hidden="true"></div>
-      <div class="hero__glow hero__glow--left" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--one hero__parallax" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--two hero__parallax" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--three hero__parallax" aria-hidden="true"></div>
       <div class="container hero__container">
         <div class="hero__grid">
           <div class="hero__content">
-            <div class="hero__mobile-portrait load-hidden">
+            <div class="hero__mobile-portrait">
               <!--
                 Phone-only. `hero-portrait` is a pre-cropped 440px version of
-                profile.jpg (the full 183 KB source filled this 96px circle at
+                profile.jpg (the full 183 KB source filled this 76px circle at
                 ~1/8 of its useful area), and the src is applied by
                 scripts/hero.js only at phone widths, so desktop visitors never
                 request it at all.
@@ -149,17 +119,20 @@
                 decoding="async"
               />
             </div>
-            <h1 class="hero-headline load-hidden">
-              <span class="hero-headline__line">Senior Full‑Stack Engineer</span>
+            <p class="hero__name">Caesar Herman Hinlo</p>
+            <h1 class="hero-headline">
+              <span class="hero-headline__line">Fourteen years</span>
+              <span class="hero-headline__line">of shipping</span>
+              <span class="hero-headline__line"
+                ><span class="accent-italic">production</span> software.</span
+              >
             </h1>
-            <p class="hero__name load-hidden">Caesar Herman Hinlo</p>
-            <p class="hero__subtitle load-hidden">
-              I have 14 years of experience across a wide range of
-              technologies, including extensive work in embedded firmware and
-              web development, turning complex ideas into production-ready
-              software.
+            <p class="hero__subtitle">
+              Embedded firmware and modern web development, from research to
+              production release &mdash; across Vue, React, Next.js, Python and
+              Laravel.
             </p>
-            <div class="hero__cta load-hidden">
+            <div class="hero__cta">
               <a class="cta-btn cta-btn--primary" href="#projects">
                 <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-play"></use></svg>
                 Explore my work
@@ -182,52 +155,80 @@
                 View résumé
               </a>
             </div>
-            <div class="hero__facts load-hidden" aria-label="Career highlights">
-              <div class="hero__fact">
-                <span class="hero__fact-value">14</span>
-                <span class="hero__fact-label">Years building</span>
-              </div>
-              <div class="hero__fact">
-                <span class="hero__fact-value">Top 5%</span>
-                <span class="hero__fact-label">Kyocera (Former Epson) hire</span>
-              </div>
-              <div class="hero__fact">
-                <span class="hero__fact-value">$3.19B</span>
-                <span class="hero__fact-label"
-                  >2012–2020 Kyocera product-line sales impact</span
-                >
-              </div>
-              <div class="hero__fact">
-                <span class="hero__fact-value">Team Leader</span>
-                <span class="hero__fact-label">Product &amp; engineering teams</span>
-              </div>
-              <div class="hero__fact">
-                <span class="hero__fact-value">Patent Trainer</span>
-                <span class="hero__fact-label">Patent documentation &amp; submissions</span>
-              </div>
-              <div class="hero__fact">
-                <span class="hero__fact-value">ISO Auditor</span>
-                <span class="hero__fact-label">Internal quality-system audits</span>
-              </div>
-              <div class="hero__fact">
-                <span class="hero__fact-value">Osaka, Japan</span>
-                <span class="hero__fact-label"
-                  >Kyocera R&amp;D tech-transfer assignments</span
-                >
-              </div>
+          </div>
+          <aside class="hero__aside">
+            <!--
+              WebGL orbital diagram (src/js/orbit.js). Marked decorative: it adds
+              atmosphere, not information, so it is hidden from assistive tech
+              and the canvas is only read if WebGL is available.
+            -->
+            <div class="hero__orbit" aria-hidden="true">
+              <canvas class="hero__orbit-canvas" data-orbit></canvas>
+              <span class="hero__orbit-caption">Live system map</span>
             </div>
+            <p class="hero__aside-text">
+              Certified Vue.js developer and senior full-stack engineer, currently
+              building client platforms at DevResearch. Previously led embedded
+              firmware teams at Kyocera Document Solutions across three to five
+              Japan assignments.
+            </p>
+          </aside>
+        </div>
+        <div class="hero__facts" role="group" aria-label="Career highlights">
+          <div class="hero__fact">
+            <span class="hero__fact-value" data-count="14" data-count-suffix=""
+              >14</span
+            >
+            <span class="hero__fact-label">Years building</span>
+          </div>
+          <div class="hero__fact">
+            <span class="hero__fact-value">Top 5%</span>
+            <span class="hero__fact-label">Kyocera (Former Epson) hire</span>
+          </div>
+          <div class="hero__fact">
+            <span class="hero__fact-value">$3.19B</span>
+            <span class="hero__fact-label"
+              >2012&ndash;2020 Kyocera product-line sales impact</span
+            >
+          </div>
+          <div class="hero__fact">
+            <span class="hero__fact-value">ISO Auditor</span>
+            <span class="hero__fact-label">Internal quality-system audits</span>
           </div>
         </div>
       </div>
-      <div class="hero__scroll-cue" aria-hidden="true">Keep exploring</div>
+      <div class="hero__scroll-cue" aria-hidden="true">Scroll</div>
     </header>
     <!-- /END Hero Section -->
+
+    <!-- **** Marquee **** -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" data-speed="46">
+        <div class="marquee__group">
+          <span class="marquee__item">Full-Stack Development <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Embedded Systems <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Applied Research <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Cloud &amp; Infrastructure <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Technical Training <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Legacy Code Refactoring <span class="marquee__star">&#10022;</span></span>
+        </div>
+        <div class="marquee__group">
+          <span class="marquee__item">Full-Stack Development <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Embedded Systems <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Applied Research <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Cloud &amp; Infrastructure <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Technical Training <span class="marquee__star">&#10022;</span></span>
+          <span class="marquee__item">Legacy Code Refactoring <span class="marquee__star">&#10022;</span></span>
+        </div>
+      </div>
+    </div>
+    <!-- /END Marquee -->
 
     <!-- **** Skills Section **** -->
     <section id="skills" class="section">
       <div class="container">
-        <p class="section-eyebrow">Expertise</p>
-        <h2 class="section-title">Skills &amp; Tools</h2>
+        <p class="section-eyebrow">01 <span>&mdash;</span> Expertise</p>
+        <h2 class="section-title">The <span class="accent-italic">stack</span> I reach for.</h2>
 
         <div class="skills__grid">
           <div class="skills__group">
@@ -349,8 +350,8 @@
     <!-- **** About Section **** -->
     <section id="about" class="section">
       <div class="container">
-        <p class="section-eyebrow">Career</p>
-        <h2 class="section-title">Experience</h2>
+        <p class="section-eyebrow">02 <span>&mdash;</span> Career</p>
+        <h2 class="section-title">Where I've <span class="accent-italic">shipped.</span></h2>
 
         <div class="about__intro">
           <p class="about__summary load-hidden">
@@ -1097,8 +1098,8 @@
     <!-- **** Projects Section **** -->
     <section id="projects" class="section">
       <div class="container">
-        <p class="section-eyebrow">Selected Work</p>
-        <h2 class="section-title">Projects</h2>
+        <p class="section-eyebrow">03 <span>&mdash;</span> Selected Work</p>
+        <h2 class="section-title">Selected <span class="accent-italic">work.</span></h2>
 
         <div class="projects__rail">
           <div class="projects__rail-head">
@@ -1108,7 +1109,7 @@
                 Web apps engineered and launched end to end, as part of a team and solo.
               </p>
             </div>
-            <div class="projects__rail-nav" aria-label="Production project controls">
+            <div class="projects__rail-nav" role="group" aria-label="Production project controls">
               <button
                 type="button"
                 class="projects__rail-button"
@@ -1133,6 +1134,7 @@
             class="projects__grid"
             id="production-projects"
             data-horizontal-rail
+            role="region"
             tabindex="0"
             aria-label="Production projects"
           >
@@ -1494,7 +1496,7 @@
                 engineering systems.
               </p>
             </div>
-            <div class="projects__rail-nav" aria-label="Enterprise project controls">
+            <div class="projects__rail-nav" role="group" aria-label="Enterprise project controls">
               <button
                 type="button"
                 class="projects__rail-button"
@@ -1519,6 +1521,7 @@
             class="projects__grid"
             id="enterprise-projects"
             data-horizontal-rail
+            role="region"
             tabindex="0"
             aria-label="Enterprise and firmware projects"
           >
@@ -1860,7 +1863,7 @@
                 Freelance websites and smaller client projects.
               </p>
             </div>
-            <div class="projects__rail-nav" aria-label="Other project controls">
+            <div class="projects__rail-nav" role="group" aria-label="Other project controls">
               <button
                 type="button"
                 class="projects__rail-button"
@@ -1885,6 +1888,7 @@
             class="projects__grid"
             id="minor-projects"
             data-horizontal-rail
+            role="region"
             tabindex="0"
             aria-label="Other freelance projects"
           >
@@ -2232,8 +2236,8 @@
     <!-- **** Credentials Section **** -->
     <section id="credentials" class="section">
       <div class="container">
-        <p class="section-eyebrow">Background</p>
-        <h2 class="section-title">Education &amp; Certifications</h2>
+        <p class="section-eyebrow">04 <span>&mdash;</span> Background</p>
+        <h2 class="section-title">Education &amp; <span class="accent-italic">proof.</span></h2>
 
         <div class="credentials__grid">
           <div class="credentials__block">
@@ -2437,11 +2441,30 @@
     </section>
     <!-- /END Credentials Section -->
 
+    <!-- **** Marquee (lime) **** -->
+    <div class="marquee marquee--lime" aria-hidden="true">
+      <div class="marquee__track" data-speed="34">
+        <div class="marquee__group">
+          <span class="marquee__item">Available for new work <span class="marquee__star">&#9679;</span></span>
+          <span class="marquee__item">Open to full-time roles <span class="marquee__star">&#9679;</span></span>
+          <span class="marquee__item">Remote &mdash; Philippines <span class="marquee__star">&#9679;</span></span>
+          <span class="marquee__item">Kyocera, then DevResearch <span class="marquee__star">&#9679;</span></span>
+        </div>
+        <div class="marquee__group">
+          <span class="marquee__item">Available for new work <span class="marquee__star">&#9679;</span></span>
+          <span class="marquee__item">Open to full-time roles <span class="marquee__star">&#9679;</span></span>
+          <span class="marquee__item">Remote &mdash; Philippines <span class="marquee__star">&#9679;</span></span>
+          <span class="marquee__item">Kyocera, then DevResearch <span class="marquee__star">&#9679;</span></span>
+        </div>
+      </div>
+    </div>
+    <!-- /END Marquee -->
+
     <!-- **** Contact Section **** -->
     <section id="contact" class="section">
       <div class="container">
-        <p class="section-eyebrow">Get In Touch</p>
-        <h2 class="section-title">Contact</h2>
+        <p class="section-eyebrow">05 <span>&mdash;</span> Get In Touch</p>
+        <h2 class="section-title">Let's <span class="accent-italic">talk.</span></h2>
         <div class="contact-wrapper">
           <p class="contact-wrapper__text">
             Open to new projects and full-time roles.
@@ -2474,7 +2497,7 @@
         </div>
 
         <div class="references">
-          <h3 class="references__title">References</h3>
+          <h2 class="references__title">References</h2>
           <div class="references__grid">
             <div class="reference-card">
               <p class="reference-card__name">Kevin Dormido</p>

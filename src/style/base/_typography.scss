@@ -1,4 +1,5 @@
-// Typography: Space Grotesk for reading, JetBrains Mono for instrumentation.
+// Typography: Bricolage Grotesque for reading, JetBrains Mono for labelling,
+// Instrument Serif italic for the one emphasised word in a heading.
 
 h1,
 h2,
@@ -6,12 +7,10 @@ h3,
 h4 {
   margin-top: 0;
   color: $text-primary;
-  font-family: $font-stack;
-  font-weight: 700;
+  font-family: $font-display;
+  font-weight: 600;
   letter-spacing: -0.035em;
-  // Space Grotesk's flat terminals catch light oddly against pure black; a hair
-  // of weight rendering cleanup keeps the counters from going muddy at large sizes.
-  text-rendering: optimizeLegibility;
+  text-wrap: balance;
 }
 
 p,
@@ -20,7 +19,7 @@ li,
 span,
 button,
 summary {
-  font-family: $font-stack;
+  font-family: $font-display;
 }
 
 p,
@@ -42,27 +41,33 @@ a:hover {
   transition: color $transition-fast;
 }
 
-// Eyebrow labels become HUD readouts: mono, tracked out hard, preceded by a
-// short lit bar.
+// Numbered eyebrow: "02 — FROM PROOF". The counter is a real element so it can
+// be kept in sync by section order rather than hard-coded in every heading.
 .section-eyebrow {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  margin-bottom: 1.6rem;
-  color: $accent;
+  margin-bottom: 2rem;
+  color: $text-muted;
   font-family: $font-mono;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.32em;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   line-height: 1.2;
   text-transform: uppercase;
 
+  // A small filled square rather than the bar this used to carry — it reads as
+  // a section marker, not a progress indicator.
   &::before {
     content: "";
-    width: 3.2rem;
-    height: 0.2rem;
+    width: 0.7rem;
+    height: 0.7rem;
     background: $accent;
-    box-shadow: 0 0 1.2rem rgba($accent, 0.9);
+  }
+
+  // Lime tick between the number and the label.
+  span {
+    color: $accent;
   }
 }
 
@@ -70,28 +75,29 @@ a:hover {
   position: relative;
   margin: 0 0 5.6rem;
   color: $text-primary;
-  font-size: clamp(3.4rem, 5vw, 5.6rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-size: clamp(3.2rem, 6.4vw, 6.4rem);
+  font-weight: 600;
+  // Bricolage's optical size axis rewards tight tracking at display sizes.
+  letter-spacing: -0.045em;
   line-height: 1.02;
-  text-wrap: balance;
-
-  // A cyan underline that traces the word as the section powers on. Decorative,
-  // so it is hidden from assistive tech and removed under reduced motion.
-  &::after {
-    content: "";
-    display: block;
-    width: 8rem;
-    height: 0.3rem;
-    margin-top: 2rem;
-    @include hud-rule;
-    box-shadow: 0 0 1.6rem rgba($accent, 0.55);
-  }
 
   @include respond(phone) {
     margin-bottom: 3.6rem;
-    font-size: clamp(3rem, 12vw, 4.2rem);
+    font-size: clamp(2.8rem, 11vw, 4rem);
   }
+}
+
+// The serif accent. One italic word per heading is the whole effect, so it is
+// scoped to a class rather than applied to any <em>.
+.accent-italic {
+  color: $accent;
+  font-family: $font-serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  // Instrument Serif runs small next to a grotesque at the same size; scaling
+  // it up keeps the two looking like a matched pair rather than a mistake.
+  font-size: 1.08em;
 }
 
 .text-accent {

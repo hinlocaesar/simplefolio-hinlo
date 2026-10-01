@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: 9.6rem 0;
+  padding: 10rem 0;
   overflow-x: clip;
   scroll-margin-top: 6.4rem;
 
@@ -13,7 +13,7 @@
   }
 
   .container {
-    width: min(100% - 9.6rem, $container-max);
+    width: min(100% - 8rem, $container-max);
     max-width: $container-max;
     min-width: 0;
     margin-right: auto;

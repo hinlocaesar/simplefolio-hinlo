@@ -43,54 +43,32 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-// The one panel treatment shared by every card, tile and disclosure in the
-// site. Keeping it in a single mixin is what stops the HUD language from
-// drifting apart between sections.
+// The one panel treatment shared by every card, tile and disclosure on the site.
+// Keeping it in a single mixin is what stops the surfaces drifting apart between
+// sections as they get restyled.
 //
-// $glow is the colour the panel energises to on hover — cyan for normal
-// content, amber for the ones that carry a warning or "in progress" note.
+// $glow lets a panel that carries a warning or a "still building" note warm to
+// amber instead of lime, without duplicating the whole treatment.
 @mixin hud-panel($glow: $accent) {
   position: relative;
-  border: 1px solid rgba($accent, 0.16);
-  border-radius: $radius-sm;
-  background:
-    linear-gradient(
-      180deg,
-      rgba($accent, 0.045) 0%,
-      rgba($accent, 0) 22%
-    ),
-    $bg-surface;
-
-  transition: border-color $transition-base, box-shadow $transition-base,
-    transform $transition-base, background-color $transition-base;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  background: $bg-surface;
+  transition: border-color $transition-base, background-color $transition-base,
+    box-shadow $transition-base, transform $transition-base;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border-color: rgba($glow, 0.5);
-      background:
-        linear-gradient(
-          180deg,
-          rgba($glow, 0.1) 0%,
-          rgba($glow, 0) 28%
-        ),
-        $bg-elevated;
-      box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.55),
-        0 0 2.4rem rgba($glow, 0.16);
+      border-color: rgba($glow, 0.45);
+      background: $bg-elevated;
+      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
       transform: translateY(-0.3rem);
-
-      // Corner brackets only light up on interaction, so a wall of panels at
-      // rest stays quiet.
-      &::before,
-      &::after {
-        border-color: $glow;
-        opacity: 1;
-      }
     }
   }
 }
 
-// A panel whose top edge carries a lit bar, used where the panel needs a
-// stronger heading than a plain border can give.
+// A heading rule inside a panel. Solid lime on the leading edge, fading out
+// across the width.
 @mixin hud-header($glow: $accent) {
-  border-bottom: 0.2rem solid $glow;
+  border-bottom: 1px solid $border-subtle;
 }
