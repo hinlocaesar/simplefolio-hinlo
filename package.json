@@ -16,6 +16,7 @@
     "apply:srcset": "node scripts/apply-srcset.mjs",
     "prebuild": "npm run optimize:images && npm run apply:srcset",
     "build": "webpack --config webpack.prod.js",
+    "postbuild": "node scripts/inline-css.mjs",
     "verify": "node scripts/verify-build.mjs",
     "screenshots:discoverjobs": "node scripts/capture-discoverjobs-screenshots.mjs",
     "screenshots:filipinova": "node scripts/capture-filipinova-screenshots.mjs",

@@ -75,6 +75,13 @@ async function main() {
   // are optional here.
   check("icon sprite has all 10 symbols", (html.match(/<symbol id="?i-/g) ?? []).length === 10);
   check("no ScrollReveal global", !/window\.ScrollReveal/.test(html));
+  // First paint costs one round trip, not two: the stylesheet is inlined by
+  // scripts/inline-css.mjs during postbuild. A <link rel=stylesheet> would put
+  // a whole RTT between the document arriving and anything being visible.
+  check(
+    "stylesheet inlined, no render-blocking <link>",
+    !/<link[^>]*\brel=["']?stylesheet/i.test(html) && /<style[^>]*>/i.test(html)
+  );
 
   const browser = await chromium.launch();
 
