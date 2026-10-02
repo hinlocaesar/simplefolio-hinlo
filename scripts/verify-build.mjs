@@ -1,8 +1,9 @@
 /**
  * Checks a build of `dist/` for the things that are easy to break silently:
  * third-party requests creeping back onto the critical path, the icon sprite
- * going stale, scroll reveals never firing, and the phone-only portrait being
- * fetched by visitors who will never see it.
+ * going stale, scroll reveals never firing, a lazily-loaded image never
+ * arriving, and the phone-only portrait being fetched by visitors who will
+ * never see it.
  *
  * Serves `dist/` on an ephemeral port with gzip on, so it measures the same
  * bytes the deploy does. Run with `npm run verify` after `npm run build`.
@@ -156,7 +157,33 @@ async function main() {
       reveals.stuck === 0,
       `${reveals.rendered - reveals.stuck}/${reveals.rendered} revealed of ${reveals.total} registered`
     );
-    check("transfer within budget", state.kb < 400, `${state.kb} KB`);
+
+    // The skill icons are `loading="lazy"`, so a scroll that stops short (or a
+    // breakpoint that hides their section) would leave blank gaps in the tags.
+    // Project thumbnails are lazy too, and the ones parked off the right edge of
+    // a horizontal rail legitimately never start — so only eager images are
+    // required to be done; anything deferred must at least have been marked.
+    const deferred = await page.evaluate(() => {
+      const imgs = [...document.images];
+      return {
+        eagerPending: imgs.filter((i) => i.loading !== "lazy" && !i.complete).length,
+        total: imgs.length,
+        tagIcons: [...document.querySelectorAll(".tag__icon")].filter((i) => i.naturalWidth > 0).length,
+        tagIconsTotal: document.querySelectorAll(".tag__icon").length,
+      };
+    });
+    check(
+      "every eager image finished loading",
+      deferred.eagerPending === 0,
+      `${deferred.eagerPending} pending of ${deferred.total}`
+    );
+    check(
+      "every skill icon decoded",
+      deferred.tagIcons === deferred.tagIconsTotal,
+      `${deferred.tagIcons}/${deferred.tagIconsTotal} decoded`
+    );
+
+    check("transfer within budget", state.kb < 250, `${state.kb} KB`);
 
     await page.close();
   }

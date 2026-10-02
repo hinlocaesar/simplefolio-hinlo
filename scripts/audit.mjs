@@ -156,9 +156,31 @@ async function main() {
     if (requests.length) {
       const bytes = requests.reduce((n, r) => n + (r.transferSize ?? 0), 0);
       console.log(`\nTransfer: ${(bytes / 1024).toFixed(0)} KB across ${requests.length} requests`);
-      const slowest = [...requests].sort((a, b) => (b.endTime ?? 0) - (a.endTime ?? 0)).slice(0, 6);
-      for (const r of slowest) {
-        console.log(`  ${Math.round(r.endTime)}ms  ${(r.transferSize / 1024).toFixed(0)}KB  ${r.url.replace(lhr.finalDisplayedUrl, "") || r.url}`);
+
+      // The request count is what decides how a phone on a high-RTT link feels,
+      // so break the page down into what those requests actually are before
+      // looking at anything else. Bytes are usually the wrong instinct: the
+      // whole skill-icon set is 53 KB but costs 57 round trips.
+      const buckets = new Map();
+      for (const r of requests) {
+        const u = r.url.replace(lhr.finalDisplayedUrl, "");
+        let name;
+        if (r.resourceType === "Image") {
+          if (/skill-icons\//.test(u)) name = "skill icons";
+          else if (/thumbs\//.test(u)) name = "project thumbnails";
+          else if (/profile/.test(u)) name = "phone portrait";
+          else name = "other images";
+        } else {
+          const named = { Document: "document", Stylesheet: "stylesheet", Script: "script", Font: "font" };
+          name = named[r.resourceType] ?? String(r.resourceType ?? "other").toLowerCase();
+        }
+        const b = buckets.get(name) ?? { n: 0, kb: 0 };
+        b.n++;
+        b.kb += Math.round((r.transferSize ?? 0) / 1024);
+        buckets.set(name, b);
+      }
+      for (const [name, b] of [...buckets].sort((a, b2) => b2[1].kb - a[1].kb)) {
+        console.log(`  ${String(b.n).padStart(3)} req  ${String(b.kb).padStart(4)} KB  ${name}`);
       }
     }
   } finally {

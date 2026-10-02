@@ -51,8 +51,12 @@ const THUMB_WIDTH_CEILING = 1280;
 const MAX_WIDTH = {
   // Renders as a decorative background, and is already only 892px wide.
   "hero-team.png": 1200,
-  // Mobile-only hero portrait. 1363px of JPEG was pure waste.
-  "profile.jpg": 900,
+  // Mobile-only hero portrait, shown inside a 96px circle that is scaled 2.45x.
+  // The visible region is ~44% of the frame, so 480px still covers the circle at
+  // DPR 3 (212 source px for 288 device px) and measures *sharper* than the old
+  // 900px build at DPR 2. 900px was 185KB for a 96px circle — 58% of the whole
+  // phone page. 480px is 66KB.
+  "profile.jpg": 480,
   // Small badge in the credentials section.
   "credentials/laravel-architect-badge.png": 512,
 };
