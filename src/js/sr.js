@@ -50,6 +50,11 @@ export default function initSr() {
   );
 
   ScrollReveal().reveal(
+    ".volunteer__copy, .volunteer__grid",
+    assignProps({ origin: "bottom" }, defaultProps)
+  );
+
+  ScrollReveal().reveal(
     ".credentials__block",
     assignProps({ interval: 100, origin: "bottom" }, defaultProps)
   );
