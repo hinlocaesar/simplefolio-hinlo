@@ -121,6 +121,13 @@
 
   &__mobile-portrait {
     display: none;
+
+    // <picture> is only there for its media query and must not contribute a box
+    // of its own, or the frame would be sizing an inline wrapper instead of the
+    // image and the percentage width/height below would resolve differently.
+    picture {
+      display: contents;
+    }
   }
 
   &__mobile-photo {
