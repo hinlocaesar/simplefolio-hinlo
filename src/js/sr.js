@@ -50,7 +50,7 @@ export default function initSr() {
   );
 
   ScrollReveal().reveal(
-    ".volunteer__copy, .volunteer__grid",
+    ".volunteer__grid",
     assignProps({ origin: "bottom" }, defaultProps)
   );
 

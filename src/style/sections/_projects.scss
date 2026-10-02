@@ -334,24 +334,15 @@
   color: $text-primary;
 }
 
-.volunteer__copy {
-  max-width: 65rem;
-  margin: 0.6rem 0 0;
-  color: $text-muted;
-  font-size: 1.35rem;
-  line-height: 1.45;
-}
-
-// Cards reuse .project-card, so they keep the exact rail sizing. The grid just
-// centres them and lets a future second initiative sit alongside. The column
+// Cards reuse .project-card so they keep the exact rail sizing, and the grid is
+// start-aligned so the first card lines up with the rails above it. The column
 // widths mirror the breakpoints baked into .project-card above.
 .volunteer__grid {
   display: grid;
   grid-template-columns: minmax(min(100%, 32rem), 32rem);
-  justify-content: center;
+  justify-content: start;
   gap: 1.2rem;
   min-width: 0;
-  margin-top: 3.2rem;
 
   @include respond(tab-land) {
     grid-template-columns: minmax(min(100%, 34rem), 34rem);
