@@ -343,6 +343,14 @@
   @include respond(tab-port) {
     grid-template-columns: 1fr;
   }
+
+  // A single remaining card spans the row, but stays a readable width.
+  .volunteer-card:only-child {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 62rem;
+    margin-inline: auto;
+  }
 }
 
 .volunteer-card {
