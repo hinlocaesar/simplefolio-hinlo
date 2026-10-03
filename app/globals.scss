@@ -1,0 +1,26 @@
+﻿// Single stylesheet for the whole page.
+//
+// Imported once, by `app/layout.tsx`, and nothing else -- these are global rules
+// for a one-page document, not a component API. The section layout is composed
+// directly from the modular layers below.
+
+@import "./styles/abstracts/mixins";
+@import "./styles/abstracts/variables";
+@import "./styles/abstracts/helpers";
+
+@import "./styles/base/base";
+@import "./styles/base/typography";
+
+@import "./styles/components/buttons";
+@import "./styles/components/nav";
+@import "./styles/components/lightbox";
+
+@import "./styles/layout/footer";
+@import "./styles/layout/sections";
+
+@import "./styles/sections/hero";
+@import "./styles/sections/about";
+@import "./styles/sections/skills";
+@import "./styles/sections/credentials";
+@import "./styles/sections/projects";
+@import "./styles/sections/contact";

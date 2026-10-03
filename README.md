@@ -18,11 +18,15 @@
 
 ⚡️ Modern UI Design + Reveal Animations\
 ⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
+⚡️ Built with Next.js 16 (App Router) + React 19\
+⚡️ Custom SCSS, compiled by Turbopack\
 ⚡️ Fully Responsive\
 ⚡️ Valid HTML5 & CSS3\
-⚡️ Optimized with Webpack\
+⚡️ Server-rendered as one prerendered document\
 ⚡️ Well organized documentation
+
+> Forked from Simplefolio by Jacobo Martinez and rebuilt on Next.js. See
+> [Architecture](#architecture) for how the page is put together.
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**
 
@@ -43,16 +47,12 @@ These instructions will get you a copy of the project up and running on your loc
 You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.
 
 ```
-node@v10.16.0 or higher
-npm@6.9.0 or higher
+node@22 or higher      (Next.js 16 requires 20.9+)
+npm@10 or higher
 git@2.17.1 or higher
 ```
 
-Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
-
-```
-yarn@v1.21.1 or higher
-```
+This project uses `npm`; it is the package manager the CI workflow uses too.
 
 ---
 
@@ -71,41 +71,28 @@ $ cd simplefolio
 $ git remote remove origin
 ```
 
-Then you can install the dependencies either using NPM or Yarn:
-
-Using NPM:
+Then install the dependencies and start the development server:
 
 ```bash
 # Install dependencies
 $ npm install
 
-# Start development server
-$ npm start
+# Start development server on http://localhost:3000
+$ npm run dev
 ```
 
-Using Yarn:
+To check the production build the way it will actually be served:
 
 ```bash
-# Install dependencies
-$ yarn
-
-# Start development server
-$ yarn start
+$ npm run build     # images -> srcset -> next build -> inline the stylesheet
+$ npm start         # the production server
 ```
 
-**NOTE**:
-If your run into issues installing the dependencies with NPM, use this command:
+`npm start` boots the real server on port 3000 (`npm start -- --port 8080` to
+change it) and prints your LAN address too, so a phone on the same wifi can load
+the build.
 
-```bash
-# Install dependencies with all permissions
-$ sudo npm install --unsafe-perm=true --allow-root
-```
-
-Once your server has started, go to this url `http://localhost:8080/` and you will see the website running on a Development Server:
-
-<h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
-</h2>
+Once your server has started, go to `http://localhost:3000/`.
 
 ---
 
@@ -113,7 +100,13 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 ### Step 1 - STRUCTURE
 
-Go to `/src/template.html` and fill your information, they are 5 sections:
+The page is a set of React components in `components/`, one per section, composed
+by `app/page.tsx`. There is no HTML template to edit: `components/Hero.tsx` is
+the hero, `components/About.tsx` is the experience timeline, and so on.
+
+The markup below is the upstream Simplefolio template's and is kept as a guide to
+the general shape of each section. Read the component for the markup this fork
+actually renders.
 
 ### Hero Section
 
@@ -162,16 +155,10 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
       </div>
       <div class="col-md-6 col-sm-12">
         <div class="about-wrapper__info">
-          <p class="about-wrapper__info-text">
-            Lorem ipsum dolor sit, about my text.
-          </p>
-          <p class="about-wrapper__info-text">
-            Lorem ipsum dolor sit, about my text.
-          </p>
+          <p class="about-wrapper__info-text">Lorem ipsum dolor sit, about my text.</p>
+          <p class="about-wrapper__info-text">Lorem ipsum dolor sit, about my text.</p>
           <span class="d-flex mt-3">
-            <a target="_blank" class="cta-btn cta-btn--resume" href="">
-              View Resume
-            </a>
+            <a target="_blank" class="cta-btn cta-btn--resume" href=""> View Resume </a>
           </span>
         </div>
       </div>
@@ -206,12 +193,8 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
         <div>
           <p class="mb-4">Lorem ipsum dolor sit, my project information.</p>
         </div>
-        <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
-          See Live
-        </a>
-        <a target="_blank" class="cta-btn text-color-main" href="#!">
-          Source Code
-        </a>
+        <a target="_blank" class="cta-btn cta-btn--hero" href="#!"> See Live </a>
+        <a target="_blank" class="cta-btn text-color-main" href="#!"> Source Code </a>
       </div>
     </div>
     <div class="col-lg-8 col-sm-12">
@@ -241,10 +224,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
     <h2 class="section-title">Contact</h2>
     <div class="contact-wrapper">
       <p class="contact-wrapper__text">Put here your contact CTA</p>
-      <a
-        target="_blank"
-        class="cta-btn cta-btn--resume"
-        href="mailto:example@email.com"
+      <a target="_blank" class="cta-btn cta-btn--resume" href="mailto:example@email.com"
         >Call to Action</a
       >
     </div>
@@ -282,9 +262,13 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 
 ### Step 2 - STYLES
 
+Styles are plain SCSS under `app/styles/`, composed by `app/globals.scss`. The
+only place that file needs touching when you add a partial is the `@import` list
+at the top.
+
 Change the color theme of the website ( choose 2 colors to create a gradient ):
 
-Go to `src/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
+Go to `app/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
 
 ```scss
 // Default values
@@ -296,15 +280,103 @@ $secondary-color: #00cdac;
 
 ---
 
+## Architecture
+
+One page, one route, and a deliberate split between what is rendered on the
+server and what runs in the browser.
+
+```
+app/
+  layout.tsx        <html>, metadata, the one global stylesheet
+  page.tsx          composes the sections, in order
+  globals.scss      @imports every partial in app/styles/
+components/
+  Hero.tsx ...      one Server Component per section, plain markup
+  PageBehaviour.tsx the only client component; renders nothing
+  behaviour/        nav, carousel, lightbox and scroll-reveal initialisers
+public/assets/      generated on every build (gitignored)
+src/assets/         image originals, including for the capture-*.mjs helpers
+scripts/            the image pipeline and the measurement tooling
+```
+
+**The whole document is server-rendered.** Every section is a Server Component, so
+the page ships as one prerendered HTML file and the client bundle is not on the
+critical path for first paint. `PageBehaviour` is the only `"use client"` module;
+it renders `null` and attaches the interactive parts to the markup that is already
+there by class name. That is intentional — it keeps the scroll-spy, the mobile
+menu, the lightbox and the reveals as progressive enhancements, so the page is
+fully readable with JavaScript switched off entirely. `npm run verify` asserts
+exactly that.
+
+**The stylesheet is inlined.** `scripts/inline-css.mjs` runs as `postbuild` and
+folds the single CSS chunk into the prerendered HTML, so first paint costs one
+round trip instead of two.
+
+**Images are hand-tuned, not optimized by the framework.** `scripts/optimize-images.mjs`
+re-encodes every image to WebP at the size it is actually rendered at and writes a
+`srcset` ladder for the project thumbnails; `scripts/apply-srcset.mjs` then
+writes those ladders onto the card images in the components. `next/image` is
+deliberately not used — see the comment in `next.config.ts`.
+
+---
+
+## Checks
+
+```bash
+npm run typecheck   # tsc --noEmit
+npm run lint        # ESLint 9, flat config, next/core-web-vitals
+npm run format      # Prettier
+npm run verify      # drives a browser against the production build
+npm run audit       # Lighthouse against the production build
+npm run shots       # review screenshots into scripts/shots/
+npm run measure:fcp # FCP/LCP under an emulated slow connection
+```
+
+`npm run verify` is the important one. It boots the same server `npm start` runs
+and checks the things that break silently: third-party requests creeping back
+onto the critical path, the stylesheet no longer being inlined, the LCP image no
+longer being preloaded, scroll reveals never firing, a lazy image never arriving,
+the phone-only portrait being fetched by visitors who will never see it, and the
+page still being readable with JavaScript off.
+
+---
+
 ## Deployment 📦
 
-Once you have done with your setup. You need to put your website online!
+This is a Node server, not a static bundle. `npm run build` produces both a normal
+`.next` output and a self-contained `standalone/` one.
 
-I highly recommend to use [Netlify](https://netlify.com) to achieve this on the EASIEST WAY
+### Container (recommended)
 
-Because this template use Webpack maybe you can get errors during deployment, Please watch my step-by-step video tutorial to successfully upload your Simplefolio Website on Netlify!
+```bash
+$ docker build -t portfolio .
+$ docker run --rm -p 3000:3000 portfolio
+```
 
-**[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://www.youtube.com/watch?v=soaG3GNSxJY)**
+The image is a three-stage build: it generates the image set, builds Next.js, and
+copies `standalone/` plus the `public/` and `.next/static` directories that Next.js
+leaves out of the standalone output.
+
+### Any Node host
+
+Deploy `public/` and `.next/` and run:
+
+```bash
+$ npm ci && npm run build && npm start
+```
+
+Or publish `.next/standalone`, `.next/static` and `public/` together and run
+`node server.js`.
+
+Set `PORT` and `HOSTNAME` in the environment. There is nothing else to configure —
+no database, no API, no secrets.
+
+> Previously this deployed to GitHub Pages from `dist/`. GitHub Pages can only
+> serve static files and cannot run a Next.js server, so that workflow has been
+> replaced by `.github/workflows/ci.yml`, which builds, lints, typechecks and runs
+> `npm run verify`. The URL changes from `hinlocaesar.github.io/portfolio/` to
+> whatever host you point this at, which also means the hard-coded `homepage` in
+> `package.json` and the project URLs in `components/` may want a look.
 
 ## Others versions 👥
 

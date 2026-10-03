@@ -1,0 +1,71 @@
+# This site used to deploy to GitHub Pages from `dist/`, which cannot run a
+# Next.js server. It now builds a standalone Node server, so publishing is a
+# container build: `docker build -t portfolio .` then run the image, or point any
+# Node host at it. See README.md > Deploying.
+#
+# What this workflow does is the part that is worth having either way: build the
+# site, prove the build is sound with `npm run verify`, and typecheck and lint.
+#
+# Enable Dependabot or push a branch to add a deploy step for your host; every
+# provider's build output is the same `standalone/server.js`.
+
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+# Never run two builds of the same ref at once, and let in-progress ones finish
+# rather than being cancelled halfway through the image build.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # package-lock.json is gitignored in this repo, so neither `npm ci` nor
+      # setup-node's `cache: npm` (which needs a lockfile to hash) can be used.
+      - name: Install dependencies
+        run: npm install
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      # `npm run build` is prebuild (images + srcset) then `next build` then
+      # postbuild (inline the stylesheet), so this produces the same artifact the
+      # container image would.
+      - name: Build
+        run: npm run build
+
+      # Starts the real production server and drives a browser against it:
+      # no third-party requests, CSS inlined, LCP image preloaded, every scroll
+      # reveal firing, every lazy image arriving, and the page still readable
+      # with JavaScript switched off entirely.
+      - name: Verify build
+        run: npm run verify
+
+      - name: Upload standalone server
+        uses: actions/upload-artifact@v4
+        with:
+          name: standalone-server
+          path: |
+            .next/standalone
+            .next/static
+            public
+          retention-days: 7

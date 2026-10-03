@@ -1,11 +1,14 @@
 /**
- * Generates the deployable image set under `src/assets/opt`.
+ * Generates the deployable image set under `public/assets`.
+ *
+ * Next.js serves `public/` verbatim from the site root, so the directory a
+ * browser requests (`/assets/foo.webp`) is the directory this writes
+ * (`public/assets/foo.webp`) -- there is no copy step in between.
  *
  * The originals in `src/assets` stay untouched so the `scripts/capture-*.mjs`
  * screenshot helpers can keep overwriting them. This script re-encodes every
  * raster asset as WebP at a width that matches how large the image is actually
- * rendered, and writes the result to `src/assets/opt/<same path>.webp`. That
- * mirrored layout is what lets `src/template.html` reference
+ * rendered. That mirrored layout is what lets a component reference
  * `assets/foo.png` as `assets/foo.webp` with a one-to-one rename.
  *
  * Run automatically by `npm run build` (see the `prebuild` script).
@@ -17,7 +20,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC_DIR = path.join(ROOT, "src", "assets");
-const OUT_DIR = path.join(SRC_DIR, "opt");
+const OUT_DIR = path.join(ROOT, "public", "assets");
 
 const RASTER = /\.(png|jpe?g|webp)$/i;
 
@@ -75,7 +78,9 @@ const isThumb = (relPath) => relPath.split(path.sep).includes("thumbs");
  */
 function variantsFor(relPath, sourceWidth, ladderWidth) {
   if (!isThumb(relPath)) {
-    return [{ width: MAX_WIDTH[relPath.split(path.sep).join("/")] ?? DEFAULT_MAX_WIDTH, suffix: "" }];
+    return [
+      { width: MAX_WIDTH[relPath.split(path.sep).join("/")] ?? DEFAULT_MAX_WIDTH, suffix: "" },
+    ];
   }
   // Rungs at or below the best available source width only: upscaling would add
   // bytes without adding detail. The top rung is the standard width that fits,
@@ -103,7 +108,10 @@ function findFullSizeSibling(relPath, all) {
   // `.../thumbs/<slug>/<stem>` -> `<slug>/<stem>`, with the extension dropped so
   // a .jpg thumb still matches its .png original. Everything before `thumbs`
   // (i.e. `project-images`) is carried over to keep the comparison aligned.
-  const stem = parts.slice(thumbsAt + 2).join("/").replace(/\.[^.]+$/, "");
+  const stem = parts
+    .slice(thumbsAt + 2)
+    .join("/")
+    .replace(/\.[^.]+$/, "");
   const wanted = [...parts.slice(0, thumbsAt), parts[thumbsAt + 1], stem].join("/");
 
   const match = all.find((candidate) => {
@@ -201,9 +209,12 @@ async function main() {
   }
 
   // The manifest is what keeps hand-written `srcset` attributes honest: the
-  // template must declare the widths that actually exist on disk.
+  // components must declare the widths that actually exist on disk. Keys are
+  // root-absolute because that is the URL a browser requests.
   const manifest = Object.fromEntries(
-    rows.flatMap((row) => row.variants.map((v) => [`assets/${v.path}`, { w: v.width, h: v.height }]))
+    rows.flatMap((row) =>
+      row.variants.map((v) => [`/assets/${v.path}`, { w: v.width, h: v.height }])
+    )
   );
   await fs.writeFile(path.join(OUT_DIR, "manifest.json"), JSON.stringify(manifest, null, 2));
 

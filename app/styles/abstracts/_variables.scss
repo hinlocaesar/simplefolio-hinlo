@@ -1,0 +1,47 @@
+// COLORS — cinematic streaming palette
+$bg-void: #000000;
+$bg-primary: #000000;
+$bg-surface: #141414;
+$bg-elevated: #1f1f1f;
+
+$accent: #e50914;
+$accent-light: #f6121d;
+
+$text-primary: #ffffff;
+$text-muted: #b3b3b3;
+
+$border-accent: rgba(255, 255, 255, 0.12);
+$border-accent-strong: rgba(229, 9, 20, 0.72);
+$border-subtle: rgba(255, 255, 255, 0.09);
+
+$product-photo-bg: #0b0b0b;
+
+$white-color: #ffffff;
+$black-color: #000000;
+
+// TYPOGRAPHY
+$default-font-size: 1.6rem;
+$big-font-size: 4.8rem;
+$mid-font-size: 2.4rem;
+$font-stack: Arial, Helvetica, "Helvetica Neue", sans-serif;
+$font-mono:
+  "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+// LAYOUT
+$container-max: 160rem;
+$container-pad: 4.8rem;
+$container-pad-sm: 2rem;
+
+// RADIUS
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-pill: 999px;
+
+// TRANSITIONS
+$transition-fast: all 0.2s ease;
+$transition-base: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+// MOTION
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);

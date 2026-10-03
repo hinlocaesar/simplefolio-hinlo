@@ -1,0 +1,382 @@
+#projects {
+  background: $bg-surface;
+  color: $text-primary;
+
+  // #volunteer continues this block visually — same background, same rail
+  // heading, same card — so what separates them is the rail gap, not a section
+  // gap, and that spacing lives on the volunteer rail's margin instead. Leaving
+  // a section's worth of padding here as well put "Personal Volunteer
+  // Initiatives" 224px below the last project card, where every rail sits
+  // 104px below the one above it. The gap read as an empty band, because the
+  // two sections share a background and neither has a title to mark the break.
+  padding-bottom: 0;
+}
+
+.projects__rail {
+  position: relative;
+  min-width: 0;
+  margin-top: 3.2rem;
+
+  & + .projects__rail {
+    margin-top: 7.2rem;
+  }
+}
+
+.projects__rail-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.projects__subheading {
+  margin: 0;
+  color: $white-color;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.projects__rail-copy {
+  max-width: 65rem;
+  margin: 0.6rem 0 0;
+  color: $text-muted;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.projects__rail-nav {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.8rem;
+}
+
+.projects__rail-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 0;
+  border: 1px solid #575757;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.8);
+  color: $white-color;
+  cursor: pointer;
+  transition:
+    border-color $transition-fast,
+    background-color $transition-fast,
+    color $transition-fast,
+    opacity $transition-fast;
+
+  &:hover:not(:disabled) {
+    border-color: $white-color;
+    background: $white-color;
+    color: $black-color;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.projects__grid {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 1.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline-offset: 0.8rem;
+  }
+}
+
+.project-card {
+  display: flex;
+  flex: 0 0 32rem;
+  flex-direction: column;
+  width: 32rem;
+  height: auto;
+  min-height: 0;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #303030;
+  border-radius: $radius-sm;
+  background: #1c1c1c;
+  scroll-snap-align: start;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast,
+    transform $transition-fast;
+
+  @include respond(tab-land) {
+    flex-basis: 34rem;
+    width: 34rem;
+  }
+
+  @include respond(phone) {
+    flex-basis: 79vw;
+    width: 79vw;
+    height: auto;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border-color: rgba(229, 9, 20, 0.7);
+      box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.55);
+      transform: translateY(-0.5rem);
+    }
+  }
+}
+
+.project-card--minor .project-card__meta {
+  color: #35c759;
+}
+
+.project-card__image {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #090909;
+  color: inherit;
+
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    transition:
+      transform 0.55s ease,
+      filter 0.55s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover & img {
+      transform: scale(1.045);
+      filter: brightness(0.86);
+    }
+  }
+}
+
+.project-card__image--product {
+  aspect-ratio: 1 / 1;
+  padding: 1.6rem;
+  background: $product-photo-bg;
+
+  img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover & img {
+      transform: scale(1.025);
+      filter: brightness(1);
+    }
+  }
+}
+
+.project-card__image--diagram {
+  aspect-ratio: 16 / 9;
+  padding: 1rem;
+  background: $product-photo-bg;
+
+  img {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover & img {
+      transform: scale(1.025);
+      filter: brightness(1);
+    }
+  }
+}
+
+.project-card__image--expandable {
+  cursor: zoom-in;
+  text-align: inherit;
+  font: inherit;
+}
+
+.project-card__expand-hint {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100% - 2.4rem);
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: $radius-sm;
+  background: rgba(0, 0, 0, 0.88);
+  color: $white-color;
+  font-size: 1.05rem;
+  font-weight: 700;
+  pointer-events: none;
+  backdrop-filter: blur(0.8rem);
+  -webkit-backdrop-filter: blur(0.8rem);
+}
+
+.project-card__image--expandable:hover .project-card__expand-hint {
+  border-color: $accent;
+  background: rgba(229, 9, 20, 0.92);
+}
+
+.project-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  padding: 2rem;
+  overflow: hidden;
+  overflow-wrap: break-word;
+
+  @include respond(phone) {
+    padding: 1.6rem;
+  }
+}
+
+.project-card__title {
+  margin: 0 0 0.7rem;
+  color: $white-color;
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.project-card__meta {
+  min-height: 1.9rem;
+  margin: 0 0 1.2rem;
+  color: $accent-light;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.project-card__desc {
+  display: -webkit-box;
+  margin: 0 0 1.6rem;
+  overflow: hidden;
+  color: $text-muted;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 1.8rem;
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.8rem;
+  width: 100%;
+  min-width: 0;
+  margin-top: auto;
+}
+
+.project-card__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $white-color;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+
+  &::after {
+    content: "↗";
+    color: $accent-light;
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  &:hover {
+    color: $accent-light;
+  }
+}
+
+/* Volunteer Section */
+#volunteer {
+  background: $bg-surface;
+  color: $text-primary;
+
+  // The gap is padding, not a margin, and that distinction is load-bearing.
+  // With `padding-top: 0` the rail's margin-top collapsed straight through this
+  // section and became spacing *between* #projects and #volunteer — which put
+  // body (rgb 0,0,0) behind 72px of it and painted a black stripe across the
+  // page between two rgb(20,20,20) sections. Padding cannot collapse, so the
+  // 7.2rem stays inside the section and the background covers it.
+  padding-top: 7.2rem;
+
+  .projects__rail {
+    margin-top: 0;
+  }
+}
+
+// Cards reuse .project-card so they keep the exact rail sizing, and the grid is
+// start-aligned so the first card lines up with the rails above it. The column
+// widths mirror the breakpoints baked into .project-card above.
+.volunteer__grid {
+  display: grid;
+  grid-template-columns: minmax(min(100%, 32rem), 32rem);
+  justify-content: start;
+  gap: 1.2rem;
+  min-width: 0;
+
+  @include respond(tab-land) {
+    grid-template-columns: minmax(min(100%, 34rem), 34rem);
+  }
+
+  @include respond(phone) {
+    grid-template-columns: minmax(0, 79vw);
+  }
+}

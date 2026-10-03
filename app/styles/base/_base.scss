@@ -1,0 +1,116 @@
+html {
+  color-scheme: dark;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  background: $bg-primary;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-x: clip;
+  background: $bg-primary;
+  color: $text-primary;
+  font-family: $font-stack;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.nav-open,
+body.lightbox-open {
+  overflow: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: $accent;
+  color: $white-color;
+}
+
+:focus-visible {
+  outline: 2px solid $accent-light;
+  outline-offset: 4px;
+}
+
+#top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// Inline icon sprite -------------------------------------------------------
+
+// The definitions themselves are never rendered; only the <use> references are.
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+// Icons size from the surrounding font, the same way the Font Awesome <i>
+// glyphs did, so every rule that set font-size on a parent still scales them.
+// The box is square and the viewBox is centred inside it: an inline <svg> with
+// `width: auto` falls back to the 300px default rather than reading its ratio
+// from the viewBox, and a fixed square is the only sizing that is both
+// predictable and inherited from the surrounding font-size.
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
+// Stands in for Font Awesome's `fa-2x`.
+.icon--lg {
+  font-size: 2em;
+}
+
+// Scroll reveals -------------------------------------------------------------
+
+// sr.js parks elements here with their start offset as an inline style, then
+// clears it once the element is observed. Without JS the class is never
+// applied, so nothing is ever left invisible waiting for a reveal.
+.sr-item {
+  opacity: 0;
+  transition:
+    opacity 0.7s $ease-out-expo,
+    transform 0.7s $ease-out-expo;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -17,14 +17,14 @@
  *   node scripts/hero-without-bundle.mjs
  */
 import { chromium } from "playwright";
-import { spawn } from "node:child_process";
+
+import { startServer } from "./lib/server.mjs";
 
 const DELAY_MS = 6000;
 const CHECK_AT_MS = 1500;
 
-const srv = spawn(process.execPath, ["scripts/serve.mjs"], { stdio: "ignore" });
-await new Promise((r) => setTimeout(r, 2500));
-const BASE = "http://127.0.0.1:4173/";
+const server = await startServer();
+const BASE = server.url;
 
 const browser = await chromium.launch();
 
@@ -38,7 +38,9 @@ await warm.close();
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await context.newPage();
 
-await page.route("**/*.bundle.js", async (route) => {
+// The webpack build emitted one `*.bundle.js`; Next.js emits its chunks under
+// `/_next/static/chunks/`, so that is what gets held back here.
+await page.route("**/_next/static/chunks/*.js", async (route) => {
   await new Promise((r) => setTimeout(r, DELAY_MS));
   await route.continue();
 });
@@ -51,7 +53,9 @@ await page.addInitScript(() => {
     if (e) {
       window.__lcp = {
         t: Math.round(e.startTime),
-        el: e.element ? e.element.tagName.toLowerCase() + "." + String(e.element.className).split(" ")[0] : "(node)",
+        el: e.element
+          ? e.element.tagName.toLowerCase() + "." + String(e.element.className).split(" ")[0]
+          : "(node)",
       };
     }
   }).observe({ type: "largest-contentful-paint", buffered: true });
@@ -74,7 +78,8 @@ const probe = () =>
       srRunning: document.querySelectorAll(".sr-item").length,
       anim: anim ? `${anim.playState} @${Math.round(anim.currentTime ?? 0)}ms` : "none",
       fcp: Math.round(
-        performance.getEntriesByType("paint").find((p) => p.name === "first-contentful-paint")?.startTime ?? -1
+        performance.getEntriesByType("paint").find((p) => p.name === "first-contentful-paint")
+          ?.startTime ?? -1
       ),
       lcp: window.__lcp,
       parsed: document.readyState,
@@ -88,7 +93,9 @@ console.log(`  hero-in animation ${early.anim}`);
 console.log(`  sr.js running?   ${early.srRunning}`);
 console.log(`  readyState       ${early.parsed}`);
 console.log(`  FCP              ${early.fcp}ms`);
-console.log(`  LCP              ${early.lcp ? `${early.lcp.t}ms (${early.lcp.el})` : "not yet painted"}`);
+console.log(
+  `  LCP              ${early.lcp ? `${early.lcp.t}ms (${early.lcp.el})` : "not yet painted"}`
+);
 
 await page.waitForTimeout(DELAY_MS - CHECK_AT_MS + 4000);
 const late = await probe();
@@ -107,5 +114,5 @@ console.log(
 );
 
 await browser.close();
-srv.kill();
+await server.stop();
 process.exit(ok ? 0 : 1);
