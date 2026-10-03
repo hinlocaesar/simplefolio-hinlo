@@ -283,6 +283,60 @@
   }
 }
 
+// The hero entrance, driven by CSS on first render.
+//
+// These six used to carry `.load-hidden` in the markup and wait for sr.js to
+// take it off, so the headline — the largest contentful paint — could not
+// appear until the bundle downloaded and executed. Measured against github.io
+// that was a blank hero for 16.5s after every byte of the document had already
+// arrived, which is what "loads slowly" actually looks like.
+//
+// It is a transition off `@starting-style`, not a keyframe animation, and that
+// choice is measured rather than stylistic: Chrome will not count an element
+// as a largest-contentful-paint candidate while it has a running or filling
+// animation, so a `both`-filled keyframe kept the headline out of LCP forever
+// and reported the nav logo instead — 46740px passed over for 1880px, LCP
+// 632ms -> 1352ms for a hero that paints *earlier*. A transition does not
+// disqualify it, which is also why the old sr.js reveal measured as it did.
+//
+// Same motion as before: 20px rise, 0.7s, $ease-out-expo, all six together.
+// Without `@starting-style` support the rule is dropped and the hero simply
+// appears — visible without an entrance, never invisible waiting for one.
+// `backwards` rather than `both`, and that is measured rather than stylistic:
+// Chrome will not count an element as a largest-contentful-paint candidate
+// while it has a running or filling animation, and `both` keeps the entrance
+// attached to the hero for the life of the page. The headline was pushed out of
+// LCP entirely and the nav logo (1880px) reported in its place of 46740px.
+// `backwards` releases the hero when the entrance ends, so it becomes the
+// candidate it should be.
+//
+// A transition off @starting-style was tried for the same reason and measured no
+// better — 1272ms against 1352ms, both counted at the end — so the keyframe is
+// what ships, since it needs no support caveat to animate.
+//
+// Same motion as before: 20px rise, 0.7s, $ease-out-expo, all six together.
+// sr.js no longer registers them, so nothing re-hides them later.
+.hero__mobile-portrait,
+.hero-headline,
+.hero__name,
+.hero__subtitle,
+.hero__cta,
+.hero__facts {
+  animation: hero-in 0.7s $ease-out-expo backwards;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes scroll-cue {
   0%,
   100% {

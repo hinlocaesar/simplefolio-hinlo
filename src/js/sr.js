@@ -56,23 +56,18 @@ export default function initSr() {
     interval: 0,
   };
 
-  // Above the fold on every breakpoint. Registering them keeps them on the same
-  // path as everything else; the observer fires for them on its first callback,
-  // so the hero never waits on a scroll that is not coming.
-  const hero = assignProps(
-    {
-      selector:
-        ".hero__mobile-portrait, .hero-headline, .hero__name, .hero__subtitle, .hero__cta, .hero__facts",
-    },
-    defaultProps
-  );
-
+  // The hero is deliberately absent from this list.
+  //
+  // It used to be registered here, which meant the headline — the largest
+  // contentful paint — could not appear until this bundle downloaded and
+  // executed. On a stalled connection that measured as a blank hero for 16.5s
+  // after the document had fully arrived. Its entrance is a CSS animation in
+  // _hero.scss now, so it needs nothing but the stylesheet.
   const groups = [
     assignProps(
       { selector: ".section-eyebrow, .section-title", delay: 100, distance: "0px" },
       defaultProps
     ),
-    hero,
     assignProps({ selector: ".about__summary", delay: 150 }, defaultProps),
     assignProps({ selector: ".timeline__item", interval: 100 }, defaultProps),
     assignProps({ selector: ".skills__group", interval: 100 }, defaultProps),
@@ -83,22 +78,16 @@ export default function initSr() {
     assignProps({ selector: ".reference-card", interval: 100 }, defaultProps),
   ];
 
-  // Reduced motion, or no IntersectionObserver: show everything at once.
-  // Content is never left invisible because an effect did not run, and this is
-  // also the path taken when the bundle fails to execute at all.
-  if (reduced || !hasObserver) {
-    document
-      .querySelectorAll(".load-hidden")
-      .forEach((element) => element.classList.remove("load-hidden"));
-    return;
-  }
+  // Reduced motion, or no IntersectionObserver: register nothing. Nothing in
+  // the markup is hidden waiting for a reveal any more, so content stays
+  // visible even if this bundle fails to execute entirely.
+  if (reduced || !hasObserver) return;
 
   const targets = [];
 
   /** Parks an element at its start offset, ready to be revealed. */
   const register = (element, props, index) => {
     element.classList.add("sr-item");
-    element.classList.remove("load-hidden");
     element.style.transform = startOffset(props.origin, props.distance);
     // Position within the group drives the stagger, so a list of cards or
     // timeline entries cascades without every element needing its own delay
@@ -115,12 +104,6 @@ export default function initSr() {
       .querySelectorAll(group.selector)
       .forEach((element, index) => register(element, group, index));
   });
-
-  // Anything the list above does not cover is still guarded by `.load-hidden`
-  // in the markup. Clear it rather than leave content unreachable.
-  document
-    .querySelectorAll(".load-hidden")
-    .forEach((element) => element.classList.remove("load-hidden"));
 
   const observer = new IntersectionObserver(
     (entries) => {

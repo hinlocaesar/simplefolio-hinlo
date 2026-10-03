@@ -82,6 +82,11 @@ async function main() {
     "stylesheet inlined, no render-blocking <link>",
     !/<link[^>]*\brel=["']?stylesheet/i.test(html) && /<style[^>]*>/i.test(html)
   );
+  // `.load-hidden` used to sit in the markup, so the hero stayed invisible
+  // until sr.js ran — and stayed invisible for good if it never did. A
+  // stylesheet check would only prove the class is absent from the CSS, so the
+  // no-JavaScript section below covers the behaviour end to end.
+  check("no content hidden in markup waiting for JS", !/load-hidden/.test(html));
 
   const browser = await chromium.launch();
 
@@ -118,7 +123,6 @@ async function main() {
             .getEntriesByType("resource")
             .reduce((n, r) => n + (r.transferSize || r.encodedBodySize || 0), 0) / 1024
         ),
-        loadHidden: document.querySelectorAll(".load-hidden").length,
         zeroSizedIcons: [...document.querySelectorAll("svg.icon")].filter(
           (i) => i.getClientRects().length > 0 && i.getBoundingClientRect().width < 1
         ).length,
@@ -130,7 +134,6 @@ async function main() {
     });
 
     check("hero revealed", state.hero === "visible/1", state.hero);
-    check("no .load-hidden left behind", state.loadHidden === 0);
     check("every visible icon has a size", state.zeroSizedIcons === 0);
     check("no image failed to decode", state.broken === 0);
     check(
@@ -194,6 +197,32 @@ async function main() {
 
     await page.close();
   }
+
+  // End-to-end proof of the markup check above: load the built page with
+  // JavaScript switched off entirely. `.load-hidden` in the markup used to
+  // leave the whole hero — headline, name, subtitle, CTA, facts, portrait —
+  // permanently invisible here, so a visitor saw only the nav.
+  const noJsContext = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 1440, height: 900 },
+  });
+  const noJsPage = await noJsContext.newPage();
+  await noJsPage.goto(base, { waitUntil: "load", timeout: 60000 });
+  // Long enough for the 0.7s CSS entrance to have finished on its own.
+  await noJsPage.waitForTimeout(1200);
+  const noJs = await noJsPage.evaluate(() => {
+    const shown = (sel) => {
+      const el = document.querySelector(sel);
+      if (!el) return "missing";
+      const cs = getComputedStyle(el);
+      return `${cs.visibility}/${cs.opacity}`;
+    };
+    return { hero: shown(".hero-headline"), about: shown(".about__summary") };
+  });
+  console.log("\nWithout JavaScript");
+  check("hero headline visible", noJs.hero === "visible/1", noJs.hero);
+  check("about summary visible", noJs.about === "visible/1", noJs.about);
+  await noJsContext.close();
 
   await browser.close();
   server.close();
