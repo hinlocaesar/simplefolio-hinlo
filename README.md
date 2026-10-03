@@ -343,19 +343,40 @@ page still being readable with JavaScript off.
 
 ## Deployment 📦
 
-This is a Node server, not a static bundle. `npm run build` produces both a normal
-`.next` output and a self-contained `standalone/` one.
+This is a Node server, not a static bundle. Netlify is the primary target; a
+container and a plain Node host both work too.
 
-### Container (recommended)
+### Netlify
+
+Push the repo, connect it in the Netlify Dashboard, and deploy. No adapter to
+install and no version to pin — Netlify detects Next.js and uses its OpenNext
+adapter, which they keep current for every release.
+
+**`netlify.toml` is not optional here.** Netlify's automatic detection _suggests_
+a build command of `next build`, and that would quietly break this site:
+
+|             | what `next build` alone skips                 | result                                |
+| ----------- | --------------------------------------------- | ------------------------------------- |
+| `prebuild`  | generating `public/assets`, applying `srcset` | every one of ~130 images 404s         |
+| `postbuild` | inlining the stylesheet                       | first paint costs a second round trip |
+
+So the file pins `command = "npm run build"`. It also sets the Node version, and
+carries the caching and security headers described below.
+
+### Container
 
 ```bash
 $ docker build -t portfolio .
 $ docker run --rm -p 3000:3000 portfolio
 ```
 
-The image is a three-stage build: it generates the image set, builds Next.js, and
-copies `standalone/` plus the `public/` and `.next/static` directories that Next.js
-leaves out of the standalone output.
+The image is a three-stage build: it generates the image set, builds Next.js with
+`NEXT_OUTPUT_STANDALONE=true`, and copies `standalone/` plus the `public/` and
+`.next/static` directories that Next.js leaves out of the standalone output.
+
+That env var is what makes standalone output opt-in. Netlify must not have it —
+the OpenNext adapter packages `.next` itself, so the traced copy would be dead
+weight — which is why it is off unless a build asks for it.
 
 ### Any Node host
 
@@ -365,18 +386,27 @@ Deploy `public/` and `.next/` and run:
 $ npm ci && npm run build && npm start
 ```
 
-Or publish `.next/standalone`, `.next/static` and `public/` together and run
-`node server.js`.
+Set `PORT` and `HOSTNAME`. There is nothing else to configure — no database, no
+API, no secrets.
 
-Set `PORT` and `HOSTNAME` in the environment. There is nothing else to configure —
-no database, no API, no secrets.
+### Caching and headers
+
+Set in `netlify.toml`:
+
+- `/_next/static/*` — content-hashed by Next.js, so `immutable` for a year is
+  safe.
+- `/assets/*` — **not** immutable. Those filenames are stable across builds
+  (`hero-team.webp` is always `hero-team.webp`), so caching them hard would leave
+  returning visitors on old images forever. These revalidate, which costs one
+  conditional request and an ETag for ~4 MB of images.
+- A CSP that allows inline _styles_ because the stylesheet is inlined into the
+  document, and otherwise stays strict.
 
 > Previously this deployed to GitHub Pages from `dist/`. GitHub Pages can only
-> serve static files and cannot run a Next.js server, so that workflow has been
-> replaced by `.github/workflows/ci.yml`, which builds, lints, typechecks and runs
-> `npm run verify`. The URL changes from `hinlocaesar.github.io/portfolio/` to
-> whatever host you point this at, which also means the hard-coded `homepage` in
-> `package.json` and the project URLs in `components/` may want a look.
+> serve static files, so that workflow has been replaced by `.github/workflows/ci.yml`
+> (build, lint, typecheck, verify). The old URL now 301s to Netlify — update
+> `homepage` in `package.json` and the hardcoded `hinlocaesar.github.io` links in
+> `components/` once the new domain is settled.
 
 ## Others versions 👥
 

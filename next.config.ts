@@ -1,12 +1,21 @@
 import type { NextConfig } from "next";
 
+/**
+ * `output: "standalone"` emits a second, self-contained copy of the app under
+ * `.next/standalone`: its own traced `node_modules` and a `server.js` that boots
+ * with nothing but Node.
+ *
+ * It is opt-in because only some hosts want it. The container image sets
+ * `NEXT_OUTPUT_STANDALONE=true` (see the Dockerfile). Netlify must not: its
+ * OpenNext adapter packages `.next` into a serverless function itself, so the
+ * traced copy is dead weight in the build -- time and disk nothing ever reads.
+ * Leaving it off by default keeps `next build` output to exactly what the host
+ * asked for.
+ */
+const standalone = process.env.NEXT_OUTPUT_STANDALONE === "true";
+
 const nextConfig: NextConfig = {
-  /**
-   * A self-contained server in `.next/standalone`: its own minimal `node_modules`
-   * and a `server.js` that boots with nothing but Node and the app directory.
-   * That is what `scripts/start.mjs` runs and what the Dockerfile ships.
-   */
-  output: "standalone",
+  ...(standalone ? { output: "standalone" as const } : {}),
 
   /**
    * The stylesheet is still the pre-modularisation SCSS tree, kept as-is so the

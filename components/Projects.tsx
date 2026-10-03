@@ -55,15 +55,15 @@ export default function Projects() {
                 aria-label="View full DiscoverJobs screenshot"
               >
                 <img
-alt="DiscoverJobs, US jobs listing"
-src="/assets/project-images/thumbs/discoverjobs/desktop.webp"
-srcSet="/assets/project-images/thumbs/discoverjobs/desktop-320.webp 320w, /assets/project-images/thumbs/discoverjobs/desktop-640.webp 640w, /assets/project-images/thumbs/discoverjobs/desktop-960.webp 960w, /assets/project-images/thumbs/discoverjobs/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="DiscoverJobs, US jobs listing"
+                  src="/assets/project-images/thumbs/discoverjobs/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/discoverjobs/desktop-320.webp 320w, /assets/project-images/thumbs/discoverjobs/desktop-640.webp 640w, /assets/project-images/thumbs/discoverjobs/desktop-960.webp 960w, /assets/project-images/thumbs/discoverjobs/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">DiscoverJobs</h4>
@@ -112,15 +112,15 @@ decoding="async"
                 aria-label="View full BIR CAS website screenshot"
               >
                 <img
-alt="BIR CAS, website screenshot showing money flow overview"
-src="/assets/project-images/thumbs/bircas/flow-diagram.webp"
-srcSet="/assets/project-images/thumbs/bircas/flow-diagram-320.webp 320w, /assets/project-images/thumbs/bircas/flow-diagram-640.webp 640w, /assets/project-images/thumbs/bircas/flow-diagram-960.webp 960w, /assets/project-images/thumbs/bircas/flow-diagram.webp 1024w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1024"
-height="490"
-loading="lazy"
-decoding="async"
-/>
+                  alt="BIR CAS, website screenshot showing money flow overview"
+                  src="/assets/project-images/thumbs/bircas/flow-diagram.webp"
+                  srcSet="/assets/project-images/thumbs/bircas/flow-diagram-320.webp 320w, /assets/project-images/thumbs/bircas/flow-diagram-640.webp 640w, /assets/project-images/thumbs/bircas/flow-diagram-960.webp 960w, /assets/project-images/thumbs/bircas/flow-diagram.webp 1024w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1024"
+                  height="490"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="project-card__expand-hint">
                   <svg className="icon" aria-hidden="true" focusable="false">
                     <use href="#i-zoom-in" />
@@ -164,15 +164,15 @@ decoding="async"
                 aria-label="View full Streamline Verify screenshot"
               >
                 <img
-alt="Streamline Verify, healthcare compliance platform"
-src="/assets/project-images/thumbs/streamlineverify/desktop.webp"
-srcSet="/assets/project-images/thumbs/streamlineverify/desktop-320.webp 320w, /assets/project-images/thumbs/streamlineverify/desktop-640.webp 640w, /assets/project-images/thumbs/streamlineverify/desktop-960.webp 960w, /assets/project-images/thumbs/streamlineverify/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Streamline Verify, healthcare compliance platform"
+                  src="/assets/project-images/thumbs/streamlineverify/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/streamlineverify/desktop-320.webp 320w, /assets/project-images/thumbs/streamlineverify/desktop-640.webp 640w, /assets/project-images/thumbs/streamlineverify/desktop-960.webp 960w, /assets/project-images/thumbs/streamlineverify/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Streamline Verify</h4>
@@ -219,15 +219,15 @@ decoding="async"
                 aria-label="View full Champions 4 Heroes screenshot"
               >
                 <img
-alt="Champions 4 Heroes nonprofit website"
-src="/assets/project-images/thumbs/champion4heroes/desktop.webp"
-srcSet="/assets/project-images/thumbs/champion4heroes/desktop-320.webp 320w, /assets/project-images/thumbs/champion4heroes/desktop-640.webp 640w, /assets/project-images/thumbs/champion4heroes/desktop-960.webp 960w, /assets/project-images/thumbs/champion4heroes/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Champions 4 Heroes nonprofit website"
+                  src="/assets/project-images/thumbs/champion4heroes/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/champion4heroes/desktop-320.webp 320w, /assets/project-images/thumbs/champion4heroes/desktop-640.webp 640w, /assets/project-images/thumbs/champion4heroes/desktop-960.webp 960w, /assets/project-images/thumbs/champion4heroes/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Champions 4 Heroes</h4>
@@ -274,15 +274,15 @@ decoding="async"
                 aria-label="View full Filipino VA screenshots"
               >
                 <img
-alt="Filipino VA job board, Hire the best Filipino virtual assistants"
-src="/assets/project-images/thumbs/filipinova/desktop.webp"
-srcSet="/assets/project-images/thumbs/filipinova/desktop-320.webp 320w, /assets/project-images/thumbs/filipinova/desktop-640.webp 640w, /assets/project-images/thumbs/filipinova/desktop-960.webp 960w, /assets/project-images/thumbs/filipinova/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="720"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Filipino VA job board, Hire the best Filipino virtual assistants"
+                  src="/assets/project-images/thumbs/filipinova/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/filipinova/desktop-320.webp 320w, /assets/project-images/thumbs/filipinova/desktop-640.webp 640w, /assets/project-images/thumbs/filipinova/desktop-960.webp 960w, /assets/project-images/thumbs/filipinova/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="project-card__expand-hint">
                   <svg className="icon" aria-hidden="true" focusable="false">
                     <use href="#i-zoom-in" />
@@ -329,15 +329,15 @@ decoding="async"
                 aria-label="View full Plum Village App screenshot"
               >
                 <img
-alt="Plum Village App, web edition home page"
-src="/assets/project-images/thumbs/plumvillage/home.webp"
-srcSet="/assets/project-images/thumbs/plumvillage/home-320.webp 320w, /assets/project-images/thumbs/plumvillage/home-640.webp 640w, /assets/project-images/thumbs/plumvillage/home-960.webp 960w, /assets/project-images/thumbs/plumvillage/home.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="720"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Plum Village App, web edition home page"
+                  src="/assets/project-images/thumbs/plumvillage/home.webp"
+                  srcSet="/assets/project-images/thumbs/plumvillage/home-320.webp 320w, /assets/project-images/thumbs/plumvillage/home-640.webp 640w, /assets/project-images/thumbs/plumvillage/home-960.webp 960w, /assets/project-images/thumbs/plumvillage/home.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Plum Village App</h4>
@@ -423,15 +423,15 @@ decoding="async"
                 aria-label="View full Kyocera touchscreen integration sample"
               >
                 <img
-alt="Kyocera MFP touchscreen-to-MFP integration showing Device Information"
-src="/assets/project-images/thumbs/novatech-how-to-guides/desktop.webp"
-srcSet="/assets/project-images/thumbs/novatech-how-to-guides/desktop-320.webp 320w, /assets/project-images/thumbs/novatech-how-to-guides/desktop-640.webp 640w, /assets/project-images/thumbs/novatech-how-to-guides/desktop.webp 866w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="866"
-height="690"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera MFP touchscreen-to-MFP integration showing Device Information"
+                  src="/assets/project-images/thumbs/novatech-how-to-guides/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/novatech-how-to-guides/desktop-320.webp 320w, /assets/project-images/thumbs/novatech-how-to-guides/desktop-640.webp 640w, /assets/project-images/thumbs/novatech-how-to-guides/desktop.webp 866w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="866"
+                  height="690"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="project-card__expand-hint">
                   <svg className="icon" aria-hidden="true" focusable="false">
                     <use href="#i-zoom-in" />
@@ -473,15 +473,15 @@ decoding="async"
                 rel="noreferrer"
               >
                 <img
-alt="Kyocera Ecosys FS-1025MFP and FS-1125MFP"
-src="/assets/project-images/thumbs/kyocera/ecosys-fs1125mfp.webp"
-srcSet="/assets/project-images/thumbs/kyocera/ecosys-fs1125mfp-320.webp 320w, /assets/project-images/thumbs/kyocera/ecosys-fs1125mfp-640.webp 640w, /assets/project-images/thumbs/kyocera/ecosys-fs1125mfp-960.webp 960w, /assets/project-images/thumbs/kyocera/ecosys-fs1125mfp.webp 1273w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1273"
-height="716"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera Ecosys FS-1025MFP and FS-1125MFP"
+                  src="/assets/project-images/thumbs/kyocera/ecosys-fs1125mfp.webp"
+                  srcSet="/assets/project-images/thumbs/kyocera/ecosys-fs1125mfp-320.webp 320w, /assets/project-images/thumbs/kyocera/ecosys-fs1125mfp-640.webp 640w, /assets/project-images/thumbs/kyocera/ecosys-fs1125mfp-960.webp 960w, /assets/project-images/thumbs/kyocera/ecosys-fs1125mfp.webp 1273w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1273"
+                  height="716"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <div className="project-card__body">
                 <h4 className="project-card__title">Kyocera Ecosys FS-1025MFP &amp; FS-1125MFP</h4>
@@ -516,15 +516,15 @@ decoding="async"
                 rel="noreferrer"
               >
                 <img
-alt="Kyocera TASKalfa 2200 and 2201"
-src="/assets/project-images/thumbs/kyocera/taskalfa-2201.webp"
-srcSet="/assets/project-images/thumbs/kyocera/taskalfa-2201-320.webp 320w, /assets/project-images/thumbs/kyocera/taskalfa-2201-640.webp 640w, /assets/project-images/thumbs/kyocera/taskalfa-2201-960.webp 960w, /assets/project-images/thumbs/kyocera/taskalfa-2201.webp 1076w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1076"
-height="604"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera TASKalfa 2200 and 2201"
+                  src="/assets/project-images/thumbs/kyocera/taskalfa-2201.webp"
+                  srcSet="/assets/project-images/thumbs/kyocera/taskalfa-2201-320.webp 320w, /assets/project-images/thumbs/kyocera/taskalfa-2201-640.webp 640w, /assets/project-images/thumbs/kyocera/taskalfa-2201-960.webp 960w, /assets/project-images/thumbs/kyocera/taskalfa-2201.webp 1076w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1076"
+                  height="604"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <div className="project-card__body">
                 <h4 className="project-card__title">TASKalfa 2200 / 2201</h4>
@@ -557,15 +557,15 @@ decoding="async"
                 rel="noreferrer"
               >
                 <img
-alt="Kyocera Command Center RX embedded web interface"
-src="/assets/project-images/thumbs/kyocera/command-center-rx.webp"
-srcSet="/assets/project-images/thumbs/kyocera/command-center-rx-320.webp 320w, /assets/project-images/thumbs/kyocera/command-center-rx-640.webp 640w, /assets/project-images/thumbs/kyocera/command-center-rx.webp 952w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="952"
-height="522"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera Command Center RX embedded web interface"
+                  src="/assets/project-images/thumbs/kyocera/command-center-rx.webp"
+                  srcSet="/assets/project-images/thumbs/kyocera/command-center-rx-320.webp 320w, /assets/project-images/thumbs/kyocera/command-center-rx-640.webp 640w, /assets/project-images/thumbs/kyocera/command-center-rx.webp 952w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="952"
+                  height="522"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <div className="project-card__body">
                 <h4 className="project-card__title">Command Center RX</h4>
@@ -606,15 +606,15 @@ decoding="async"
                 rel="noreferrer"
               >
                 <img
-alt="Kyocera ECOSYS M3860idnf"
-src="/assets/project-images/thumbs/kyocera/ecosys-m3860idnf.webp"
-srcSet="/assets/project-images/thumbs/kyocera/ecosys-m3860idnf-320.webp 320w, /assets/project-images/thumbs/kyocera/ecosys-m3860idnf-640.webp 640w, /assets/project-images/thumbs/kyocera/ecosys-m3860idnf-960.webp 960w, /assets/project-images/thumbs/kyocera/ecosys-m3860idnf.webp 1076w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1076"
-height="604"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera ECOSYS M3860idnf"
+                  src="/assets/project-images/thumbs/kyocera/ecosys-m3860idnf.webp"
+                  srcSet="/assets/project-images/thumbs/kyocera/ecosys-m3860idnf-320.webp 320w, /assets/project-images/thumbs/kyocera/ecosys-m3860idnf-640.webp 640w, /assets/project-images/thumbs/kyocera/ecosys-m3860idnf-960.webp 960w, /assets/project-images/thumbs/kyocera/ecosys-m3860idnf.webp 1076w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1076"
+                  height="604"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <div className="project-card__body">
                 <h4 className="project-card__title">ECOSYS M3860idnf</h4>
@@ -649,15 +649,15 @@ decoding="async"
                 rel="noreferrer"
               >
                 <img
-alt="Kyocera TASKalfa MZ7001ci"
-src="/assets/project-images/thumbs/kyocera/taskalfa-mz7001ci.webp"
-srcSet="/assets/project-images/thumbs/kyocera/taskalfa-mz7001ci-320.webp 320w, /assets/project-images/thumbs/kyocera/taskalfa-mz7001ci.webp 540w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="540"
-height="540"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera TASKalfa MZ7001ci"
+                  src="/assets/project-images/thumbs/kyocera/taskalfa-mz7001ci.webp"
+                  srcSet="/assets/project-images/thumbs/kyocera/taskalfa-mz7001ci-320.webp 320w, /assets/project-images/thumbs/kyocera/taskalfa-mz7001ci.webp 540w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="540"
+                  height="540"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <div className="project-card__body">
                 <h4 className="project-card__title">TASKalfa MZ7001ci</h4>
@@ -692,15 +692,15 @@ decoding="async"
                 rel="noreferrer"
               >
                 <img
-alt="Kyocera TASKalfa MZ2501ci"
-src="/assets/project-images/thumbs/kyocera/taskalfa-mz2501ci.webp"
-srcSet="/assets/project-images/thumbs/kyocera/taskalfa-mz2501ci-320.webp 320w, /assets/project-images/thumbs/kyocera/taskalfa-mz2501ci.webp 540w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="540"
-height="540"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Kyocera TASKalfa MZ2501ci"
+                  src="/assets/project-images/thumbs/kyocera/taskalfa-mz2501ci.webp"
+                  srcSet="/assets/project-images/thumbs/kyocera/taskalfa-mz2501ci-320.webp 320w, /assets/project-images/thumbs/kyocera/taskalfa-mz2501ci.webp 540w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="540"
+                  height="540"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <div className="project-card__body">
                 <h4 className="project-card__title">TASKalfa MZ2501ci</h4>
@@ -776,15 +776,15 @@ decoding="async"
                 aria-label="View full The Retreat screenshot"
               >
                 <img
-alt="The Retreat at Possum Kingdom Lake website"
-src="/assets/project-images/thumbs/retreat2pk/desktop.webp"
-srcSet="/assets/project-images/thumbs/retreat2pk/desktop-320.webp 320w, /assets/project-images/thumbs/retreat2pk/desktop-640.webp 640w, /assets/project-images/thumbs/retreat2pk/desktop-960.webp 960w, /assets/project-images/thumbs/retreat2pk/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="The Retreat at Possum Kingdom Lake website"
+                  src="/assets/project-images/thumbs/retreat2pk/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/retreat2pk/desktop-320.webp 320w, /assets/project-images/thumbs/retreat2pk/desktop-640.webp 640w, /assets/project-images/thumbs/retreat2pk/desktop-960.webp 960w, /assets/project-images/thumbs/retreat2pk/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">The Retreat</h4>
@@ -822,15 +822,15 @@ decoding="async"
                 aria-label="View full The Falls RV Park screenshot"
               >
                 <img
-alt="The Falls RV Park website"
-src="/assets/project-images/thumbs/thefallsrvpark/desktop.webp"
-srcSet="/assets/project-images/thumbs/thefallsrvpark/desktop-320.webp 320w, /assets/project-images/thumbs/thefallsrvpark/desktop-640.webp 640w, /assets/project-images/thumbs/thefallsrvpark/desktop-960.webp 960w, /assets/project-images/thumbs/thefallsrvpark/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="The Falls RV Park website"
+                  src="/assets/project-images/thumbs/thefallsrvpark/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/thefallsrvpark/desktop-320.webp 320w, /assets/project-images/thumbs/thefallsrvpark/desktop-640.webp 640w, /assets/project-images/thumbs/thefallsrvpark/desktop-960.webp 960w, /assets/project-images/thumbs/thefallsrvpark/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">The Falls RV Park</h4>
@@ -868,15 +868,15 @@ decoding="async"
                 aria-label="View full Lanterra Group screenshot"
               >
                 <img
-alt="Lanterra Group, real estate development website"
-src="/assets/project-images/thumbs/lanterragroup/desktop.webp"
-srcSet="/assets/project-images/thumbs/lanterragroup/desktop-320.webp 320w, /assets/project-images/thumbs/lanterragroup/desktop-640.webp 640w, /assets/project-images/thumbs/lanterragroup/desktop-960.webp 960w, /assets/project-images/thumbs/lanterragroup/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Lanterra Group, real estate development website"
+                  src="/assets/project-images/thumbs/lanterragroup/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/lanterragroup/desktop-320.webp 320w, /assets/project-images/thumbs/lanterragroup/desktop-640.webp 640w, /assets/project-images/thumbs/lanterragroup/desktop-960.webp 960w, /assets/project-images/thumbs/lanterragroup/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Lanterra Group</h4>
@@ -914,15 +914,15 @@ decoding="async"
                 aria-label="View full Sweet Magic Popcorn custom build screenshot"
               >
                 <img
-alt="Sweet Magic Popcorn custom-built website"
-src="/assets/project-images/thumbs/sweetpopcorn/desktop.webp"
-srcSet="/assets/project-images/thumbs/sweetpopcorn/desktop-320.webp 320w, /assets/project-images/thumbs/sweetpopcorn/desktop-640.webp 640w, /assets/project-images/thumbs/sweetpopcorn/desktop-960.webp 960w, /assets/project-images/thumbs/sweetpopcorn/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Sweet Magic Popcorn custom-built website"
+                  src="/assets/project-images/thumbs/sweetpopcorn/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/sweetpopcorn/desktop-320.webp 320w, /assets/project-images/thumbs/sweetpopcorn/desktop-640.webp 640w, /assets/project-images/thumbs/sweetpopcorn/desktop-960.webp 960w, /assets/project-images/thumbs/sweetpopcorn/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Sweet Magic Popcorn (Custom Build)</h4>
@@ -962,15 +962,15 @@ decoding="async"
                 aria-label="View full Eva D. Jones-Young screenshot"
               >
                 <img
-alt="Eva D. Jones-Young official website"
-src="/assets/project-images/thumbs/evajonesyoung/desktop.webp"
-srcSet="/assets/project-images/thumbs/evajonesyoung/desktop-320.webp 320w, /assets/project-images/thumbs/evajonesyoung/desktop-640.webp 640w, /assets/project-images/thumbs/evajonesyoung/desktop-960.webp 960w, /assets/project-images/thumbs/evajonesyoung/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Eva D. Jones-Young official website"
+                  src="/assets/project-images/thumbs/evajonesyoung/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/evajonesyoung/desktop-320.webp 320w, /assets/project-images/thumbs/evajonesyoung/desktop-640.webp 640w, /assets/project-images/thumbs/evajonesyoung/desktop-960.webp 960w, /assets/project-images/thumbs/evajonesyoung/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Eva D. Jones-Young</h4>
@@ -1008,15 +1008,15 @@ decoding="async"
                 aria-label="View full Sweet Magic Popcorn screenshot"
               >
                 <img
-alt="Sweet Magic Popcorn website"
-src="/assets/project-images/thumbs/sweetmagicpopcorn/desktop.webp"
-srcSet="/assets/project-images/thumbs/sweetmagicpopcorn/desktop-320.webp 320w, /assets/project-images/thumbs/sweetmagicpopcorn/desktop-640.webp 640w, /assets/project-images/thumbs/sweetmagicpopcorn/desktop-960.webp 960w, /assets/project-images/thumbs/sweetmagicpopcorn/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Sweet Magic Popcorn website"
+                  src="/assets/project-images/thumbs/sweetmagicpopcorn/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/sweetmagicpopcorn/desktop-320.webp 320w, /assets/project-images/thumbs/sweetmagicpopcorn/desktop-640.webp 640w, /assets/project-images/thumbs/sweetmagicpopcorn/desktop-960.webp 960w, /assets/project-images/thumbs/sweetmagicpopcorn/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Sweet Magic Popcorn</h4>
@@ -1054,15 +1054,15 @@ decoding="async"
                 aria-label="View full Cosawi screenshot"
               >
                 <img
-alt="Cosawi consultancy website"
-src="/assets/project-images/thumbs/cosawi/desktop.webp"
-srcSet="/assets/project-images/thumbs/cosawi/desktop-320.webp 320w, /assets/project-images/thumbs/cosawi/desktop-640.webp 640w, /assets/project-images/thumbs/cosawi/desktop-960.webp 960w, /assets/project-images/thumbs/cosawi/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="719"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Cosawi consultancy website"
+                  src="/assets/project-images/thumbs/cosawi/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/cosawi/desktop-320.webp 320w, /assets/project-images/thumbs/cosawi/desktop-640.webp 640w, /assets/project-images/thumbs/cosawi/desktop-960.webp 960w, /assets/project-images/thumbs/cosawi/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="719"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Cosawi</h4>
@@ -1100,15 +1100,15 @@ decoding="async"
                 aria-label="View full Councilor Dino Acuna screenshot"
               >
                 <img
-alt="Councilor Dino Acuna official website"
-src="/assets/project-images/thumbs/councilor-dino-acuna/desktop.webp"
-srcSet="/assets/project-images/thumbs/councilor-dino-acuna/desktop-320.webp 320w, /assets/project-images/thumbs/councilor-dino-acuna/desktop-640.webp 640w, /assets/project-images/thumbs/councilor-dino-acuna/desktop-960.webp 960w, /assets/project-images/thumbs/councilor-dino-acuna/desktop.webp 1280w"
-sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
-width="1280"
-height="720"
-loading="lazy"
-decoding="async"
-/>
+                  alt="Councilor Dino Acuna official website"
+                  src="/assets/project-images/thumbs/councilor-dino-acuna/desktop.webp"
+                  srcSet="/assets/project-images/thumbs/councilor-dino-acuna/desktop-320.webp 320w, /assets/project-images/thumbs/councilor-dino-acuna/desktop-640.webp 640w, /assets/project-images/thumbs/councilor-dino-acuna/desktop-960.webp 960w, /assets/project-images/thumbs/councilor-dino-acuna/desktop.webp 1280w"
+                  sizes="(max-width: 375px) 79vw, (max-width: 900px) 340px, 320px"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
               <div className="project-card__body">
                 <h4 className="project-card__title">Councilor Dino Acuna</h4>

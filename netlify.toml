@@ -1,0 +1,93 @@
+# Netlify deployment.
+#
+# Netlify detects Next.js and, with no configuration, *suggests* a build command
+# of `next build`. That would be wrong for this site and would fail in a way that
+# is easy to miss: `next build` alone skips both halves of `npm run build`.
+#
+#   prebuild   generates public/assets (every image on the page) and rewrites
+#              the card srcset ladders. Without it, all ~130 images 404.
+#   postbuild  inlines the single stylesheet into the prerendered HTML, so first
+#              paint is one round trip instead of two.
+#
+# So the build command is pinned to the full `npm run build` below.
+
+[build]
+command = "npm run build"
+publish = ".next"
+
+[build.environment]
+# Matches `engines.node` and `.nvmrc`. Pinned here so a Netlify image change
+# cannot silently move the build to a different major.
+NODE_VERSION = "22"
+# Nothing in this site reads build-time configuration; this only silences the
+# telemetry notice in the build log.
+NEXT_TELEMETRY_DISABLED = "1"
+
+# ---------------------------------------------------------------------------
+# Caching
+# ---------------------------------------------------------------------------
+# `/_next/static/*` is content-hashed by Next.js, so a URL that exists today
+# will never change meaning. Safe to cache forever.
+[[headers]]
+for = "/_next/static/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+# `/assets/*` is the deployable image set. Those filenames are stable across
+# builds -- `hero-team.webp` is always `hero-team.webp` -- so an immutable
+# policy here would leave returning visitors on old images indefinitely.
+# Revalidating every time costs one conditional request and an ETag, which is
+# the right trade for ~4 MB of images that only change when a build changes.
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+# The résumé and the SQL certificate are content-stable documents rather than
+# hashed assets, so they get the same revalidating policy.
+[[headers]]
+for = "/assets/*.docx"
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/assets/credentials/*.pdf"
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+# ---------------------------------------------------------------------------
+# Security
+# ---------------------------------------------------------------------------
+# `style-src 'unsafe-inline'` is required: scripts/inline-css.mjs puts the whole
+# stylesheet in a <style> element in the document, so there is no external file to
+# point a hash at.
+#
+# `script-src 'unsafe-inline'` is also required, and it is not a shortcut. Next.js
+# emits its RSC payload as inline `<script>` bootstrapping, so without a nonce or
+# a hash of every one of those blocks the page will not boot. Tightening this
+# means a `proxy.ts` that generates a per-request nonce and passes it to
+# `headers()` -- worth doing only if there is a reason to, since the page ships
+# no third-party script and nothing user-controlled is ever evaluated.
+#
+# Everything else stays strict: no framing, no plugins, no external connections,
+# and no image or script from another origin.
+[[headers]]
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "SAMEORIGIN"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+
+# ---------------------------------------------------------------------------
+# Redirects
+# ---------------------------------------------------------------------------
+# The site used to live on GitHub Pages. Anything that still points there gets
+# the new canonical URL rather than a 404.
+[[redirects]]
+from = "https://hinlocaesar.github.io/*"
+to = "https://hinlocaesar.netlify.app/:splat"
+status = 301
+force = true

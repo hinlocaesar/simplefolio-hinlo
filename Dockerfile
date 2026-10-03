@@ -18,6 +18,9 @@ COPY . .
 # sharp and the Sass toolchain need their native binaries; the base image has
 # them, but the libc it uses (musl) has to match what was installed above.
 ENV NEXT_TELEMETRY_DISABLED=1
+# Standalone output is opt-in (see next.config.ts): this image wants it, Netlify
+# does not. Without this the runtime stage would have no `server.js` to run.
+ENV NEXT_OUTPUT_STANDALONE=true
 RUN npm run build
 
 # The runtime image carries the standalone output plus the two directories Next.js

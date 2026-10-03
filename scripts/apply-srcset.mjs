@@ -59,16 +59,22 @@ function ladderFor(base) {
 /**
  * Matches a whole <img> element whose src points at a card thumbnail, whether
  * or not it already carries srcset, so re-runs converge on the same output.
+ *
+ * The leading indentation is captured because it has to be reproduced on every
+ * attribute line. Without it this script writes the continuation lines at column
+ * zero, which leaves `components/Projects.tsx` unformatted after every build and
+ * turns `npm run format:check` into something that fails for reasons unrelated to
+ * whatever you were working on.
  */
 const IMG = new RegExp(
-  String.raw`<img\b[^>]*?src="(${THUMB_PREFIX.replace(/\//g, "\\/")}[^"]+)"[^>]*?>`,
-  "g"
+  String.raw`^([ \t]*)<img\b[^>]*?src="(${THUMB_PREFIX.replace(/\//g, "\\/")}[^"]+)"[^>]*?>`,
+  "gm"
 );
 
 const missing = [];
 let patched = 0;
 
-const apply = (match, src) => {
+const apply = (match, indent, src) => {
   const alt = /alt="([^"]*)"/.exec(match)?.[1] ?? "";
   // Rebuilding the tag drops any previous srcset/sizes/width/height.
   const ladder = ladderFor(src);
@@ -79,19 +85,20 @@ const apply = (match, src) => {
   const widest = ladder[ladder.length - 1];
   const srcset = ladder.map((r) => `${r.url} ${r.w}w`).join(", ");
   patched++;
-  // Indentation is left to Prettier; only the attributes matter here. React
-  // spells the attribute `srcSet` and renders it back out as `srcset`.
+
+  const attr = (name, value) => `${indent}  ${name}="${value}"\n`;
+  // React spells the attribute `srcSet` and renders it back out as `srcset`.
   return (
-    `<img\n` +
-    `alt="${alt}"\n` +
-    `src="${widest.url}"\n` +
-    `srcSet="${srcset}"\n` +
-    `sizes="${SIZES}"\n` +
-    `width="${widest.w}"\n` +
-    `height="${widest.h}"\n` +
-    `loading="lazy"\n` +
-    `decoding="async"\n` +
-    `/>`
+    `${indent}<img\n` +
+    attr("alt", alt) +
+    attr("src", widest.url) +
+    attr("srcSet", srcset) +
+    attr("sizes", SIZES) +
+    attr("width", widest.w) +
+    attr("height", widest.h) +
+    attr("loading", "lazy") +
+    attr("decoding", "async") +
+    `${indent}/>`
   );
 };
 

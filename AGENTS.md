@@ -68,5 +68,15 @@ gitignored because it is regenerated; never edit it directly, edit
 
 ### Deploying
 
-A Node server, not a static bundle. See `Dockerfile` and the Deployment section of
-`README.md`. `next.config.ts` sets `output: "standalone"`.
+Netlify is the primary target; a container and a plain Node host also work. See
+`Dockerfile` and the Deployment section of `README.md`.
+
+`netlify.toml` is load-bearing, not boilerplate. Netlify's framework detection
+_suggests_ `next build` as the build command, and that skips both halves of
+`npm run build` — `prebuild` (which generates `public/assets`, so every image
+404s) and `postbuild` (which inlines the stylesheet). Do not remove the
+`command = "npm run build"` line.
+
+`output: "standalone"` is opt-in via `NEXT_OUTPUT_STANDALONE`, set only by the
+Dockerfile. Netlify must not have it: the OpenNext adapter packages `.next`
+itself.
