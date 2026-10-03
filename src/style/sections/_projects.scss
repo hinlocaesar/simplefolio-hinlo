@@ -342,15 +342,16 @@
   background: $bg-surface;
   color: $text-primary;
 
-  // No top padding: #projects gave up its bottom padding so this block can sit
-  // directly on the rails. The gap between them is the same 7.2rem a sibling
-  // rail gets from `.projects__rail + .projects__rail`, which reproduces the
-  // measured 104px at every breakpoint — the rail margin is the one value here
-  // that does not change with viewport, unlike the section padding it replaces.
-  padding-top: 0;
+  // The gap is padding, not a margin, and that distinction is load-bearing.
+  // With `padding-top: 0` the rail's margin-top collapsed straight through this
+  // section and became spacing *between* #projects and #volunteer — which put
+  // body (rgb 0,0,0) behind 72px of it and painted a black stripe across the
+  // page between two rgb(20,20,20) sections. Padding cannot collapse, so the
+  // 7.2rem stays inside the section and the background covers it.
+  padding-top: 7.2rem;
 
   .projects__rail {
-    margin-top: 7.2rem;
+    margin-top: 0;
   }
 }
 
