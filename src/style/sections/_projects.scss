@@ -1,6 +1,15 @@
 #projects {
   background: $bg-surface;
   color: $text-primary;
+
+  // #volunteer continues this block visually — same background, same rail
+  // heading, same card — so what separates them is the rail gap, not a section
+  // gap, and that spacing lives on the volunteer rail's margin instead. Leaving
+  // a section's worth of padding here as well put "Personal Volunteer
+  // Initiatives" 224px below the last project card, where every rail sits
+  // 104px below the one above it. The gap read as an empty band, because the
+  // two sections share a background and neither has a title to mark the break.
+  padding-bottom: 0;
 }
 
 .projects__rail {
@@ -332,6 +341,17 @@
 #volunteer {
   background: $bg-surface;
   color: $text-primary;
+
+  // No top padding: #projects gave up its bottom padding so this block can sit
+  // directly on the rails. The gap between them is the same 7.2rem a sibling
+  // rail gets from `.projects__rail + .projects__rail`, which reproduces the
+  // measured 104px at every breakpoint — the rail margin is the one value here
+  // that does not change with viewport, unlike the section padding it replaces.
+  padding-top: 0;
+
+  .projects__rail {
+    margin-top: 7.2rem;
+  }
 }
 
 // Cards reuse .project-card so they keep the exact rail sizing, and the grid is
